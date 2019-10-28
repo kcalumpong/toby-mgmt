@@ -1,0 +1,26 @@
+[
+    {
+       "id": 1,
+       "name": "Kristina Calumpong",
+       "title": "Front End Developer",
+       "img": "./images/AR-flag.gif"
+    },
+    {
+       "id": 2,
+       "name": "Noel Cruz",
+       "title": "Back End Developer", 
+       "img": "./images/EC-flag.gif"
+    },
+    {
+       "id": 3,
+       "name": "Daria Korbysheva",
+       "title": "React Developer", 
+       "img": "./images/FR-flag.gif"
+    },
+    {
+       "id": 4,
+       "name": "Ramon Barajas",
+       "title": "Lead Software Engineer",
+       "img": "./images/GM-flag.gif"
+    }
+]

@@ -1,0 +1,18 @@
+.nav {
+    background-color: rgb(71, 165, 157);
+    padding: 15px;
+    text-align: right;
+}
+
+.nav-link{
+    color: rgb(250, 248, 248);
+}
+
+a:hover {
+    color: rgb(180, 177, 177);
+} 
+
+.placeholder-logo {
+    width: 75px;
+    height: auto;
+}
