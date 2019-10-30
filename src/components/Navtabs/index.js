@@ -6,7 +6,7 @@ const Navtabs = () => {
     return (
         <div>
         <ul className="nav">
-        <img className="placeholder-logo" src="./images/placeholder-logo.jpeg"></img>
+        <img className="placeholder-logo" alt= "placeholder" src="./images/placeholder-logo.jpeg"></img>
             <li className="nav-item">
                 <Link to="/" className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}>
                     Home

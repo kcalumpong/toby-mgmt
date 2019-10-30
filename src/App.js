@@ -23,7 +23,11 @@ class App extends Component {
       <Router>
         <div>
           <Navtabs />
-          <Route exact path="/" component={Home} />
+          <Route 
+            exact path="/" 
+            render={(props) => 
+            <Home {...props} individuals={this.state.individuals}  />}
+            />
           <Route exact path="/employees" component={Employees} />
           <Route exact path="/logout" component={Logout} />
         </div>

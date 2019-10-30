@@ -2,3 +2,32 @@
   text-align: center;
   padding: 30px;
 }
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.individuals-subcontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.images {
+  width: 150px;
+  /* height: auto; */
+  border-radius: 150px;
+  padding-top: 25px;
+}
+
+.prop-name {
+ font-size: 16px;
+}
+
+.prop-title {
+  font-size: 14px;
+}
