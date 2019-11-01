@@ -1,10 +1,18 @@
 .side-nav button {
     display: block;
-    margin-top: 40px;
+    margin-top: 20px;
     margin-bottom: 20px;
     font-size: 25px;
     color: white;
     border: .5px solid rgb(235, 235, 235);
-    width: 150px;
+    width: 60%;
     background-color: rgb(71, 165, 157);
+  }
+
+  #personal {
+    margin-top: 10px;
+  }
+
+  li {
+    justify-content: right;
   }

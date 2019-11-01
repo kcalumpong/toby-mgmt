@@ -1,9 +1,6 @@
 import React from "react";
 import "./style.css";
-// import Personal from "../Personal";
-// import Job from "../Job";
-// import Assets from "../Assets";
-// import Documents from "../Documents";
+import EmployeeSnippet from "../EmployeeSnippet";
 
 const ProfileNav = (props) => {
     return (
@@ -32,6 +29,8 @@ const ProfileNav = (props) => {
             className= "btn btn-documents"
             onClick={(e) => props.handleBtnClick(e)}>
             Documents</button>
+
+            <EmployeeSnippet />
 
         </div>
     )

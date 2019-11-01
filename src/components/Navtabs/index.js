@@ -4,27 +4,27 @@ import "./style.css"
 
 const Navtabs = () => {
     return (
-        <div>
-        <ul className="nav">
-        <img className="placeholder-logo" alt= "placeholder" src="./images/placeholder-logo.jpeg"></img>
-            <li className="nav-item">
-                <Link to="/" className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}>
-                    Home
-                </Link>
-            </li>
+        <div className="nav">
+            <ul>
+                <img className="placeholder-logo" alt= "placeholder" src="./images/placeholder-logo.jpeg"></img>
+                <li className="nav-item">
+                    <Link to="/" className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}>
+                        Home
+                    </Link>
+                </li>
 
-            <li className="nav-item">
-                <Link to="/employees" className={window.location.pathname === "/employees" ? "nav-link active" : "nav-link"}>
-                    Employees
-                </Link>
-            </li>
+                <li className="nav-item">
+                    <Link to="/employees" className={window.location.pathname === "/employees" ? "nav-link active" : "nav-link"}>
+                        Employees
+                    </Link>
+                </li>
 
-            <li className="nav-item">
-                <Link to="/logout" className={window.location.pathname === "/logout" ? "nav-link active" : "nav-link"}>
-                    Log Out
-                </Link>
-            </li>
-        </ul>
+                <li className="nav-item">
+                    <Link to="/logout" className={window.location.pathname === "/logout" ? "nav-link active" : "nav-link"}>
+                        Log Out
+                    </Link>
+                </li>
+            </ul>
         </div>
     );
 }
