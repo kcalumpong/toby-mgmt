@@ -1,15 +1,31 @@
-.nav {
+nav {
+    height: 10%;
     background-color: rgb(71, 165, 157);
-    padding: 15px;
-    text-align: right;
+    /* padding: 15px; */
+    /* position: sticky; */
 }
 
-.nav-link{
+.nav-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-item {
+    display: inline-block;
+}
+
+.nav-link {
     color: rgb(250, 248, 248);
+    /* display: inline-block; */
+    align-items: right;
+    /* justify-content: space-between; */
+    transition: 0.2s;
 }
 
 a:hover {
     color: rgb(180, 177, 177);
+    transition: 0.2s;
 } 
 
 .placeholder-logo {
