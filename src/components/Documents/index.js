@@ -3,8 +3,8 @@ import "./style.css";
 
 const Document = () => {
     return (
-        <div>
-           <h1>This is the Document page</h1>
+        <div className="documents-page">
+           <h1>Need Upload Button</h1>
         </div>
     )
 }

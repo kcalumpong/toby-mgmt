@@ -15,23 +15,23 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setState({individuals: (this.state.individuals) })
+    this.setState({ individuals: (this.state.individuals) })
   }
 
   render() {
     return (
-      <Router>
-        <div>
-          <Navtabs />
-          <Route 
-            exact path="/" 
-            render={(props) => 
-            <Home {...props} individuals={this.state.individuals}  />}
+      <div className="grid">
+        <Router>
+            <Navtabs />
+            <Route
+              exact path="/"
+              render={(props) =>
+                <Home {...props} individuals={this.state.individuals} />}
             />
-          <Route exact path="/employees" component={Employees} />
-          <Route exact path="/logout" component={Logout} />
-        </div>
-      </Router>
+            <Route exact path="/employees" component={Employees} />
+            <Route exact path="/logout" component={Logout} />
+        </Router>
+      </div>
     )
   }
 }

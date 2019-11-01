@@ -1,3 +1,44 @@
+.grid {
+  /* height: 100vh; */
+  display: grid;
+  grid-template-rows: 10% 20% 35% 35%;
+  grid-template-columns: 20% 80%;
+  /* grid-template-rows: 1fr 2fr 3.5fr 3.5fr;
+  grid-template-columns: 3fr 7fr; */
+  /* grid-template-areas: "nav nav" "profile profile" "side side" "personal personal" */
+}
+
+.nav {
+  /* display: grid; */
+  /* grid-area: nav; */
+  background-color: pink;
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+}
+
+.profile-header {
+  background-color: green;
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
+  display: flex;
+}
+
+.side-nav {
+  background-color: yellow; 
+  grid-column: 1 / 2;
+  grid-row: 3 / 5;
+}
+
+
+.personal-page {
+  grid-column: 2 /3;
+  grid-row: 3 / 5;
+}
+
+.personal-page, .assets-page, .job-page, .documents.page {
+  /* background-color: purple; */
+}
+
 .greeting {
   text-align: center;
   padding: 30px;

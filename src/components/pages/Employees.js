@@ -1,27 +1,12 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import ProfileNav from "../ProfileNav";
-import Personal from "../Personal";
-import Job from "../Job";
-import Assets from "../Assets"
-import Documents from "../Documents"
-
-const enumObj = {
-    personal: Personal,
-    job: Job,
-    assets: Assets,
-    documents: Documents
-};
+import ProfileHeader from "../ProfileHeader";
+import ViewPane from '../ViewPane';
 
 class Employees extends Component {
     state = {
         currentSection: "personal"
     };
-
-
-    renderView = () => {
-        const ComponentName = enumObj[this.state.currentSection];
-        return <ComponentName />
-    }
 
     handleBtnClick = (event) => {
         const { id } = event.target;
@@ -30,10 +15,11 @@ class Employees extends Component {
 
     render() {
         return (
-            <div>
+            <Fragment>
+                <ProfileHeader />
                 <ProfileNav handleBtnClick={this.handleBtnClick} />
-                {this.renderView()}
-            </div>
+                <ViewPane currentSection={this.state.currentSection} />
+            </Fragment>
         )
     }
 }
