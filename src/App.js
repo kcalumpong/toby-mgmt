@@ -20,7 +20,6 @@ class App extends Component {
 
   render() {
     return (
-      <div className="grid">
         <Router>
             <Navtabs />
             <Route
@@ -28,10 +27,11 @@ class App extends Component {
               render={(props) =>
                 <Home {...props} individuals={this.state.individuals} />}
             />
-            <Route exact path="/employees" component={Employees} />
+            <div className="grid">
+              <Route exact path="/employees" component={Employees} />
+            </div>
             <Route exact path="/logout" component={Logout} />
         </Router>
-      </div>
     )
   }
 }
