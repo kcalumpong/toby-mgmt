@@ -1,0 +1,17 @@
+.hire-input, .active-input {
+    display: inline-block;
+    flex-wrap: wrap;
+    padding: 5px;
+}
+
+.effective-date-input, .dept-input, .title-input, .location-input, .reports-to-input {
+    display: inline-block;
+    flex-wrap: wrap;
+    padding: 5px;
+}
+
+.effective-date-input-two, .pay-rate, .pay-type, .pay-schedule, .change-reason {
+    display: inline-block;
+    flex-wrap: wrap;
+    padding: 5px;
+}

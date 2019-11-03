@@ -1,0 +1,9 @@
+.assets-input, .category-input, .description-input, .notes-input, .assigned-input, .returned-input {
+    display: inline-block;
+    flex-wrap: wrap;
+    padding: 5px;
+}
+
+.assigned-input, .returned-input {
+    width: 20%;
+}
