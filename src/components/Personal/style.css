@@ -1,8 +1,22 @@
 h3 {
     font-size: 16px;
+    margin-top: 15px;
 }
 
 h4 {
     font-size: 14px;
     color: rgb(71, 165, 157)
+}
+
+.status-input, .employee-input, .gender-input, .employeeNum-input {
+    display: inline-block;
+    flex-wrap: wrap;
+}
+
+.status-input, .gender-input {
+    margin-left: 15px;
+}
+
+button{
+    margin-bottom: 20px;
 }

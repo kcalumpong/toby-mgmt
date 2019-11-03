@@ -1,5 +1,5 @@
 .profile-header {
-    border-bottom: .4px solid rgb(71, 165, 157);
+    border-bottom: .2px solid rgb(235, 236, 236);
 }
 
 .name-and-title {
@@ -7,8 +7,9 @@
     flex-direction: column;
     text-align: center;
     color: rgb(50, 51, 50);
-    padding-top: 20px;
     justify-content: center;
+    align-content: center;
+    width: 75%;
 }
 
 .profile-name {
@@ -21,9 +22,8 @@
 
 .profile-pic {
     align-self: center;
-    width: 13%;
+    width: 100px;
     margin-left: 20px;
-    margin-top: 10px;
 }
 
 
