@@ -5,9 +5,9 @@ const Personal = () => {
   return (
     <div className="personal-page">
 
-      <button idName="personal-form-button" form name="personal-form">SAVE</button>
+      <button className="personal-form-button" form name="personal-form">SAVE</button>
      
-      <form idName="personal-form">
+      <form className="personal-form">
 
         <div className="employee-input">
 
