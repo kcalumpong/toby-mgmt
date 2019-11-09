@@ -8,12 +8,12 @@ h4 {
     color: rgb(71, 165, 157)
 }
 
-.status-input, .employee-input, .gender-input, .employeeNum-input {
+.statusInput, .employeeInput, .genderInput, .employeeNumInput {
     display: inline-block;
     flex-wrap: wrap;
 }
 
-.status-input, .gender-input {
+.statusInput, .genderInput {
     margin-left: 15px;
 }
 
