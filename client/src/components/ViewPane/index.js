@@ -12,14 +12,14 @@ const enumObj = {
     documents: Documents
 };
 
-const renderView = (currentSection) => {
-    const ComponentName = enumObj[currentSection];
-    return <ComponentName />
+const renderView = (props) => {
+    const ComponentName = enumObj[props.currentSection];
+    return <ComponentName {...props} />
 }
 
 const ViewPane = (props) => (
     <Fragment>
-        {renderView(props.currentSection)}
+        {renderView(props)}
     </Fragment>
 )
 
