@@ -9,25 +9,25 @@ const ProfileNav = (props) => {
             <button
             id="personal"
             className= "btn btn-personal"
-            onClick={(e) => props.handleBtnClick(e)}>
+            onClick={(e) => props.handleTabClick(e)}>
             Personal</button>
            
             <button
             id="job"
             className= "btn btn-job"
-            onClick={(e) => props.handleBtnClick(e)}>
+            onClick={(e) => props.handleTabClick(e)}>
             Job</button>
            
             <button
             id="assets"
             className= "btn btn-assets"
-            onClick={(e) => props.handleBtnClick(e)}>
+            onClick={(e) => props.handleTabClick(e)}>
             Assets</button>
             
             <button
             id="documents"
             className= "btn btn-documents"
-            onClick={(e) => props.handleBtnClick(e)}>
+            onClick={(e) => props.handleTabClick(e)}>
             Documents</button>
 
             <EmployeeSnippet />

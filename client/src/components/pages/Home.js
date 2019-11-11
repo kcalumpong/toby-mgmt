@@ -4,14 +4,10 @@ import Profile from "../Profile";
 
 
 class Home extends Component {
-    constructor(props) {
-        super(props);
-        console.log("Props" + this.props)
-        this.state = {
-            employee:[]
-        };
-        
+    state = {
+        employee:[]
     }
+
     componentDidMount(){
 // read DB 
     let employeeLocal = JSON.parse( localStorage.getItem("personal"))
@@ -19,6 +15,7 @@ class Home extends Component {
             employee: employeeLocal
         })
     }
+
     render() {
 
         return(

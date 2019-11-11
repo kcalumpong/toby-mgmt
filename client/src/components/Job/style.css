@@ -10,7 +10,7 @@
     padding: 5px;
 }
 
-.effective-date-input-two, .pay-rate, .pay-type, .pay-schedule, .change-reason {
+.effective-date-input-two, .hourly-pay-rate, .salary-pay-rate, .pay-type, .pay-schedule, .change-reason {
     display: inline-block;
     flex-wrap: wrap;
     padding: 5px;
