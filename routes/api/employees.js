@@ -1,7 +1,7 @@
-const router = require("express").Router();
-const empController = require("../../controllers/empController");
-const AWS = require("aws-sdk");
-const s3 = new AWS.S3( { params: { Bucket: process.env.S3_Bucket, Key: process.env.AWS_ACCESS_KEY}})
+// const router = require("express").Router();
+// const empController = require("../../controllers/empController");
+// const AWS = require("aws-sdk");
+// const s3 = new AWS.S3( { params: { Bucket: process.env.S3_Bucket, Key: process.env.AWS_ACCESS_KEY}})
 // Matches with "/api/books"
 // router.route("/")
 //   .get(empController.findAll)
@@ -21,4 +21,4 @@ const s3 = new AWS.S3( { params: { Bucket: process.env.S3_Bucket, Key: process.e
 // });
 
 
-module.exports = router;
+// module.exports = router;

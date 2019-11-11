@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import ProfileNav from "../ProfileNav";
+import ProfileHeader from "../ProfileHeader";
 import ViewPane from '../ViewPane';
 
 class Employees extends Component {
@@ -34,13 +35,18 @@ class Employees extends Component {
             location: "",
             reportsTo: "",
             compensationDate: "",
-            payRate: 0,
+            hourlyPayRate: 0,
+            salaryPayRate: 0,
             payType: "",
             paySchedule: "",
             changeReason: ""
         },
         assets: {
-
+            category: "",
+            description: "",
+            assets: "",
+            dateAssigned: "",
+            dateReturned: ""
         },
         documents: {
 
@@ -54,7 +60,11 @@ class Employees extends Component {
         console.log("This state", this.state)
     }
 
-    // handleBtnClick = (event) => {
+    handleTabClick = (event) => {
+        this.setState({ currentSection: event.target.id });
+    }
+
+    // handleTabClick = (event) => {
     // event.preventDefault();
     // console.log("This state ", this.state);
     // let emp = JSON.parse(localStorage.getItem("personal"))
@@ -68,25 +78,51 @@ class Employees extends Component {
     // console.log("-save:", this.state.department)
   // }
 
+    // handleInputChange = (event) => {
+    //     // console.log(this.state);
+    //     // const { class, name, value } = event.target;
+    //     const section = event.target.className;
+    //     const key = event.target.name;
+    //     const value = event.target.value;
+    //     console.log(section, key, value);
+
+    //     this.setState({ [section]: { [key]: value } });
+    //     console.log(this.state);
+    //     // this.setState({ [name]: value });
+    // }
+
     handleInputChange = (event) => {
-        // console.log(this.state);
-        // const { class, name, value } = event.target;
         const section = event.target.className;
         const key = event.target.name;
         const value = event.target.value;
         console.log(section, key, value);
-        this.setState({ [section]: { [key]: value } });
-        // this.setState({ [name]: value });
+        // this.setState({ [section]: { [key]: value } });
+        this.setState(prevState => ({ 
+			...prevState,
+			[section]: {
+				...prevState[[section]],
+				[key]: value
+			}
+		}));
+        console.log(this.state);
     }
+
+    handleSubmit
 
     render() {
         return (
             <Fragment>
-                <ProfileNav handleBtnClick={this.handleBtnClick} />
+                <ProfileHeader 
+                name={this.state.personal.firstName + " " + this.state.personal.lastName} 
+                title={this.state.job.title} />
+                <ProfileNav handleTabClick={this.handleTabClick} />
                 <ViewPane
                     state={this.state}
                     currentSection={this.state.currentSection}
                     handleInputChange={this.handleInputChange}
+                />
+                <Employees 
+                status={this.state.job.status}
                 />
             </Fragment>
         )

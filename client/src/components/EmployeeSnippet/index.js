@@ -1,8 +1,8 @@
 import React from "react";
 import "./style.css";
 
-const EmployeeSnippet = () => {
-    return (
+
+const EmployeeSnippet = (props) => (
         <div className="employee-snippet">
             <h4>Employee Status</h4>
             <h4>Dept</h4>
@@ -11,6 +11,6 @@ const EmployeeSnippet = () => {
             <h4>Email</h4>
         </div>
     )
-}
+
 
 export default EmployeeSnippet;

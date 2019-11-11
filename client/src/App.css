@@ -24,9 +24,9 @@
 
 .profile-header {
   grid-column: 2 / 3;
-  /* grid-row:  2; */
+  grid-row:  1;
   display: flex;
-  margin-top: 25px;
+  /* margin-top: 25px; */
   margin-bottom: 25px;
 }
 
@@ -37,7 +37,7 @@
 
 .personal-page, .assets-page, .job-page, .documents-page, .drop-area {
   grid-column: 2 /3;
-  grid-row: 1 / 5;
+  grid-row: 2 / 5;
   /* margin-top: 25px; */
 }
 
