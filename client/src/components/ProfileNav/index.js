@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import EmployeeSnippet from "../EmployeeSnippet";
+// import EmployeeSnippet from "../EmployeeSnippet";
 
 const ProfileNav = (props) => {
     return (
@@ -30,7 +30,9 @@ const ProfileNav = (props) => {
             onClick={(e) => props.handleTabClick(e)}>
             Documents</button>
 
-            <EmployeeSnippet />
+            {/* <EmployeeSnippet 
+            {props.state.personal}
+            /> */}
 
         </div>
     )

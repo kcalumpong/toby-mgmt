@@ -3,13 +3,15 @@ import "./style.css";
 import { FaRegTrashAlt, FaEdit } from 'react-icons/fa';
 
 
+
 const Assets = (props) => (
+
     <div className="assets-page">
-        <button className="assets-form-button" form="assets-page-form">ADD NEW</button>
+        {/* <button className="assetsFormButton" form="assets-page-form" name="add-new-button" onClick={(e) => this.addRow(id, e)}>ADD NEW</button> */}
+        <button className="assetsFormButton" form="assets-page-form" name="add-new-button" >ADD NEW</button>
+
         <form className="asset-page-form">
-
-
-            <h3>Assets</h3>
+            <h4>Assets</h4>
             <div className="assets-form">
 
                 <div className="category-input">
@@ -59,19 +61,19 @@ const Assets = (props) => (
                     />
                 </div>
 
-                <div className="returned-input"></div>
-                <h3>Date Returned</h3>
-                <input
-                    type="date"
-                    name="dateReturned"
-                    className="assets"
-                    value={props.state.assets.dateReturned}
-                    onChange={props.handleInputChange}
-                />
-                <FaEdit />
-                <FaRegTrashAlt />
+                <div className="returned-input">
+                    <h3>Date Returned</h3>
+                    <input
+                        type="date"
+                        name="dateReturned"
+                        className="assets"
+                        value={props.state.assets.dateReturned}
+                        onChange={props.handleInputChange}
+                    />
+                </div>
+                    <FaEdit />
+                    <FaRegTrashAlt />
             </div>
-
         </form>
     </div>
 )

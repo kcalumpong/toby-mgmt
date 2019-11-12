@@ -18,7 +18,7 @@ const Navtabs = () => {
 
                     <li className="nav-item">
                         <Link to="/employees" className={window.location.pathname === "/employees" ? "nav-link active" : "nav-link"}>
-                            Employees
+                            Add Employee
                         </Link>
                     </li>
 
