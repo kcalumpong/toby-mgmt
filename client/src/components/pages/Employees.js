@@ -8,8 +8,6 @@ class Employees extends Component {
     state = {
         currentSection: "personal",
         personal: {
-            employeeNumber: "",
-            status: "",
             genderInput: "",
             firstName: "",
             middleName: "",
@@ -21,6 +19,8 @@ class Employees extends Component {
             city: "",
             state: "",
             zipcode: "",
+            phoneNumber: "",
+            emailAddress: "",
             socialSecurity: "",
             emergencyContactNameOne: "",
             emergencyContactPhoneOne: "",
@@ -28,8 +28,9 @@ class Employees extends Component {
             emergencyContactPhoneTwo: ""
         },
         job: {
+            employeeNumber: "",
+            status: "Active",
             hireDate: "",
-            status: "",
             employmentDate: "",
             department: "",
             title: "",
@@ -85,7 +86,7 @@ class Employees extends Component {
         return (
             <Fragment>
                 <ProfileHeader 
-                name={this.state.personal.firstName + " " + this.state.personal.lastName} 
+                name={this.state.personal.firstName + " " + this.state.personal.middleName + " " + this.state.personal.lastName} 
                 title={this.state.job.title} />
                 <ProfileNav 
                     handleTabClick={this.handleTabClick} />
@@ -95,6 +96,11 @@ class Employees extends Component {
                     handleInputChange={this.handleInputChange}
                 />
                 <EmployeeSnippet 
+                    status={this.state.job.status}
+                    department={this.state.job.department}
+                    location={this.state.job.location}
+                    phoneNumber={this.state.personal.phoneNumber}
+                    emailAddress={this.state.personal.emailAddress}
                 />
             </Fragment>
         )

@@ -10,6 +10,19 @@ const Job = (props) => (
             <div className="hire-and-status">
                 <h4>Employment</h4>
 
+                <div className="employeeNumInput">
+                    <h3>Employee #</h3>
+                    <input
+                        type="text"
+                        name="employeeNumber"
+                        className="personal"
+                        value={props.state.job.employeeNumber}
+                        onChange={props.handleInputChange}
+                        placeholder="#"
+                    />
+
+                </div>
+
                 <div className="hire-input">
                     <h3>Hire Date</h3>
                     <input
@@ -21,21 +34,23 @@ const Job = (props) => (
                     />
                 </div>
 
-                <div className="active-input">
-                    <h3>Active</h3>
+                <div className="statusInput">
+                    <h3>Status</h3>
                     <select
                         type="select"
+                        name="status"
                         className="job"
                         value={props.state.job.status}
                         onChange={props.handleInputChange}
                     >
-                    <option name="active">Active</option>
-                    <option name="notActive">Not Active</option>
+                        <option name="active">Active</option>
+                        <option name="notActive">Not Active</option>
                     </select>
                 </div>
+
             </div>
 
-            <hr/>
+            <hr />
 
             <div className="job-info-input">
 
@@ -43,13 +58,13 @@ const Job = (props) => (
                     <h4>Job Information</h4>
                     <button>Add New</button>
                     <h3>Effective Date</h3>
-                    <input 
+                    <input
                         type="date"
                         name="employmentDate"
                         className="job"
-                        value={props.state.job.employmentDate} 
+                        value={props.state.job.employmentDate}
                         onChange={props.handleInputChange}
-                    />    
+                    />
                     {/* {(props.state.personal.jobInformation)map(item => {
                         <h3>Effective Date</h3>
                         <input 
@@ -61,62 +76,62 @@ const Job = (props) => (
                         />
                     })} */}
                     <h3>Effective Date</h3>
-                    <input 
+                    <input
                         type="date"
                         name="employmentDate"
                         className="job"
-                        value={props.state.job.employmentDate} 
+                        value={props.state.job.employmentDate}
                         onChange={props.handleInputChange}
-                    />    
+                    />
                 </div>
 
                 <div className="dept-input">
                     <h3>Dept</h3>
-                    <input 
+                    <input
                         type="text"
                         name="department"
                         className="job"
-                        value={props.state.job.department} 
+                        value={props.state.job.department}
                         onChange={props.handleInputChange}
                     />
                 </div>
 
                 <div className="title-input">
                     <h3>Title</h3>
-                    <input 
+                    <input
                         type="text"
                         name="title"
                         className="job"
-                        value={props.state.job.title} 
+                        value={props.state.job.title}
                         onChange={props.handleInputChange}
                     />
                 </div>
 
                 <div className="location-input">
                     <h3>Location</h3>
-                    <input 
+                    <input
                         type="text"
                         name="location"
                         className="job"
-                        value={props.state.job.location} 
+                        value={props.state.job.location}
                         onChange={props.handleInputChange}
                     />
                 </div>
 
                 <div className="reports-to-input">
                     <h3>Reports to</h3>
-                    <input 
+                    <input
                         type="text"
                         name="reportsTo"
                         className="job"
-                        value={props.state.job.reportsTo} 
+                        value={props.state.job.reportsTo}
                         onChange={props.handleInputChange}
                     />
                 </div>
 
             </div>
 
-            <hr/>
+            <hr />
 
             <div className="compensation-input">
 
@@ -124,7 +139,7 @@ const Job = (props) => (
                     <h4>Compensation</h4>
                     <button>Add New</button>
                     <h3>Effective Date</h3>
-                    <input 
+                    <input
                         type="date"
                         name="compensationDate"
                         className="job"
@@ -135,7 +150,7 @@ const Job = (props) => (
 
                 <div className="hourly-pay-rate">
                     <h3>Annual Salary</h3>
-                    <input 
+                    <input
                         type="text"
                         name="hourlyPayRate"
                         className="job"
@@ -146,7 +161,7 @@ const Job = (props) => (
 
                 <div className="salary-pay-rate">
                     <h3>Hourly Pay</h3>
-                    <input 
+                    <input
                         type="text"
                         name="salaryPayRate"
                         className="job"
@@ -168,7 +183,7 @@ const Job = (props) => (
 
                 <div className="pay-schedule">
                     <h3>Pay Schedule</h3>
-                    <input 
+                    <input
                         type="text"
                         name="paySchedule"
                         className="job"
@@ -179,7 +194,7 @@ const Job = (props) => (
 
                 <div className="change-reason">
                     <h3>Change Reason</h3>
-                    <input 
+                    <input
                         type="text"
                         name="changeReason"
                         className="job"
