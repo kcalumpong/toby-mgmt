@@ -9,7 +9,6 @@ class Home extends Component {
     }
 
     componentDidMount(){
-// read DB 
     let employeeLocal = JSON.parse( localStorage.getItem("personal"))
         this.setState({
             employee: employeeLocal

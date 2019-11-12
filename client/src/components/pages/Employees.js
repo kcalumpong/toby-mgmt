@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import ProfileNav from "../ProfileNav";
 import ProfileHeader from "../ProfileHeader";
 import ViewPane from '../ViewPane';
+import EmployeeSnippet from "../EmployeeSnippet";
 
 class Employees extends Component {
     state = {
@@ -64,33 +65,6 @@ class Employees extends Component {
         this.setState({ currentSection: event.target.id });
     }
 
-    // handleTabClick = (event) => {
-    // event.preventDefault();
-    // console.log("This state ", this.state);
-    // let emp = JSON.parse(localStorage.getItem("personal"))
-    // if (!emp) {
-    //   emp = []
-    // }
-    // emp.push(this.state)
-    // localStorage.setItem("personal", JSON.stringify(emp))
-
-    // call backedn and send the info inside of this.state // update DB
-    // console.log("-save:", this.state.department)
-  // }
-
-    // handleInputChange = (event) => {
-    //     // console.log(this.state);
-    //     // const { class, name, value } = event.target;
-    //     const section = event.target.className;
-    //     const key = event.target.name;
-    //     const value = event.target.value;
-    //     console.log(section, key, value);
-
-    //     this.setState({ [section]: { [key]: value } });
-    //     console.log(this.state);
-    //     // this.setState({ [name]: value });
-    // }
-
     handleInputChange = (event) => {
         const section = event.target.className;
         const key = event.target.name;
@@ -107,22 +81,20 @@ class Employees extends Component {
         console.log(this.state);
     }
 
-    handleSubmit
-
     render() {
         return (
             <Fragment>
                 <ProfileHeader 
                 name={this.state.personal.firstName + " " + this.state.personal.lastName} 
                 title={this.state.job.title} />
-                <ProfileNav handleTabClick={this.handleTabClick} />
+                <ProfileNav 
+                    handleTabClick={this.handleTabClick} />
                 <ViewPane
                     state={this.state}
                     currentSection={this.state.currentSection}
                     handleInputChange={this.handleInputChange}
                 />
-                <Employees 
-                status={this.state.job.status}
+                <EmployeeSnippet 
                 />
             </Fragment>
         )
