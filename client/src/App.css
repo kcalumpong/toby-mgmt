@@ -38,16 +38,20 @@
 .personal-page, .assets-page, .job-page, .documents-page, .drop-area {
   grid-column: 2 /3;
   grid-row: 2 / 5;
-  /* margin-top: 25px; */
+  margin-top: 50px;
 }
 
-.job-form-button {
-  margin-top: 15px;
-  margin-left: 5px;
+.employee-snippet {
+  grid-column: 1;
+  grid-row: 3;
+  margin-top: 150px;
+  margin-left: 15px;
 }
 
 .personal-form-button {
-  
+  grid-column: 2;
+  grid-row: 2;
+  width: 10%;
 }
 
 .greeting {

@@ -2,10 +2,8 @@ import React from "react";
 import "./style.css";
 import { FaRegTrashAlt, FaEdit } from 'react-icons/fa';
 
-
-
 const Assets = (props) => (
-
+    
     <div className="assets-page">
         {/* <button className="assetsFormButton" form="assets-page-form" name="add-new-button" onClick={(e) => this.addRow(id, e)}>ADD NEW</button> */}
         <button className="assetsFormButton" form="assets-page-form" name="add-new-button" >ADD NEW</button>

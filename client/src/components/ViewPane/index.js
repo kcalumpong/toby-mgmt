@@ -19,6 +19,7 @@ const renderView = (props) => {
 
 const ViewPane = (props) => (
     <Fragment>
+        <button className="personal-form-button" form="personal-form" name="personal-form-submit">SAVE</button>
         {renderView(props)}
     </Fragment>
 )
