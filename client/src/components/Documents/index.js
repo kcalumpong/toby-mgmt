@@ -1,23 +1,38 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import "./style.css";
 import Dropzone from "../Dropzone";
-
+import DocList from "../DocList";
+import cuid from "cuid";
+import { CloudDirectory } from "aws-sdk";
 
 function Document() {
-  // onDrop function  
+
+  const [docs, setDocs] = useState([]);
+
   const onDrop = useCallback(acceptedFiles => {
-    // this callback will be called after files get dropped, we will get the acceptedFiles. If you want, you can even access the rejected files too
     console.log(acceptedFiles);
+
+    acceptedFiles.map(file => {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        setDocs(prevState => [
+          ...prevState,
+          { id: cuid(), src: e.target.result }
+        ]);
+      }
+      reader.readAsDataURL(file);
+      console.log(file);
+      return file;
+    });
   }, []);
 
-  // We pass onDrop function and accept prop to the component. It will be used as initial params for useDropzone hook
   return (
     <main className="drop-area">
-      <h1 className="text-center">Drag and Drop Example</h1>
-      <Dropzone onDrop={onDrop} accept={"image/*"} />
+      <h1 className="text-center">Employee Documents</h1>
+      <Dropzone onDrop={onDrop} accept={"application/pdf"} />
+      <DocList docs={docs} />
     </main>
   );
 }
 
 export default Document;
-
