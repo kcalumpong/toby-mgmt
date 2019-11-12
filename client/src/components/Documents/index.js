@@ -1,12 +1,12 @@
 import React, { useCallback, useState } from "react";
 import "./style.css";
 import Dropzone from "../Dropzone";
+import DocList from "../DocList";
 import cuid from "cuid";
 import { CloudDirectory } from "aws-sdk";
 
-
 function Document() {
-  
+
   const [docs, setDocs] = useState([]);
 
   const onDrop = useCallback(acceptedFiles => {
@@ -29,10 +29,10 @@ function Document() {
   return (
     <main className="drop-area">
       <h1 className="text-center">Employee Documents</h1>
-      <Dropzone onDrop={onDrop} accept={"application/pdf, image/*"} />
+      <Dropzone onDrop={onDrop} accept={"application/pdf"} />
+      <DocList docs={docs} />
     </main>
   );
 }
 
 export default Document;
-
