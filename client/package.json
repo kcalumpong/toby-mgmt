@@ -2,6 +2,7 @@
   "name": "toby-mgmt",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3000",
   "dependencies": {
     "font-awesome": "^4.7.0",
     "react": "^16.11.0",

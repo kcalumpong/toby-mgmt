@@ -1,9 +1,10 @@
 import React, { useCallback, useState } from "react";
+import { CloudDirectory } from "aws-sdk";
+import cuid from "cuid";
 import "./style.css";
 import Dropzone from "../Dropzone";
 import DocList from "../DocList";
-import cuid from "cuid";
-import { CloudDirectory } from "aws-sdk";
+import API from "../../utils/API";
 
 function Document() {
 
@@ -11,7 +12,7 @@ function Document() {
 
   const onDrop = useCallback(acceptedFiles => {
     console.log(acceptedFiles);
-
+    API.uploadImg(acceptedFiles)
     acceptedFiles.map(file => {
       const reader = new FileReader();
       reader.onload = function (e) {
