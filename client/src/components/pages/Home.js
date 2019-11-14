@@ -18,6 +18,7 @@ class Home extends Component {
     }
 
     render() {
+
         return (
             <div className="home-cover">
                 <h3 className="greeting">Welcome to TOBY</h3>
@@ -41,6 +42,7 @@ class Home extends Component {
                     // img={item.img}
                     /> */}
                 </div>
+
             </div>
         )
 

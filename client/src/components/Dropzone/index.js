@@ -21,7 +21,7 @@ import { useDropzone } from "react-dropzone";
                 )}
               </div>
             </div>
-    )
+    );
 }
 
 export default Dropzone;
