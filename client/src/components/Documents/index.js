@@ -12,7 +12,7 @@ function Document() {
 
   const onDrop = useCallback(acceptedFiles => {
     console.log(acceptedFiles);
-    API.uploadImg(acceptedFiles)
+    API.uploadFile(acceptedFiles)
     acceptedFiles.map(file => {
       const reader = new FileReader();
       reader.onload = function (e) {
