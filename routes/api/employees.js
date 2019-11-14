@@ -1,11 +1,13 @@
 require("dotenv").config();
 const express = require("express");
-const router = require("express").Router();
-const empController = require("../../controllers/empController");
 const AWS = require("aws-sdk");
 const formidable = require('formidable');
 const fs = require("fs");
 const path = require("path");
+const router = require("express").Router();
+const empController = require("../../controllers/empController");
+const docController = require("../../controllers/docController");
+
 const s3 = new AWS.S3({
     params: {
         Bucket: process.env.S3_BUCKET,
@@ -50,13 +52,25 @@ router.post("/upload", getFiles, function(req, res, next) {
 // Matches with "/api/employees"
 router.route("/")
   .get(empController.findAll)
-  .post(empController.create);
+  .post(empController.createPersonal)
+  .post(empController.createJob)
+  .post(empController.createAsset)
 
-// // Matches with "/api/employees/:id"
+// DOCUMENT CREATION
+  .post(docController.create);
+
+
+
+// Matches with "/api/employees/:id"
 router
   .route("/:id")
-  .get(empController.findByName)
-  .put(empController.update)
-  .delete(empController.remove);
+  .get(empController.findByUsername)
+  .put(empController.updatePersonal)
+  .put(empController.updateJob)
+  .put(empController.updateAsset)
+  .delete(empController.remove)
+
+// DOCUMENT DELETION
+  .delete(docController.remove);
 
 module.exports = router;

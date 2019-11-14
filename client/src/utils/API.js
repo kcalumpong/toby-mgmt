@@ -18,7 +18,8 @@ export default {
     return axios.post("/api/employees", employeeData);
   },
 
-  uploadImg: function(acceptedFiles) {
+  uploadFile: function(acceptedFiles) {
+    
     const file = new FormData()
     
     file.append("file", acceptedFiles[0]);
