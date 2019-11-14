@@ -4,6 +4,7 @@ import Personal from "../Personal";
 import Job from "../Job";
 import Assets from "../Assets";
 import Documents from "../Documents";
+import Save from "../Save";
 
 const enumObj = {
     personal: Personal,
@@ -19,7 +20,7 @@ const renderView = (props) => {
 
 const ViewPane = (props) => (
     <Fragment>
-        <button className="personal-form-button" form="personal-form" name="personal-form-submit">SAVE</button>
+        <Save />
         {renderView(props)}
     </Fragment>
 )

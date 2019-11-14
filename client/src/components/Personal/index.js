@@ -1,6 +1,5 @@
 import React from "react";
 import "./style.css";
-// import ProfileHeader from "../ProfileHeader";
 
 // const handleSubmit = (event) => {
 //   event.preventDefault();
