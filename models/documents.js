@@ -15,7 +15,7 @@ module.exports = (sequelize, Datatypes) =>{
             }
         }
     });
-    
+
     Document.associate = (models) =>{
         Document.belongsTo(models.Employee, {
             through: "EmployeeDocs", foreignKey: "DocumentId"

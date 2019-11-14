@@ -2,7 +2,7 @@ module.exports = (sequelize, DataTypes) =>{
     const Employee = sequelize.define("Employee", {
     // "PERSONAL"
     //GENDER
-        gender: {
+        genderInput: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -47,7 +47,7 @@ module.exports = (sequelize, DataTypes) =>{
             }
         },
     //BIRTHDAY
-        birthMonth: {
+        month: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -55,7 +55,7 @@ module.exports = (sequelize, DataTypes) =>{
                 len: [3, 4]
             }
         },
-        birthDay: {
+        day: {
             type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
@@ -64,7 +64,7 @@ module.exports = (sequelize, DataTypes) =>{
                 len: [2]
             }
         },
-        birthYear: {
+        year: {
             type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
@@ -74,7 +74,7 @@ module.exports = (sequelize, DataTypes) =>{
             }
         },
     //EMAIL
-        email: {
+        emailAddress: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -83,7 +83,7 @@ module.exports = (sequelize, DataTypes) =>{
             }
         },
     //PHONE
-        phone: {
+        phoneNumber: {
             type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
@@ -91,7 +91,7 @@ module.exports = (sequelize, DataTypes) =>{
             }  
         },
     //ADDRESS
-        address: {
+        streetAddress: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -114,7 +114,7 @@ module.exports = (sequelize, DataTypes) =>{
                 is: /^[A-Z]+$/i
             }
         },
-        zipCode: {
+        zipcode: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -123,7 +123,7 @@ module.exports = (sequelize, DataTypes) =>{
             }
         },
     //SS#
-        sSI: {
+        socialSecurity: {
             type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
@@ -132,25 +132,25 @@ module.exports = (sequelize, DataTypes) =>{
             }
         },
     //EMERGENCY CONTACTS
-        emergency1Name: {
+    emergencyContactNameOne: {
             type: DataTypes.STRING,
             allowNull: true
         },
-        emergency1Phone: {
+        emergencyContactPhoneOne: {
             type: DataTypes.INTEGER,
             allowNull: true
         },
-        emergency2Name: {
+        emergencyContactNameTwo: {
             type: DataTypes.STRING,
             allowNull: true
         },
-        emergency2Phone: {
+        emergencyContactPhoneTwo: {
             type: DataTypes.INTEGER,
             allowNull: true
         },
 
     // "JOB"
-        employeeId: {
+    employeeNumber: {
             type: DataTypes.INTEGER,
             allowNull: false,
             // references: {
@@ -163,7 +163,7 @@ module.exports = (sequelize, DataTypes) =>{
             }
         },
     //EMP #
-        empStatus: {
+        status: {
             type: DataTypes.STRING,
             default: "Active",
             validate: {
@@ -177,6 +177,10 @@ module.exports = (sequelize, DataTypes) =>{
                 isDate: true
             }
         },
+        employmentDate: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         department: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -189,7 +193,7 @@ module.exports = (sequelize, DataTypes) =>{
             type: DataTypes.STRING,
             allowNull: false
         },
-        manager: {
+        reportsTo: {
             type: DataTypes.STRING,
             allowNull: false, // SET RELATIONSHIP FOR THIS 
             // references: {
@@ -197,21 +201,21 @@ module.exports = (sequelize, DataTypes) =>{
             //     key: "id"
             // }
         },
-        payDate: {
+        compensationDate: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 isDate: true,
             }
         },
-        hourlyRate: {
+        hourlyPayRate: {
             type: DataTypes.INTEGER,
             allowNull: true,
             validate: {
                 isDecimal: true
             }
         },
-        salary: {
+        salaryPayRate: {
             type: DataTypes.INTEGER,
             allowNull: true,
             validate: {
@@ -222,7 +226,7 @@ module.exports = (sequelize, DataTypes) =>{
             type: DataTypes.STRING,
             allowNull: false,
         },
-        payCycle: {
+        paySchedule: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -238,7 +242,7 @@ module.exports = (sequelize, DataTypes) =>{
                 }
             }
         },
-        transReason: {
+        changeReason: {
             type: DataTypes.STRING,
             allowNull: true,
             validate: {
@@ -277,7 +281,6 @@ module.exports = (sequelize, DataTypes) =>{
         }
         
     });
-    
     Employee.associate = (models) => {
         Employee.belongsToMany(models.Document, {
           through: "EmployeeDocs", foreignKey: "EmployeeId"
