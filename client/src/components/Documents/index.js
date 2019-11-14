@@ -11,8 +11,11 @@ function Document() {
   const [docs, setDocs] = useState([]);
 
   const onDrop = useCallback(acceptedFiles => {
+    
     console.log(acceptedFiles);
+
     API.uploadFile(acceptedFiles)
+
     acceptedFiles.map(file => {
       const reader = new FileReader();
       reader.onload = function (e) {

@@ -7,6 +7,7 @@ const path = require("path");
 const router = require("express").Router();
 const empController = require("../../controllers/empController");
 const docController = require("../../controllers/docController");
+
 const s3 = new AWS.S3({
     params: {
         Bucket: process.env.S3_BUCKET,

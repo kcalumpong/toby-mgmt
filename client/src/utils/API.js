@@ -19,6 +19,7 @@ export default {
   },
 
   uploadFile: function(acceptedFiles) {
+    
     const file = new FormData()
     
     file.append("file", acceptedFiles[0]);

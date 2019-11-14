@@ -1,5 +1,7 @@
 module.exports = (sequelize, Datatypes) =>{
+
     const Document = sequelize.define("Document", {
+
         name: {
             type: Datatypes.STRING,
             allowNull: true,
@@ -13,6 +15,7 @@ module.exports = (sequelize, Datatypes) =>{
             }
         }
     });
+    
     Document.associate = (models) =>{
         Document.belongsTo(models.Employee, {
             through: "EmployeeDocs", foreignKey: "DocumentId"

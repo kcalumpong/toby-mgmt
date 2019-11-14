@@ -1,6 +1,7 @@
 const db = require("../models");
 
 module.exports = {
+
     create: (req, res) => {
         db.Document.create({
             name: req.body.name
@@ -18,4 +19,5 @@ module.exports = {
             .then((dbDocument) => res.json(dbDocument))
             .catch(err => { console.error(err); res.send(500) });
     },
+    
 }

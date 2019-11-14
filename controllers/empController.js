@@ -23,6 +23,7 @@ module.exports = {
          .then((dbEmployee) => res.json(dbEmployee))
          .catch(err => { console.error(err); res.send(500) });
    },
+   
    createPersonal: (req, res) => {
       db.Employee.create({
          gender: req.body.gender,
@@ -245,6 +246,7 @@ module.exports = {
    //       .then((dbEmployee) => res.json(dbEmployee))
    //       .catch(err => { console.error(err); res.send(500) });
    // },
+
    //EXTRA??
    remove: (req, res) => {
       db.Employee.destroy({

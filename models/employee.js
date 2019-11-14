@@ -277,6 +277,7 @@ module.exports = (sequelize, DataTypes) =>{
         }
         
     });
+    
     Employee.associate = (models) => {
         Employee.belongsToMany(models.Document, {
           through: "EmployeeDocs", foreignKey: "EmployeeId"
