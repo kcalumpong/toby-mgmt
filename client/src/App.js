@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navtabs from "./components/Navtabs"
-import Home from "./components/pages/Home";
-import Employees from "./components/pages/Employees";
-import Logout from "./components/pages/Logout";
+import Home from "./pages/Home";
+import Employees from "./pages/Employees";
+import Logout from "./pages/Logout";
 import individuals from "./individuals.json";
 // import Profile from "./components/Profile";
 import './App.css';
