@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from "react";
-import ProfileNav from "../ProfileNav";
-import ProfileHeader from "../ProfileHeader";
-import ViewPane from '../ViewPane';
-import EmployeeSnippet from "../EmployeeSnippet";
+import ProfileNav from "../components/ProfileNav";
+import ProfileHeader from "../components/ProfileHeader";
+import ViewPane from '../components/ViewPane';
+import EmployeeSnippet from "../components/EmployeeSnippet";
 
 class Employees extends Component {
     state = {

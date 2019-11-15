@@ -37,11 +37,6 @@ export default {
     return axios.get("/api/employees/update-personal-info" + id);
   },
 
-  // Update Employee Personal Info to the database
-  updateEmployeeP: function(id) {
-    return axios.get("/api/employees/update-personal-info" + id);
-  },
-
   // Update Employee Job Info to the database
   updateEmployeeJ: function(id) {
     return axios.get("/api/employees/update-job-info" + id);
