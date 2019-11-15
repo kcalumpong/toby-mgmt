@@ -21,7 +21,7 @@ function Document() {
       reader.onload = function (e) {
         setDocs(prevState => [
           ...prevState,
-          { id: cuid(), src: e.target.result }
+          { id: cuid(), src: e.target.result, name: file.name}
         ]);
       }
       reader.readAsDataURL(file);
