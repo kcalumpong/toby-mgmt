@@ -91,3 +91,7 @@
 hr {
   margin-top: 5px;
 }
+
+::placeholder {
+font-size: 14px;
+}

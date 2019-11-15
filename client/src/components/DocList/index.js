@@ -1,9 +1,13 @@
 import React from "react";
+import "./style.css";
 
 const Doc = ({ doc }) => {
     return (
         <div className="file-item">
-            <img alt={`doc - ${doc.id}`} src={doc.src} className="file-img" />
+            <a href={doc.src}>
+                <img alt={`doc - ${doc.id}`} src="../images/docImg.jpg" className="file-img" />
+            </a>
+            <p>{doc.name}</p>
         </div>
     );
 }
