@@ -52,25 +52,40 @@ router.post("/upload", getFiles, function(req, res, next) {
 // Matches with "/api/employees"
 router.route("/")
   .get(empController.findAll)
-  .post(empController.createPersonal)
-  .post(empController.createJob)
+
+router.route("/create-personal")
+  .post(empController.createPersonal);
+
+router.route("/create-job")
+  .post(empController.createJob);
+
+router.route("/create-asset")
   .post(empController.createAsset)
 
 // DOCUMENT CREATION
+router.route("/save-document-name")
   .post(docController.create);
 
 
 
 // Matches with "/api/employees/:id"
-router
-  .route("/:id")
-  .get(empController.findByUsername)
-  .put(empController.updatePersonal)
-  .put(empController.updateJob)
-  .put(empController.updateAsset)
-  .delete(empController.remove)
+router.route("/:username")
+  .get(empController.findByUsername);
+
+router.route("/update-personal-info/:id")
+  .put(empController.updatePersonal);
+
+router.route("/update-job-info/:id")
+  .put(empController.updateJob);
+  
+router.route("/update-asset-info/:id")
+  .put(empController.updateAsset);
+
+router.route("/delete/:id")
+  .delete(empController.remove);
 
 // DOCUMENT DELETION
+router.route("/delete-document/:id")
   .delete(docController.remove);
 
 module.exports = router;
