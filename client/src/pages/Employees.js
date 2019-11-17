@@ -3,6 +3,7 @@ import ProfileNav from "../components/ProfileNav";
 import ProfileHeader from "../components/ProfileHeader";
 import ViewPane from '../components/ViewPane';
 import EmployeeSnippet from "../components/EmployeeSnippet";
+import Navtabs from "../components/Navtabs";
 
 class Employees extends Component {
     state = {
@@ -72,37 +73,48 @@ class Employees extends Component {
         const value = event.target.value;
         console.log(section, key, value);
         // this.setState({ [section]: { [key]: value } });
-        this.setState(prevState => ({ 
-			...prevState,
-			[section]: {
-				...prevState[[section]],
-				[key]: value
-			}
-		}));
+        this.setState(prevState => ({
+            ...prevState,
+            [section]: {
+                ...prevState[[section]],
+                [key]: value
+            }
+        }));
         console.log(this.state);
     }
 
     render() {
         return (
+            
             <Fragment>
-                <ProfileHeader 
-                name={this.state.personal.firstName + " " + this.state.personal.middleName + " " + this.state.personal.lastName} 
-                title={this.state.job.title} />
-                <ProfileNav 
+            <Navtabs />
+                <ProfileHeader
+                    name={this.state.personal.firstName + " " + this.state.personal.middleName + " " + this.state.personal.lastName}
+                    title={this.state.job.title} />
+                <ProfileNav
                     handleTabClick={this.handleTabClick} />
                 <ViewPane
                     state={this.state}
                     currentSection={this.state.currentSection}
                     handleInputChange={this.handleInputChange}
                 />
-                <EmployeeSnippet 
+                <EmployeeSnippet
                     status={this.state.job.status}
                     department={this.state.job.department}
                     location={this.state.job.location}
                     phoneNumber={this.state.personal.phoneNumber}
                     emailAddress={this.state.personal.emailAddress}
                 />
+
+                {/* <div className="home-cover">
+                    <Navtabs />
+                    
+                </div> */}
+                
+
+              
             </Fragment>
+           
         )
     }
 }

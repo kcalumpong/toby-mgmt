@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { CloudDirectory } from "aws-sdk";
+// import { CloudDirectory } from "aws-sdk";
 import cuid from "cuid";
 import "./style.css";
 import Dropzone from "../Dropzone";
@@ -21,7 +21,7 @@ function Document() {
       reader.onload = function (e) {
         setDocs(prevState => [
           ...prevState,
-          { id: cuid(), src: e.target.result }
+          { id: cuid(), src: e.target.result, name: file.name}
         ]);
       }
       reader.readAsDataURL(file);

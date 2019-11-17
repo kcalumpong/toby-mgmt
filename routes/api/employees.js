@@ -38,7 +38,7 @@ router.post("/upload", getFiles, function(req, res, next) {
           console.error(err)
       }
       let params = {
-          Key: req.files.file.name,
+          Key: `${req.user.username}/${req.files.file.name}`,
           Body: file,
           ACL: "public-read",
       }

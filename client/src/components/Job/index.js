@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import { FaRegTrashAlt } from 'react-icons/fa';
 
 const Job = (props) => (
 
@@ -9,21 +10,20 @@ const Job = (props) => (
 
             <div className="hire-and-status">
                 <h4>Employment</h4>
-
+{/* 
                 <div className="employeeNumInput">
                     <h3>Employee #</h3>
                     <input
                         type="text"
                         name="employeeNumber"
-                        className="personal"
+                        className="job"
                         value={props.state.job.employeeNumber}
                         onChange={props.handleInputChange}
                         placeholder="#"
                     />
+                </div> */}
 
-                </div>
-
-                <div className="hire-input">
+                {/* <div className="hire-input">
                     <h3>Hire Date</h3>
                     <input
                         type="date"
@@ -32,9 +32,9 @@ const Job = (props) => (
                         value={props.state.job.hireDate}
                         onChange={props.handleInputChange}
                     />
-                </div>
+                </div> */}
 
-                <div className="statusInput">
+                {/* <div className="statusInput">
                     <h3>Status</h3>
                     <select
                         type="select"
@@ -46,98 +46,93 @@ const Job = (props) => (
                         <option name="active">Active</option>
                         <option name="notActive">Not Active</option>
                     </select>
-                </div>
+                </div> */}
 
             </div>
 
             <hr />
 
-            <div className="job-info-input">
+            {/* Beginning Add New */}
+            <legend>Job Information</legend>
+            <button className="addNewJob" onClick={props.handleAddJob}>ADD NEW</button>
 
-                <div className="effective-date-input">
-                    <h4>Job Information</h4>
-                    <button>Add New</button>
-                    <h3>Effective Date</h3>
-                    <input
-                        type="date"
-                        name="employmentDate"
-                        className="job"
-                        value={props.state.job.employmentDate}
-                        onChange={props.handleInputChange}
-                    />
-                    {/* {(props.state.personal.jobInformation)map(item => {
+            {props.state.job.map((item, index) =>
+                <div className="job-info-input">
+
+                    <div className="effective-date-input">
+
                         <h3>Effective Date</h3>
-                        <input 
+                        <input
                             type="date"
                             name="employmentDate"
-                            className="job"
-                            value={props.state.job.employmentDate} 
+                            className={index}
+                            value={item.employmentDate}
                             onChange={props.handleInputChange}
                         />
-                    })} */}
-                    <h3>Effective Date</h3>
-                    <input
-                        type="date"
-                        name="employmentDate"
-                        className="job"
-                        value={props.state.job.employmentDate}
-                        onChange={props.handleInputChange}
-                    />
+                    </div>
+
+                    <div className="dept-input">
+                        <h3>Department</h3>
+                        <input
+                            type="text"
+                            name="department"
+                            className={index}
+                            value={item.department}
+                            onChange={props.handleInputChange}
+                            placeholder=""
+                        />
+                    </div>
+
+                    <div className="title-input">
+                        <h3>Title</h3>
+                        <input
+                            type="text"
+                            name="title"
+                            className={index}
+                            value={item.title}
+                            onChange={props.handleInputChange}
+                            placeholder=""
+                        />
+                    </div>
+
+                    <div className="location-input">
+                        <h3>Location</h3>
+                        <input
+                            type="text"
+                            name="location"
+                            className={index}
+                            value={item.location}
+                            onChange={props.handleInputChange}
+                            placeholder=""
+                        />
+                    </div>
+
+                    <div className="reports-to-input">
+                        <h3>Reports to</h3>
+                        <input
+                            type="text"
+                            name="reportsTo"
+                            className={index}
+                            value={item.reportsTo}
+                            onChange={props.handleInputChange}
+                        />
+                    </div>
+
+                    <FaRegTrashAlt />
+
                 </div>
 
-                <div className="dept-input">
-                    <h3>Dept</h3>
-                    <input
-                        type="text"
-                        name="department"
-                        className="job"
-                        value={props.state.job.department}
-                        onChange={props.handleInputChange}
-                    />
-                </div>
+            )}
 
-                <div className="title-input">
-                    <h3>Title</h3>
-                    <input
-                        type="text"
-                        name="title"
-                        className="job"
-                        value={props.state.job.title}
-                        onChange={props.handleInputChange}
-                    />
-                </div>
-
-                <div className="location-input">
-                    <h3>Location</h3>
-                    <input
-                        type="text"
-                        name="location"
-                        className="job"
-                        value={props.state.job.location}
-                        onChange={props.handleInputChange}
-                    />
-                </div>
-
-                <div className="reports-to-input">
-                    <h3>Reports to</h3>
-                    <input
-                        type="text"
-                        name="reportsTo"
-                        className="job"
-                        value={props.state.job.reportsTo}
-                        onChange={props.handleInputChange}
-                    />
-                </div>
-
-            </div>
+            {/* End of Add New */}
 
             <hr />
 
             <div className="compensation-input">
-
+            <button className="addNewJobTwo" onClick={props.handleAddJobTwo}>ADD NEW</button>
+{/* 
                 <div className="effective-date-input-two">
-                    <h4>Compensation</h4>
-                    <button>Add New</button>
+                    <legend>Compensation</legend>
                     <h3>Effective Date</h3>
                     <input
                         type="date"
@@ -146,9 +141,9 @@ const Job = (props) => (
                         value={props.state.job.compensationDate}
                         onChange={props.handleInputChange}
                     />
-                </div>
+                </div> */}
 
-                <div className="hourly-pay-rate">
+                {/* <div className="hourly-pay-rate">
                     <h3>Annual Salary</h3>
                     <input
                         type="text"
@@ -157,9 +152,9 @@ const Job = (props) => (
                         value={props.state.job.hourlyPayRate}
                         onChange={props.handleInputChange}
                     />
-                </div>
+                </div> */}
 
-                <div className="salary-pay-rate">
+                {/* <div className="salary-pay-rate">
                     <h3>Hourly Pay</h3>
                     <input
                         type="text"
@@ -168,19 +163,8 @@ const Job = (props) => (
                         value={props.state.job.salaryPayRate}
                         onChange={props.handleInputChange}
                     />
-                </div>
-
-                <div className="pay-type">
-                    <h3>Pay Type</h3>
-                    <input
-                        type="text"
-                        name="payType"
-                        className="job"
-                        value={props.state.job.payType}
-                        onChange={props.handleInputChange}
-                    />
-                </div>
-
+                </div> */}
+{/* 
                 <div className="pay-schedule">
                     <h3>Pay Schedule</h3>
                     <input
@@ -190,9 +174,9 @@ const Job = (props) => (
                         value={props.state.job.paySchedule}
                         onChange={props.handleInputChange}
                     />
-                </div>
+                </div> */}
 
-                <div className="change-reason">
+                {/* <div className="change-reason">
                     <h3>Change Reason</h3>
                     <input
                         type="text"
@@ -200,13 +184,14 @@ const Job = (props) => (
                         className="job"
                         value={props.state.job.changeReason}
                         onChange={props.handleInputChange}
+                        placeholder="Promotion"
                     />
-                </div>
+                </div> */}
 
             </div>
 
         </form>
-        {/* <button className="job-form-button" form="job-form" name="job-form-submit">SAVE</button> */}
+
     </div >
 )
 
