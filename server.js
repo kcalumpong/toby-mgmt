@@ -1,29 +1,43 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
+// const passport   = require('passport');
+const session = require("express-session");
+const bodyParser = require('body-parser');
+const routes = require('./routes/');
 const db = require("./models");
-const routes = require("./routes");
-const app = express();
 
+const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Define middleware here
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+console.log(PORT)
+
+//For BodyParser
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(cors());
 
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
-// Add routes, both API and view
+app.set("trust proxy", 1); // trust first proxy
+const cookieSecure = process.env.NODE_ENV === "production";
+app.use(
+  session({
+    secret: process.env.COOKIE_SECRET || "keyboard cat",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { httpOnly: false, maxAge: 1000 * 60 * 5, secure: cookieSecure }
+  })
+);
+
 app.use(routes);
+
 
 let syncOptions = { force: false };
 
-if (process.env.NODE_ENV === "test") {
+// Serve up static assets (usually on heroku)
+if(process.env.NODE_ENV === "test"){
   syncOptions.force = true;
-}
+}   
 
 // Start the API server
 db.sequelize.sync(syncOptions).then( () => {

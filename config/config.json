@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "",
-    "database": "employees_db",
+    "database": "toby_db",
     "host": "localhost",
     "dialect": "mysql"
   },

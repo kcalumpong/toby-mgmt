@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { CloudDirectory } from "aws-sdk";
+// import { CloudDirectory } from "aws-sdk";
 import cuid from "cuid";
 import "./style.css";
 import Dropzone from "../Dropzone";
