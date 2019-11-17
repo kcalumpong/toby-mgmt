@@ -1,53 +1,85 @@
-import React, { Component } from "react";
-import "../../App.css";
-import Profile from "../Profile";
-// import Employees from "./Employees";
-
-// componentWillMount() {
-
-// }
+import React, { Component} from "react";
+import cookie from 'react-cookies';
+import { Redirect } from 'react-router-dom';
+import Navtabs from "../components/Navtabs";
+import API from "../utils/API";
+// import Profile from "../components/Profile";
+import "../App.css";
 
 
 class Home extends Component {
-
-    state = {
-        employees: [
-            {id: "0", name: "kristina", image: "https://i.ytimg.com/vi/g_YScGe7WYo/hqdefault.jpg"},
-            {id: "1", name: "daria", image: "https://upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/1200px-Flag_of_Russia.svg.png"}
-        ]
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+            cookie: null,
+            loading: true
+        };
     }
 
+    componentDidMount() {
+        this.validateCookie();
+    }
+
+    validateCookie() {
+        const cookieValue = cookie.load('connect.sid');
+        API.validateCookie(cookieValue)
+            .then(res => {
+                if (res.status === 200) {
+                    this.setState({ cookie: cookieValue, loading: false });
+                } else {
+                    this.setState({ loading: false });
+                }
+            })
+            .catch(() => this.setState({ loading: false }))
+    }
+
+    // handleLogout() {
+    //     API.logout()
+    //         .then(() => this.props.history.push('/login'))
+    //         .catch(err => console.error(err));
+    // }
+
+    // state = {
+    //     employee:[]
+    // }
+
+    // componentDidMount(){
+    // let employeeLocal = JSON.parse( localStorage.getItem("personal"))
+    //     this.setState({
+    //         employee: employeeLocal
+    //     })
+    // }
+
     render() {
-
-        return (
-            <div className="home-cover">
-                <h3 className="greeting">Welcome to TOBY</h3>
-                <h4>Employee List</h4>
-                <h5>Select any employee to begin</h5>
-                <div className="individuals-container">
-                    {this.state.employees.map(item => (
-                        <Profile
-                            id={item.id}
-                            name={item.name}
-                            image={item.image}
-                        />
-                    ))}
-                    {/* <Profile
-                        // key={`individuals-${item}`}
-                        // id={props.state.id}
-                        
-                        // middleName={props.middlename}
-                        // lastName={props.lastname}
-                        // title={props.title}
-                    // img={item.img}
-                    /> */}
-                </div>
-
+        if (this.state.loading) {
+            return <div>Loading...</div>;
+          }
+          if (!this.state.cookie) {
+            return <Redirect to='/login' />
+          }
+        return(
+        <div className="home-cover">
+               <Navtabs />
+            <h3 className="greeting">Welcome to TOBY</h3>
+            <h4>Employee List</h4>
+            <h5>Select any employee to begin</h5>
+            <div className="individuals-container">
+                {/* {this.state.employee.map(item => (
+                    <Profile
+                        key={`individuals-${item}`}
+                        id={item.id}
+                        name={item.name}
+                        title={item.title}
+                        img={item.img}
+                    />
+                ))} */}
             </div>
-        )
-
+        </div>
+)
     }
 }
 
-export default Home;
 
+
+export default Home;

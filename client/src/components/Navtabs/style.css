@@ -1,6 +1,10 @@
 nav {
-    height: 10%;
-    background-color: rgb(71, 165, 157);
+    /* display: grid; 
+    grid-row: 1; */
+    width: 100%;
+    height: 50%;
+    /* background-color: rgb(71, 165, 157); */
+  
 }
 
 .nav-list {
@@ -12,6 +16,8 @@ nav {
 .nav-item {
     display: inline-block;
 }
+
+
 
 .nav-link {
     color: rgb(250, 248, 248);
