@@ -7,3 +7,19 @@
 .assigned-input, .returned-input {
     width: 20%;
 }
+
+.addNewButton {
+    color: rgb(7, 7, 7);
+    background-color: rgb(244, 245, 169);
+    font-size: 14px;
+}
+
+.assigned-input :nth-child(2), .returned-input :nth-child(2) {
+    width: 150px;
+    color: rgb(73, 71, 71);
+    font-size: 15px;
+}
+
+.notes-input :nth-child(2) {
+    width: 350px;
+}

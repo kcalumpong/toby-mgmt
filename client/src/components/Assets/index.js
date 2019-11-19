@@ -1,17 +1,18 @@
 import React from "react";
 import "./style.css";
-import { FaRegTrashAlt } from 'react-icons/fa';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons"
 
 const Assets = (props) => (
 
     <div className="assets-page">
-        <button className="addNewButton" onClick={props.handleAddNewButton}>ADD NEW</button>
 
         <form className="asset-page-form">
-            <legend>Assets</legend>
+            <legend>Assets and Licenses</legend>
+        <button className="addNewButton" onClick={props.handleAddAsset}>NEW ASSET</button>
 
-            {props.state.assets.map((item, index) =>
-                <div className="assets-form">
+            {props.state.assets.map((item, index) => 
+                <div className="asset-line">
 
                     <div className="category-input">
                         <h3>Category</h3>
@@ -20,8 +21,8 @@ const Assets = (props) => (
                             name="category"
                             className={index}
                             value={item.category}
-                            onChange={props.handleInputChange}
-                            placeholder=""
+                            onChange={props.handlers.assetChange}
+                            placeholder="Electronics"
                         />
                     </div>
 
@@ -32,8 +33,8 @@ const Assets = (props) => (
                             name="description"
                             className={index}
                             value={item.description}
-                            onChange={props.handleInputChange}
-                            placeholder=""
+                            onChange={props.handlers.assetChange}
+                            placeholder="MacBook Pro 16-inch "
                         />
                     </div>
 
@@ -44,7 +45,7 @@ const Assets = (props) => (
                             name="notes"
                             className={index}
                             value={item.notes}
-                            onChange={props.handleInputChange}
+                            onChange={props.handlers.assetChange}
                             placeholder=""
                         />
                     </div>
@@ -56,7 +57,7 @@ const Assets = (props) => (
                             name="dateAssigned"
                             className={index}
                             value={item.dateAssigned}
-                            onChange={props.handleInputChange}
+                            onChange={props.handlers.assetChange}
                         />
                     </div>
 
@@ -67,14 +68,19 @@ const Assets = (props) => (
                             name="dateReturned"
                             className={index}
                             value={item.dateReturned}
-                            onChange={props.handleInputChange}
+                            onChange={props.handlers.assetChange}
                         />
-                    </div>
+                    </div> 
 
-                    <FaRegTrashAlt />
+                    <FontAwesomeIcon
+                        icon={faTrash}
+                        onClick={(event) => props.deleteAsset(event, index)}
+                        /><hr></hr>
 
+    
                 </div>
             )}
+           
             
         </form>
     </div>
