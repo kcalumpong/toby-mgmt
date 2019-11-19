@@ -1,34 +1,49 @@
-// require("dotenv").config();
-// const express = require("express");
-// const db = require("./models");
-// const routes = require("./routes");
-// const app = express();
-// const fileUpload = require("express-fileupload");
-// const PORT = process.env.PORT || 3001;
+require("dotenv").config();
+const express = require("express");
+const cors = require("cors");
+// const passport   = require('passport');
+const session = require("express-session");
+const bodyParser = require('body-parser');
+const routes = require('./routes/');
+const db = require("./models");
 
-// // Define middleware here
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
-// app.use(fileUpload());
+const app = express();
+const PORT = process.env.PORT || 3001;
 
-// // Serve up static assets (usually on heroku)
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static("client/build"));
-// }
-// // Add routes, both API and view
-// app.use(routes);
+console.log(PORT)
 
-// let syncOptions = { force: false };
+//For BodyParser
 
-// if (process.env.NODE_ENV === "test") {
-//   syncOptions.force = true;
-// }
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(cors());
 
-// // Start the API server
-// db.sequelize.sync(syncOptions).then( () => {
-//     app.listen(PORT, function() {
-//       console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
-//     });
-// });
+app.set("trust proxy", 1); // trust first proxy
+const cookieSecure = process.env.NODE_ENV === "production";
+app.use(
+  session({
+    secret: process.env.COOKIE_SECRET || "keyboard cat",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { httpOnly: false, maxAge: 1000 * 60 * 5, secure: cookieSecure }
+  })
+);
 
-// module.exports = app;
+app.use(routes);
+
+
+let syncOptions = { force: false };
+
+// Serve up static assets (usually on heroku)
+if(process.env.NODE_ENV === "test"){
+  syncOptions.force = true;
+}   
+
+// Start the API server
+db.sequelize.sync(syncOptions).then( () => {
+    app.listen(PORT, function() {
+      console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+    });
+});
+
+module.exports = app;
