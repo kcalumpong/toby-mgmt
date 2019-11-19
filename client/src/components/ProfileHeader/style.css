@@ -1,6 +1,7 @@
-.profile-header {
-    border-bottom: .2px solid rgb(235, 236, 236);
-}
+/* h3 {
+    margin-left: 2px;
+    margin-bottom: 5px;
+} */
 
 .name-and-title {
     display: flex;
@@ -9,11 +10,17 @@
     color: rgb(50, 51, 50);
     justify-content: center;
     align-content: center;
-    width: 75%;
+    width: 100%;
+}
+
+.genderInput select {
+    font-size: 16px;
+    width: 100px;
+    height: 25px;
 }
 
 .profile-name {
-    font-size: 22px;
+    font-size: 16px;
 }
 
 .profile-title {
@@ -21,11 +28,13 @@
 }
 
 .profile-pic {
-    align-self: center;
-    width: 100px;
-    margin-left: 20px;
+    width: 150px;
+    display: grid;
+    margin-top: 15px;
+    position: relative;
+    top: 5px;
+    left: 55px;
 }
-
 
 
 

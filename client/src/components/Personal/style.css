@@ -8,15 +8,19 @@ h4 {
     color: rgb(71, 165, 157)
 }
 
-.statusInput, .employeeInput, .genderInput, .employeeNumInput {
+.emails {
     display: inline-block;
-    flex-wrap: wrap;
 }
 
-.statusInput {
-    margin-left: 15px;
+.month, .day, .state, .zip, .phone {
+    width: 120px;
 }
 
-button{
-    margin-bottom: 20px;
+.country, .ssOne, .ssTwo, .ssThree {
+    width: 50px;
 }
+
+.pe, .we {
+    width: 275px;
+}
+
