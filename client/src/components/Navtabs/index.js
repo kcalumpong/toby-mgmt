@@ -22,7 +22,7 @@ const Navtabs = () => {
         <nav>
             <ul className="nav-list">
                 <div className="nav-img-container">
-                    <img className="placeholder-logo" alt= "placeholder" src="./images/placeholder-logo.jpeg"></img>
+                    <img className="toby-logo" alt= "logo" src="./images/tobyLogo.png"></img>
                 </div>
                 <div className="nav-link-container">
                     <li className="nav-item">

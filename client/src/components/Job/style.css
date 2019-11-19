@@ -1,17 +1,30 @@
-.hire-input, .active-input {
-    display: inline-block;
-    flex-wrap: wrap;
-    padding: 5px;
-}
-
 .effective-date-input, .dept-input, .title-input, .location-input, .reports-to-input {
     display: inline-block;
     flex-wrap: wrap;
-    padding: 5px;
 }
 
 .effective-date-input-two, .hourly-pay-rate, .salary-pay-rate, .pay-type, .pay-schedule, .change-reason {
     display: inline-block;
     flex-wrap: wrap;
-    padding: 5px;
 }
+
+.employeeNumInput, .hireInput, .statusInput {
+    display: inline-block;
+    flex-wrap: wrap;
+}
+
+.addNewJob, .addComp {
+    color: rgb(7, 7, 7);
+    background-color: rgb(244, 245, 169);
+    font-size: 14px;
+}
+
+.employeeNumber {
+    width: 75px;
+}
+
+.hireDate {
+    width: 150px;
+}
+
+/* .notes-input :nth-child(2) */

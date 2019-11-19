@@ -15,7 +15,7 @@ import "./style.css";
 
 // call backedn and send the info inside of this.state // update DB
 // console.log("-save:", this.state.department)
-// }
+
 
 const Personal = (props) => (
   <div className="personal-page">
@@ -23,7 +23,7 @@ const Personal = (props) => (
     <form name="personal-form">
 
       <div className="employee-input">
-      <h4>Basic Information</h4>
+      <legend>Basic Information</legend>
 
         <div className="genderInput">
           <h3>Gender</h3>
@@ -32,7 +32,7 @@ const Personal = (props) => (
             name="genderInput"
             className="personal"
             value={props.state.personal.genderInput}
-            onChange={props.handleInputChange}>
+            onChange={props.handlers.personalChange}>
             <option name="female">Female</option>
             <option name="male">Male</option>
             <option name="other">Other</option>
@@ -41,15 +41,15 @@ const Personal = (props) => (
 
       </div>
 
-      <div>
-        <h3>Name</h3>
+      <div className="name">
+    
+        <h3>Full Name</h3>
         <input
-          // id= {this.id}
           type="text"
           name="firstName"
           className="personal"
           value={props.state.personal.firstName}
-          onChange={props.handleInputChange}
+          onChange={props.handlers.personalChange}
           placeholder="First Name"
         />
 
@@ -59,7 +59,7 @@ const Personal = (props) => (
           name="middleName"
           className="personal"
           value={props.state.personal.middleName}
-          onChange={props.handleInputChange}
+          onChange={props.handlers.personalChange}
           placeholder="Middle Name"
         />
 
@@ -69,18 +69,22 @@ const Personal = (props) => (
           name="lastName"
           className="personal"
           value={props.state.personal.lastName}
-          onChange={props.handleInputChange}
+          onChange={props.handlers.personalChange}
           placeholder="Last Name"
         />
+
+</div>
+
+<div className="birthday">
 
         <h3>Birthdate</h3>
         <input
           // id={this.id}
           type="text"
           name="month"
-          className="personal"
+          className="personal month"
           value={props.state.personal.month}
-          onChange={props.handleInputChange}
+          onChange={props.handlers.personalChange}
           placeholder="Month"
         />
 
@@ -88,9 +92,9 @@ const Personal = (props) => (
           // id={this.id}
           type="text"
           name="day"
-          className="personal"
+          className="personal day"
           value={props.state.personal.day}
-          onChange={props.handleInputChange}
+          onChange={props.handlers.personalChange}
           placeholder="Day"
         />
 
@@ -100,10 +104,12 @@ const Personal = (props) => (
           name="year"
           className="personal"
           value={props.state.personal.year}
-          onChange={props.handleInputChange}
+          onChange={props.handlers.personalChange}
           placeholder="Year"
         />
+        </div>
 
+    <div className="address">
         <h3>Address</h3>
         <input
           // id={this.id}
@@ -111,7 +117,7 @@ const Personal = (props) => (
           name="streetAddress"
           className="personal"
           value={props.state.personal.streetAddress}
-          onChange={props.handleInputChange}
+          onChange={props.handlers.personalChange}
           placeholder="Street Address"
         />
 
@@ -121,7 +127,7 @@ const Personal = (props) => (
           name="city"
           className="personal"
           value={props.state.personal.city}
-          onChange={props.handleInputChange}
+          onChange={props.handlers.personalChange}
           placeholder="City"
         />
 
@@ -130,100 +136,187 @@ const Personal = (props) => (
           // id={this.id} 
           type="text"
           name="state"
-          className="personal"
+          className="personal state"
           placeholder="State"
           value={props.state.personal.state}
-          onChange={props.handleInputChange}
+          onChange={props.handlers.personalChange}
         />
 
         <input
           // id={this.id} 
           type="text"
           name="zipcode"
-          className="personal"
+          className="personal zip"
           placeholder="Zip Code"
           value={props.state.personal.zipcode}
-          onChange={props.handleInputChange}
+          onChange={props.handlers.personalChange}
         />
+        </div>
+
+        <div className="phoneNumbers">
 
         <h3>Phone Number</h3>
         <input
           // id={this.id}
           type="text"
-          name="phoneNumber"
-          className="personal"
-          placeholder="Phone Number"
-          value={props.state.personal.phoneNumber}
-          onChange={props.handleInputChange}
+          name="countryCode"
+          className="personal country"
+          placeholder="+1"
+          value={props.state.personal.countryCode}
+          onChange={props.handlers.personalChange}
         />
-        
-        <h3>Email Address</h3>
+      
+
         <input
           // id={this.id}
           type="text"
-          name="emailAddress"
-          className="personal"
-          placeholder="Email Address"
-          value={props.state.personal.emailAddress}
-          onChange={props.handleInputChange}
-        />
+          name="phoneNumber"
+          className="personal phone"
+          placeholder="555-123-1234"
+          value={props.state.personal.phoneNumber}
+          onChange={props.handlers.personalChange}          
+        /> 
+          </div>
+
+        <div className="emails">
+        
+          <h3>Email Address</h3>
+          <input
+            // id={this.id}
+            type="text"
+            name="personalEmail"
+            className="personal pe"
+            placeholder="Personal Email Address"
+            value={props.state.personal.personalEmail}
+            onChange={props.handlers.personalChange}
+          />
+    
+          <input
+            // id={this.id}
+            type="text"
+            name="workEmail"
+            className="personal we"
+            placeholder="Work Email Address"
+            value={props.state.personal.workEmail}
+            onChange={props.handlers.personalChange}
+          />
+
+        </div>
 
 
-        <h3>Social Security</h3>
+        <h3>Social Security Number</h3>
         <input
           // id={this.id} 
           type="text"
-          name="socialSecurity"
-          className="personal"
-          placeholder="xxx-xx-xxx"
-          value={props.state.personal.socialSecurity}
-          onChange={props.handleInputChange}
+          name="ssOne"
+          className="personal ssOne"
+          placeholder="XXX"
+          value={props.state.personal.ssOne}
+          onChange={props.handlers.personalChange}
+        />
+        <input
+          // id={this.id} 
+          type="text"
+          name="ssTwo"
+          className="personal ssTwo"
+          placeholder="XX"
+          value={props.state.personal.ssTwo}
+          onChange={props.handlers.personalChange}
+        />
+        <input
+          // id={this.id} 
+          type="text"
+          name="ssThree"
+          className="personal ssThree"
+          placeholder="XXXX"
+          value={props.state.personal.ssThree}
+          onChange={props.handlers.personalChange}
         />
 
         <h3>Emergency Contact #1</h3>
         <input
           // id={this.id}
           type="text"
-          name="emergencyContactNameOne"
+          name="emergencyContactFirstNameOne"
           className="personal"
-          placeholder="Contact Name"
-          value={props.state.personal.emergencyContactNameOne}
-          onChange={props.handleInputChange}
+          placeholder="First Name"
+          value={props.state.personal.emergencyContactFirstNameOne}
+          onChange={props.handlers.personalChange}
+        />
+        <input
+          // id={this.id}
+          type="text"
+          name="emergencyContactLastNameOne"
+          className="personal"
+          placeholder="Last Name"
+          value={props.state.personal.emergencyContactLastNameOne}
+          onChange={props.handlers.personalChange}
         />
 
+        <h3>Phone Number</h3>
+        <input
+          // id={this.id} 
+          type="text"
+          name="emergencyContactPhoneOneCountry"
+          className="personal country"
+          placeholder="+1"
+          value={props.state.personal.emergencyContactPhoneOneCountry}
+          onChange={props.handlers.personalChange}
+        />
         <input
           // id={this.id} 
           type="text"
           name="emergencyContactPhoneOne"
-          className="personal"
-          placeholder="Phone Number"
+          className="personal phone"
+          placeholder="555-123-1234"
           value={props.state.personal.emergencyContactPhoneOne}
-          onChange={props.handleInputChange}
+          onChange={props.handlers.personalChange}
         />
+
 
         <h3>Emergency Contact #2</h3>
         <input
           // id={this.id} 
           type="text"
-          name="emergencyContactNameTwo"
+          name="emergencyContactFirstNameTwo"
           className="personal"
-          placeholder="Contact Name"
-          value={props.state.personal.emergencyContactTwo}
-          onChange={props.handleInputChange}
+          placeholder="First Name"
+          value={props.state.personal.emergencyContactFirstNameTwo}
+          onChange={props.handlers.personalChange}
         />
 
 
         <input
           // id={this.id} 
           type="text"
-          name="emergencyContactPhoneTwo"
+          name="emergencyContactLastNameTwo"
           className="personal"
-          placeholder="Phone Number"
-          value={props.state.personal.emergencyContactTwo}
-          onChange={props.handleInputChange}
+          placeholder="Last Number"
+          value={props.state.personal.emergencyContactLastNameTwo}
+          onChange={props.handlers.personalChange}
         />
 
-      </div>
+        <h3>Phone Number</h3>
+        <input
+          // id={this.id} 
+          type="text"
+          name="emergencyContactPhoneTwoCountry"
+          className="personal country"
+          placeholder="+1"
+          value={props.state.personal.emergencyContactPhoneTwoCountry}
+          onChange={props.handlers.personalChange}
+        />
+        <input
+          // id={this.id} 
+          type="text"
+          name="emergencyContactPhoneTwo"
+          className="personal phone"
+          placeholder="555-123-1234"
+          value={props.state.personal.emergencyContactPhoneTwo}
+          onChange={props.handlers.personalChange}
+        />
+
+
 
     </form>
 

@@ -15,7 +15,7 @@ const EmployeeSnippet = (props) => (
             <h4>Location</h4>
             <p className="location">{props.location}</p>
             <a href={`mailto:${props.emailAddress}`}>
-            <FaEnvelope  style={{ color: 'rgb(71, 165, 157)' }}/>
+            <FaEnvelope  style={{ color: '#5C75C3' }}/>
             </a>
         </div>
     )
