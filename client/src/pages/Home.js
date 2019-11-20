@@ -1,10 +1,9 @@
-import React, { Component} from "react";
+import React, { Component } from "react";
 import { Redirect } from 'react-router-dom';
 import Navtabs from "../components/Navtabs";
 import API from "../utils/API";
 import Profile from "../components/Profile";
 import "../App.css";
-
 
 class Home extends Component {
     state = {
@@ -68,27 +67,27 @@ class Home extends Component {
     render() {
         if (this.state.loading) {
             return <div>Loading...</div>;
-          }
-          if (!this.state.loggedIn) {
+        }
+        if (!this.state.loggedIn) {
             return <Redirect to='/login' />
-          }
-        return(
-        <div className="home-cover">
-               <Navtabs />
-            <h3 className="greeting">Welcome to TOBY</h3>
-            <h4>Employee List</h4>
-            <h5>Select any employee to begin</h5>
-            <div className="individuals-container">
+        }
+        return (
+            <div className="home-cover">
+                <Navtabs />
+                <h3 className="greeting">Welcome to TOBY</h3>
+                <h4>Employee List</h4>
+                <h5>Select any employee to begin</h5>
+                <div className="individuals-container">
 
-                {this.state.employees.map(item => (
-                    <Profile
-                        id={item.id}
-                        name={item.name}
-                        title={item.title}
-                        img={item.img}
-                    />
-                ))}
-                {/* {this.state.employee.map(item => (
+                    {this.state.employees.map(item => (
+                        <Profile
+                            id={item.id}
+                            name={item.name}
+                            title={item.title}
+                            img={item.img}
+                        />
+                    ))}
+                    {/* {this.state.employee.map(item => (
                     <Profile
                         key={`individuals-${item}`}
                         id={item.id}
@@ -98,12 +97,10 @@ class Home extends Component {
                     />
                 ))} */}
 
+                </div>
             </div>
-        </div>
-)
+        )
     }
 }
-
-
 
 export default Home;

@@ -5,9 +5,7 @@ import ProfileHeader from "../components/ProfileHeader";
 import ViewPane from '../components/ViewPane';
 import EmployeeSnippet from "../components/EmployeeSnippet";
 import Navtabs from "../components/Navtabs";
-
 import Profile from "../components/Profile";
-
 import API from "../utils/API";
 
 class Employees extends Component {
@@ -215,6 +213,22 @@ class Employees extends Component {
         console.log("This state", this.state);
     }
 
+    componentDidMount() {
+        this.checkAuth();
+    }
+
+    checkAuth() {
+        API.checkAuth()
+            .then(res => {
+                if (res.status === 200) {
+                    this.setState({ loggedIn: true, loading: false });
+                } else {
+                    this.setState({ loading: false });
+                }
+            })
+            .catch(() => this.setState({ loading: false }))
+    }
+
     render() {
         if (this.state.loading) {
             return <div>Loading...</div>;
@@ -267,6 +281,5 @@ class Employees extends Component {
         )
     }
 }
-
 
 export default Employees;
