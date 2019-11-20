@@ -5,11 +5,11 @@ import API from "../../utils/API";
 import "./style.css";
 
 const Navtabs = () => {
-    const handleLogout = () => {
+    const handleLogout = e => {
+        e.preventDefault();
         API.logout()
             .then(r => {
                 if (r.status === 200) {
-                    cookie.remove('connect.sid');
                     return r;
                 } else {
                     throw new Error('Failed to logout');
@@ -38,13 +38,9 @@ const Navtabs = () => {
                     </li>
 
                     <li className="nav-item">
-                    <Link
-                       id="logout" onClick={handleLogout} className="nav-link">Log out
-                    </Link>
-
-
-                   
-                        
+                        <a
+                        id="logout" href="#logout" onClick={handleLogout} className="nav-link">Log out
+                        </a>
                     </li>
                 </div>
             </ul>

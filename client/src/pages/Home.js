@@ -1,5 +1,4 @@
 import React, { Component} from "react";
-import cookie from 'react-cookies';
 import { Redirect } from 'react-router-dom';
 import Navtabs from "../components/Navtabs";
 import API from "../utils/API";
@@ -12,21 +11,20 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            cookie: null,
+            loggedIn: false,
             loading: true
         };
     }
 
     componentDidMount() {
-        this.validateCookie();
+        this.checkAuth();
     }
 
-    validateCookie() {
-        const cookieValue = cookie.load('connect.sid');
-        API.validateCookie(cookieValue)
+    checkAuth() {
+        API.checkAuth()
             .then(res => {
                 if (res.status === 200) {
-                    this.setState({ cookie: cookieValue, loading: false });
+                    this.setState({ loggedIn: true, loading: false });
                 } else {
                     this.setState({ loading: false });
                 }
@@ -55,7 +53,7 @@ class Home extends Component {
         if (this.state.loading) {
             return <div>Loading...</div>;
           }
-          if (!this.state.cookie) {
+          if (!this.state.loggedIn) {
             return <Redirect to='/login' />
           }
         return(
