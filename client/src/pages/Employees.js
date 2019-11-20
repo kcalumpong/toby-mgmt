@@ -1,12 +1,16 @@
 import React, { Component, Fragment } from "react";
+import { Redirect } from 'react-router-dom';
 import ProfileNav from "../components/ProfileNav";
 import ProfileHeader from "../components/ProfileHeader";
 import ViewPane from '../components/ViewPane';
 import EmployeeSnippet from "../components/EmployeeSnippet";
 import Navtabs from "../components/Navtabs";
+import API from "../utils/API";
 
 class Employees extends Component {
     state = {
+        loggedIn: false,
+        loading: true,
         currentSection: "personal",
         personal: {
             genderInput: "",
@@ -83,7 +87,29 @@ class Employees extends Component {
         console.log(this.state);
     }
 
+    componentDidMount() {
+        this.checkAuth();
+    }
+
+    checkAuth() {
+        API.checkAuth()
+            .then(res => {
+                if (res.status === 200) {
+                    this.setState({ loggedIn: true, loading: false });
+                } else {
+                    this.setState({ loading: false });
+                }
+            })
+            .catch(() => this.setState({ loading: false }))
+    }
+
     render() {
+        if (this.state.loading) {
+            return <div>Loading...</div>;
+          }
+          if (!this.state.loggedIn) {
+            return <Redirect to='/login' />
+          }
         return (
             
             <Fragment>
@@ -106,10 +132,6 @@ class Employees extends Component {
                     emailAddress={this.state.personal.emailAddress}
                 />
 
-                {/* <div className="home-cover">
-                    <Navtabs />
-                    
-                </div> */}
                 
 
               
