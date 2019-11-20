@@ -3,18 +3,31 @@ import "../../App.css";
 import Profile from "../Profile";
 // import Employees from "./Employees";
 
-// componentWillMount() {
-
-// }
-
-
 class Home extends Component {
 
     state = {
         employees: [
-            {id: "0", name: "kristina", image: "https://i.ytimg.com/vi/g_YScGe7WYo/hqdefault.jpg"},
-            {id: "1", name: "daria", image: "https://upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/1200px-Flag_of_Russia.svg.png"}
+            // {
+            //     id: 1,
+            //     name: "",
+            //     title: "",
+            //     img: ""
+            // }
         ]
+    }
+
+    componentDidMount() {
+        fetch("https://dog.ceo/api/breeds/image/random/5")
+            .then(res => res.json())
+            .then(data => data.message.map(item => (
+                {
+                    id: 1,
+                    name: "dog",
+                    title: "good boy",
+                    img: item
+                }
+            )))
+            .then(data => this.setState({ employees: data }))
     }
 
     render() {
@@ -28,17 +41,19 @@ class Home extends Component {
                         <Profile
                             id={item.id}
                             name={item.name}
-                            image={item.image}
+                            title={item.title}
+                            img={item.img}
                         />
                     ))}
+                    {console.log(this.state)}
                     {/* <Profile
-                        // key={`individuals-${item}`}
-                        // id={props.state.id}
+                        key={`individuals-${item}`}
+                        id={props.state.id}
                         
-                        // middleName={props.middlename}
-                        // lastName={props.lastname}
-                        // title={props.title}
-                    // img={item.img}
+                        middleName={props.middlename}
+                        lastName={props.lastname}
+                        title={props.title}
+                        img={item.img}
                     /> */}
                 </div>
             </div>

@@ -59,7 +59,7 @@ const Job = (props) => (
             <div className="job-information">
                 <legend>Job Information</legend>
                 <button className="addNewJob" onClick={props.handleAddJob}>ADD NEW</button>
-                {props.state.job.jobInformation.map((item, index) =>
+                {props.state.jobInformation.map((item, index) =>
                     <div className="job-info-input">
                         <div className="effective-date-input">
                             <h3>Effective Date</h3>
@@ -68,7 +68,8 @@ const Job = (props) => (
                                 name="employmentDate"
                                 className={index}
                                 value={item.employmentDate}
-                                onChange={(e) => props.handlers.jobChange(e, index)}
+                                // onChange={(e) => props.handlers.jobChange(e, index)}
+                                onChange= {props.handlers.jobChange}
                             />
                         </div>
 
@@ -79,7 +80,9 @@ const Job = (props) => (
                                 name="department"
                                 className={index}
                                 value={item.department}
-                                onChange={(e) => props.handlers.jobChange(e, index)}
+                                // onChange={(e) => props.handlers.jobChange(e, index)}
+                                onChange= {props.handlers.jobChange}
+                            
                                 placeholder=""
                             />
                         </div>
@@ -91,7 +94,8 @@ const Job = (props) => (
                                 name="title"
                                 className={index}
                                 value={item.title}
-                                onChange={(e) => props.handlers.jobChange(e, index)}
+                                // onChange={(e) => props.handlers.jobChange(e, index)}
+                                onChange= {props.handlers.jobChange}
                                 placeholder=""
                             />
                         </div>
@@ -103,7 +107,8 @@ const Job = (props) => (
                                 name="location"
                                 className={index}
                                 value={item.location}
-                                onChange={(e) => props.handlers.jobChange(e, index)}
+                                // onChange={(e) => props.handlers.jobChange(e, index)}
+                                onChange= {props.handlers.jobChange}
                                 placeholder=""
                             />
                         </div>
@@ -115,7 +120,8 @@ const Job = (props) => (
                                 name="reportsTo"
                                 className={index}
                                 value={item.reportsTo}
-                                onChange={(e) => props.handlers.jobChange(e, index)}
+                                // onChange={(e) => props.handlers.jobChange(e, index)}
+                                onChange= {props.handlers.jobChange}
                             />
                         </div>
                         <FontAwesomeIcon
@@ -133,9 +139,9 @@ const Job = (props) => (
 
             <div className="compensation">
                 <legend>Compensation</legend>
-                <button className="addComp" onClick={props.handleAddJob}>ADD NEW</button>
+                <button className="addComp" onClick={props.handleAddComp}>ADD NEW</button>
 
-                {props.state.job.compensation.map((item, index) =>
+                {props.state.compensation.map((item, index) =>
                     <div className="compensation-input">
 
                         <div className="effective-date-input-two">
@@ -145,7 +151,8 @@ const Job = (props) => (
                                 name="compensationDate"
                                 className={index}
                                 value={item.compensationDate}
-                                onChange={(e) => props.handlers.jobChange(e, index)}
+                                // onChange={(e) => props.handlers.jobChange(e, index)}
+                                onChange= {props.handlers.jobChange}
                             />
                         </div>
 
@@ -156,7 +163,8 @@ const Job = (props) => (
                                 name="hourlyPayRate"
                                 className={index}
                                 value={item.hourlyPayRate}
-                                onChange={(e) => props.handlers.jobChange(e, index)}
+                                // onChange={(e) => props.handlers.jobChange(e, index)}
+                                onChange= {props.handlers.jobChange}
                             />
                         </div>
 
@@ -167,7 +175,8 @@ const Job = (props) => (
                                 name="salaryPayRate"
                                 className={index}
                                 value={item.salaryPayRate}
-                                onChange={(e) => props.handlers.jobChange(e, index)}
+                                onChange= {props.handlers.jobChange}
+                                // onChange={(e) => props.handlers.jobChange(e, index)}
                             />
                         </div>
 
@@ -178,7 +187,8 @@ const Job = (props) => (
                                 name="paySchedule"
                                 className={index}
                                 value={item.paySchedule}
-                                onChange={(e) => props.handlers.jobChange(e, index)}
+                                onChange= {props.handlers.jobChange}
+                                // onChange={(e) => props.handlers.jobChange(e, index)}
                             />
                         </div>
 
@@ -189,14 +199,15 @@ const Job = (props) => (
                                 name="changeReason"
                                 className={index}
                                 value={item.changeReason}
-                                onChange={(e) => props.handlers.jobChange(e, index)}
+                                onChange= {props.handlers.jobChange}
+                                // onChange={(e) => props.handlers.jobChange(e, index)}
                                 placeholder="Promotion"
                             />
                         </div>
                         <FontAwesomeIcon
                         icon={faTrash}
                         // className="deleteJob"
-                        onClick={(event) => props.deleteAsset(event, index)}
+                        onClick={(event) => props.deleteComp(event, index)}
                         />
                     </div>
                 )}
