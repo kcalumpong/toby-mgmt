@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import API from "../utils/API";
 // import Title from "../components/Title";
 import Form from "../components/Form";
-// import "./Login.css";
+import "./Signup.css";
 
 class Signup extends Component {
   constructor (props) {
@@ -38,9 +38,11 @@ class Signup extends Component {
   render () {
     return (
       <Fragment>
-        {/* <Title>Login</Title> */}
+        <img class="logo" src="../images/Toby-Logo.png" alt="tobyLogo"></img>
         <Form inputHandler={this.handleInputChange} submitHandler={this.handleSubmit} />
         <Link to="/login" className="link-to-register">Already have an account ? Login here</Link>
+        <img class="toby2" src="../images/Frame2.png" alt="toby2"></img>
+        {/* <img class="toby3" src="../images/Vector.png" alt="background"></img> */}
       </Fragment>
     );
   }

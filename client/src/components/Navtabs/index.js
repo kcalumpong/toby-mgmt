@@ -38,11 +38,9 @@ const Navtabs = () => {
                     </li>
 
                     <li className="nav-item">
-                        {/* <Link to="/logout" className={window.location.pathname === "/logout" ? "nav-link active" : "nav-link"}>
-                            Log Out
-                        </Link> */}
-
-                        <button id="logout" onClick={handleLogout} className="btn">LOG OUT</button>
+                    <Link
+                       id="logout" onClick={handleLogout} className="nav-link">Log out
+                    </Link>
 
 
                    
