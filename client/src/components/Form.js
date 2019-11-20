@@ -1,19 +1,22 @@
 import React from "react";
-// import "./Form.css";
+import "./Form.css";
 
 const Form = ({ inputHandler, submitHandler }) => (
   <form className="form" onSubmit={submitHandler}>
+    <div className="userInput">
     <div className="input-container">
-      <input id="username" type="text" name="username" onChange={inputHandler} required />
+      <input id="username" type="text" name="username" placeholder="Username" onChange={inputHandler} required />
       <span className="input-underline"></span>
-      <label htmlFor="username" className="input-label">Username</label>
+      {/* <label htmlFor="username" className="input-label">Username</label> */}
     </div>
     <div className="input-container">
-      <input id="password" type="password" name="password" onChange={inputHandler} required />
+      <input id="password" type="password" name="password" placeholder="Password" onChange={inputHandler} required />
       <span className="input-underline"></span>
-      <label htmlFor="password" className="input-label">Password</label>
+      {/* <label htmlFor="password" className="input-label"></label> */}
+      </div>
     </div>
-    <button className="btn">SUBMIT</button>
+
+    <button className="btn">Submit</button>
   </form>
 );
 
