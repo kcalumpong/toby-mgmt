@@ -79,6 +79,7 @@ class Home extends Component {
             <h4>Employee List</h4>
             <h5>Select any employee to begin</h5>
             <div className="individuals-container">
+
                 {this.state.employees.map(item => (
                     <Profile
                         id={item.id}
@@ -96,6 +97,7 @@ class Home extends Component {
                         img={item.img}
                     />
                 ))} */}
+
             </div>
         </div>
 )

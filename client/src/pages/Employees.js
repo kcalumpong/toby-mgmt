@@ -1,13 +1,19 @@
 import React, { Component, Fragment } from "react";
+import { Redirect } from 'react-router-dom';
 import ProfileNav from "../components/ProfileNav";
 import ProfileHeader from "../components/ProfileHeader";
 import ViewPane from '../components/ViewPane';
 import EmployeeSnippet from "../components/EmployeeSnippet";
 import Navtabs from "../components/Navtabs";
+
 import Profile from "../components/Profile";
+
+import API from "../utils/API";
 
 class Employees extends Component {
     state = {
+        loggedIn: false,
+        loading: true,
         currentSection: "personal",
         personal: {
             genderInput: "",
@@ -128,6 +134,7 @@ class Employees extends Component {
         console.log(this.state);
     }
 
+
     addAsset = (event) => {
         event.preventDefault();
         const updatedAssets = [...this.state.assets];
@@ -205,10 +212,16 @@ class Employees extends Component {
         event.preventDefault();
         const { id } = event.target;
         this.setState({ currentSection: id });
-        console.log("This state", this.state)
+        console.log("This state", this.state);
     }
 
     render() {
+        if (this.state.loading) {
+            return <div>Loading...</div>;
+          }
+          if (!this.state.loggedIn) {
+            return <Redirect to='/login' />
+          }
         return (
             <Fragment>
                 <Navtabs />
