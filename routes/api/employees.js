@@ -7,6 +7,7 @@ const path = require("path");
 const router = require("express").Router();
 const empController = require("../../controllers/empController");
 const docController = require("../../controllers/docController");
+const authController = require("../../controllers/authController");
 
 const s3 = new AWS.S3({
     params: {
@@ -38,11 +39,11 @@ router.post("/upload", getFiles, function(req, res, next) {
           console.error(err)
       }
       let params = {
-          Key: req.files.file.name,
+          Key: `${req.user.username}/${req.files.file.name}`,
           Body: file,
           ACL: "public-read",
       }
-      
+      console.log(req.user.username);
       const upload = s3.putObject(params).promise()
       upload.then(() => res.sendStatus(200)).catch(err => {console.error("S3", err); res.sendStatus(500)})
   });
