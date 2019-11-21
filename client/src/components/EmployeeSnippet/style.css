@@ -1,3 +1,11 @@
 .employee-snippet p {
     font-size: 12px;
+    line-height: 7px;
+    color: rgb(0, 0, 0);
 }
+
+.employee-snippet h4 {
+    color: #5C75C3;
+    
+}
+

@@ -1,15 +1,15 @@
 import React from "react"
 import { Link } from "react-router-dom";
-import cookie from "react-cookies";
+// import cookie from "react-cookies";
 import API from "../../utils/API";
 import "./style.css";
 
 const Navtabs = () => {
-    const handleLogout = () => {
+    const handleLogout = e => {
+        e.preventDefault();
         API.logout()
             .then(r => {
                 if (r.status === 200) {
-                    cookie.remove('connect.sid');
                     return r;
                 } else {
                     throw new Error('Failed to logout');
@@ -22,7 +22,7 @@ const Navtabs = () => {
         <nav>
             <ul className="nav-list">
                 <div className="nav-img-container">
-                    <img className="placeholder-logo" alt= "placeholder" src="./images/placeholder-logo.jpeg"></img>
+                    <img className="toby-logo" alt= "logo" src="./images/tobyLogo.png"></img>
                 </div>
                 <div className="nav-link-container">
                     <li className="nav-item">
@@ -38,15 +38,9 @@ const Navtabs = () => {
                     </li>
 
                     <li className="nav-item">
-                        {/* <Link to="/logout" className={window.location.pathname === "/logout" ? "nav-link active" : "nav-link"}>
-                            Log Out
-                        </Link> */}
-
-                        <button id="logout" onClick={handleLogout} className="btn">LOG OUT</button>
-
-
-                   
-                        
+                        <a
+                        id="logout" href="#logout" onClick={handleLogout} className="nav-link">Log out
+                        </a>
                     </li>
                 </div>
             </ul>

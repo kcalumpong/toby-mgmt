@@ -14,7 +14,7 @@ export default {
       body: JSON.stringify({ username, password })
     }),
   logout: () => fetch("/api/auth/", { method: 'DELETE' }),
-  validateCookie: (sid = "s:0") => fetch(`/api/auth/session/${encodeURIComponent(sid)}`),
+  checkAuth: () => fetch('/api/auth/session/'),
 
 
   // Gets all Employees
