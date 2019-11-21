@@ -6,6 +6,7 @@ import ViewPane from '../components/ViewPane';
 import EmployeeSnippet from "../components/EmployeeSnippet";
 import Navtabs from "../components/Navtabs";
 import Profile from "../components/Profile";
+import Save from "../components/Save";
 import API from "../utils/API";
 
 class Employees extends Component {
@@ -21,14 +22,14 @@ class Employees extends Component {
             month: "",
             day: "",
             year: "",
+            workEmail: "",
+            personalEmail: "",
+            phoneNumber: "",
             streetAddress: "",
             city: "",
             state: "",
             zipcode: "",
             countryCode: "",
-            phoneNumber: "",
-            personalEmail: "",
-            workEmail: "",
             ssOne: "",
             ssTwo: "",
             ssThree: "",
@@ -43,22 +44,21 @@ class Employees extends Component {
         },
         job: {
             employeeNumber: "",
-            hireDate: "",
             status: "Active",
+            hireDate: "",
         },
 
         jobInformation: [{
             employmentDate: "",
             department: "",
-            title: "",
             location: "",
+            title: "",
             reportsTo: "",
         }],
         compensation: [{
             compensationDate: "",
             hourlyPayRate: "",
             salaryPayRate: "",
-            payType: "",
             paySchedule: "",
             changeReason: ""
         }],
@@ -74,11 +74,16 @@ class Employees extends Component {
         ]
     }
 
-    handleSubmit = (event) => {
+    // handleSubmit = (event) => {
+    //     event.preventDefault();
+    //     const { id } = event.target;
+    //     this.setState({ currentSection: id });
+    //     console.log("This state", this.state);
+    // }
+
+    handleSaveButton = (event) => {
         event.preventDefault();
-        const { id } = event.target;
-        this.setState({ currentSection: id });
-        console.log("This state", this.state);
+        console.log("Save", this.state)
     }
 
     handleTabClick = (event) => {
@@ -156,9 +161,6 @@ class Employees extends Component {
 
     addJob = (event) => {
         event.preventDefault();
-
-        // if(event.target.className === "addNewJob" ) {
-        // console.log("add job")
         const updatedJob = [...this.state.jobInformation];
 
         updatedJob.push({
@@ -201,7 +203,6 @@ class Employees extends Component {
         event.preventDefault();
         const currentJob = [...this.state.jobInformation]
         const updatedJob = currentJob.filter((item, currentJobIndex) => index !== currentJobIndex);
-        // console.log(updatedJob)
         this.setState({ jobInformation: updatedJob })
     }
 
@@ -209,7 +210,6 @@ class Employees extends Component {
         event.preventDefault();
         const currentComp = [...this.state.compensation]
         const updatedComp = currentComp.filter((item, currentJobIndex) => index !== currentJobIndex);
-        // console.log(updatedJob)
         this.setState({ compensation: updatedComp })
     }
 
@@ -240,10 +240,7 @@ class Employees extends Component {
         return (
             <Fragment>
                 <Navtabs />
-                <ProfileHeader
-                    // name={this.state.personal.firstName + " " + this.state.personal.middleName + " " + this.state.personal.lastName}
-                    // title={this.state.job.jobInformation[0].title}
-                />
+                <ProfileHeader />
                 <ProfileNav
                     handleTabClick={this.handleTabClick} />
                 <ViewPane
@@ -261,7 +258,7 @@ class Employees extends Component {
                     handleAddJob={this.addJob}
                     handleAddComp={this.addComp}
                     handleAddAsset={this.addAsset}
-                />
+                    />
                 <EmployeeSnippet
                     status={this.state.job.status}
                     department={this.state.jobInformation[0].department}
@@ -269,12 +266,15 @@ class Employees extends Component {
                     title={this.state.jobInformation[0].title}
                     phoneNumber={this.state.personal.phoneNumber}
                     workEmail={this.state.personal.workEmail}
-                />
+                    />
                 <Profile
                     firstName={this.state.personal.firstName}
                     middleName={this.state.personal.middleName}
                     lastName={this.state.personal.lastName}
                     title={this.state.jobInformation[0].title}
+                    />
+                <Save 
+                    handleSaveButton={this.handleSaveButton}
                 />
             </Fragment>
         )
