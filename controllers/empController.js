@@ -13,7 +13,7 @@ module.exports = {
          .catch(err => { console.error(err); res.send(500) });
    },
 
-   findByUsername: (req, res) => {
+   getEmployee: (req, res) => {
       db.Employee.findAll({
          include: [{
             model: Document,
