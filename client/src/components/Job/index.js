@@ -2,6 +2,7 @@ import React from "react";
 import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons"
+import Save from "../Save";
 
 const Job = (props) => (
     <div className="job-page">
@@ -52,7 +53,6 @@ const Job = (props) => (
 
             </div>
 
-            <hr />
 
             {/* Beginning Add New */}
 
@@ -133,8 +133,6 @@ const Job = (props) => (
                 )}
             </div>
 
-            <hr/>
-
             {/* Compensation */}
 
             <div className="compensation">
@@ -213,6 +211,7 @@ const Job = (props) => (
                 )}
             </div>
             {/* End of Add New */}
+            <Save />
         </form>
     </div >
 )
