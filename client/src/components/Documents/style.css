@@ -1,12 +1,12 @@
-/* .drop-area {
-    border: 2px dashed #ccc;
-    border-radius: 20px;
-    width: 480px;
+.drop-area {
+    /* border: 1px dashed #ccc; */
+    /* border-radius: 20px; */
+    /* width: 480px; */
     font-family: sans-serif;
-    margin: 100px auto;
-    padding: 20px;
+    /* margin: 100px auto; */
+    /* padding: 20px; */
   }
-  .drop-area.highlight {
+  /* .drop-area.highlight {
     border-color: purple;
   }
   p {
@@ -39,4 +39,4 @@
     display: none;
   }
 
-  rgb(71, 165, 157) */
+  */

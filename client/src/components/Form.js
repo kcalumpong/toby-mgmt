@@ -16,7 +16,7 @@ const Form = ({ inputHandler, submitHandler }) => (
       </div>
     </div>
 
-    <button className="btn">Submit</button>
+    <button className="landing-btn">Submit</button>
   </form>
 );
 

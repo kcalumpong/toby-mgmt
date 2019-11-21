@@ -2,13 +2,13 @@ import React from "react";
 import "./style.css";
 
 const saveButton = () => {
-    console.log("Button Clicked")
+    alert("Button Clicked")
 }
 
 const Save = () => (
     
     <div>
-        {/* <button onClick={saveButton}>Save</button> */}
+        <button className="save-button" onClick={saveButton}>SAVE</button>
     </div>
 )
 

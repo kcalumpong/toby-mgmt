@@ -1,7 +1,5 @@
 nav {
-    height: 10%;
-    /* background-color: #D6F0FE; */
-    /* background-color: #CBCFFF; */
+    /* height: 33%; */
     background-color: #5C75C3;
 }
 
@@ -15,14 +13,13 @@ nav {
     display: inline-block;
 }
 
-
-
 .nav-link {
-    color: #CBCFFF;
+    color: rgb(236, 237, 250);
     align-items: right;
     transition: 0.2s;
     padding: 10px;
     font-size: 16px;
+    font-weight: 100;
 }
 
 a:hover {

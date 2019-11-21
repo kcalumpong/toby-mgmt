@@ -56,8 +56,8 @@ class Employees extends Component {
         }],
         compensation: [{
             compensationDate: "",
-            hourlyPayRate: 0,
-            salaryPayRate: 0,
+            hourlyPayRate: "",
+            salaryPayRate: "",
             payType: "",
             paySchedule: "",
             changeReason: ""
@@ -72,6 +72,13 @@ class Employees extends Component {
         documents: [
 
         ]
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        const { id } = event.target;
+        this.setState({ currentSection: id });
+        console.log("This state", this.state);
     }
 
     handleTabClick = (event) => {
@@ -206,13 +213,7 @@ class Employees extends Component {
         this.setState({ compensation: updatedComp })
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault();
-        const { id } = event.target;
-        this.setState({ currentSection: id });
-        console.log("This state", this.state);
-    }
-
+  
     componentDidMount() {
         this.checkAuth();
     }
@@ -240,8 +241,8 @@ class Employees extends Component {
             <Fragment>
                 <Navtabs />
                 <ProfileHeader
-                    name={this.state.personal.firstName + " " + this.state.personal.middleName + " " + this.state.personal.lastName}
-                // title={this.state.job.jobInformation[0].title}
+                    // name={this.state.personal.firstName + " " + this.state.personal.middleName + " " + this.state.personal.lastName}
+                    // title={this.state.job.jobInformation[0].title}
                 />
                 <ProfileNav
                     handleTabClick={this.handleTabClick} />
@@ -263,9 +264,7 @@ class Employees extends Component {
                 />
                 <EmployeeSnippet
                     status={this.state.job.status}
-                    // department={this.state.job.jobInformation[0].department}
                     department={this.state.jobInformation[0].department}
-                    // location={this.state.job.jobInformation[0].location}
                     location={this.state.jobInformation[0].location}
                     title={this.state.jobInformation[0].title}
                     phoneNumber={this.state.personal.phoneNumber}

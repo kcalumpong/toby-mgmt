@@ -2,6 +2,7 @@ import React from "react";
 import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons"
+import Save from "../Save";
 
 const Assets = (props) => (
 
@@ -9,9 +10,9 @@ const Assets = (props) => (
 
         <form className="asset-page-form">
             <legend>Assets and Licenses</legend>
-        <button className="addNewButton" onClick={props.handleAddAsset}>NEW ASSET</button>
+            <button className="addNewButton" onClick={props.handleAddAsset}>NEW ASSET</button>
 
-            {props.state.assets.map((item, index) => 
+            {props.state.assets.map((item, index) =>
                 <div className="asset-line">
 
                     <div className="category-input">
@@ -70,18 +71,19 @@ const Assets = (props) => (
                             value={item.dateReturned}
                             onChange={props.handlers.assetChange}
                         />
-                    </div> 
+                    </div>
 
                     <FontAwesomeIcon
                         icon={faTrash}
                         onClick={(event) => props.deleteAsset(event, index)}
-                        /><hr></hr>
+                    /><hr></hr>
 
-    
+
+                    <Save />
                 </div>
             )}
-           
-            
+
+
         </form>
     </div>
 )
