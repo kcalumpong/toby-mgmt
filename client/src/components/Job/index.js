@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons"
-import Save from "../Save";
+// import Save from "../Save";
 
 const Job = (props) => (
     <div className="job-page">
@@ -161,7 +161,6 @@ const Job = (props) => (
                                 name="hourlyPayRate"
                                 className={index}
                                 value={item.hourlyPayRate}
-                                // onChange={(e) => props.handlers.jobChange(e, index)}
                                 onChange= {props.handlers.jobChange}
                             />
                         </div>
@@ -174,8 +173,7 @@ const Job = (props) => (
                                 className={index}
                                 value={item.salaryPayRate}
                                 onChange= {props.handlers.jobChange}
-                                // onChange={(e) => props.handlers.jobChange(e, index)}
-                            />
+                        />
                         </div>
 
                         <div className="pay-schedule">
@@ -186,8 +184,7 @@ const Job = (props) => (
                                 className={index}
                                 value={item.paySchedule}
                                 onChange= {props.handlers.jobChange}
-                                // onChange={(e) => props.handlers.jobChange(e, index)}
-                            />
+                          />
                         </div>
 
                         <div className="change-reason">
@@ -198,20 +195,17 @@ const Job = (props) => (
                                 className={index}
                                 value={item.changeReason}
                                 onChange= {props.handlers.jobChange}
-                                // onChange={(e) => props.handlers.jobChange(e, index)}
                                 placeholder="Promotion"
                             />
                         </div>
                         <FontAwesomeIcon
                         icon={faTrash}
-                        // className="deleteJob"
                         onClick={(event) => props.deleteComp(event, index)}
                         />
                     </div>
                 )}
             </div>
-            {/* End of Add New */}
-            <Save />
+            {/* <Save /> */}
         </form>
     </div >
 )

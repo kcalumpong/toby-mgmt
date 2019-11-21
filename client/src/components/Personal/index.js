@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import Save from "../Save";
+// import Save from "../Save";
 
 // const handleSubmit = (event) => {
 //   event.preventDefault();
@@ -300,7 +300,7 @@ const Personal = (props) => (
             onChange={props.handlers.personalChange}
           />
 
-    <Save />
+    {/* <Save /> */}
     </form>
 
 

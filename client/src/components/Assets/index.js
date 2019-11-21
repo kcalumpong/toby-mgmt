@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons"
-import Save from "../Save";
+// import Save from "../Save";
 
 const Assets = (props) => (
 
@@ -79,7 +79,7 @@ const Assets = (props) => (
                     /><hr></hr>
 
 
-                    <Save />
+                    {/* <Save /> */}
                 </div>
             )}
 
