@@ -24,33 +24,57 @@ module.exports = {
          .catch(err => { console.error(err); res.send(500) });
    },
    createPersonal: (req, res) => {
+      console.warn(req.body);
+      const personal = req.body.personal;
+      const job = req.body.job;
+      const jobInfo = req.body.jobInformation[0];
+      const comp = req.body.compensation[0];
+      const assets = req.body.assets[0];
       db.Employee.create({
-         genderInput: req.body.genderInput,
-         firstName: req.body.firstName,
-         middleName: req.body.middleName,
-         lastName: req.body.lastName,
-         month: req.body.month,
-         day: req.body.day,
-         year: req.body.year,
-         workEmail: req.body.workEmail,
-         personalEmail: req.body.personalEmail,
-         phoneNumber: req.body.phoneNumber,
-         streetAddress: req.body.streetAddress,
-         city: req.body.city,
-         state: req.body.state,
-         zipcode: req.body.zipcode,
-         countryCode: req.body.countryCode,
-         ssOne: req.body.ssOne,
-         ssTwo: req.body.ssTwo,
-         ssThree: req.body.ssThree,
-         emergencyContactFirstNameOne: req.body.emergencyContactFirstNameOne,
-         emergencyContactLastNameOne: req.body.emergencyContactLastNameOne,
-         emergencyContactPhoneOneCountry: req.body.emergencyContactPhoneOneCountry,
-         emergencyContactPhoneOne: req.body.emergencyContactPhoneOne,
-         emergencyContactFirstNameTwo: req.body.emergencyContactFirstNameTwo,
-         emergencyContactLastNameTwo: req.body.emergencyContactLastNameTwo,
-         emergencyContactPhoneTwoCountry: req.body.emergencyContactPhoneTwoCountry,
-         emergencyContactPhoneTwo: req.body.emergencyContactPhoneTwo
+         genderInput: personal.genderInput,
+         firstName: personal.firstName,
+         middleName: personal.middleName,
+         lastName: personal.lastName,
+         month: personal.month,
+         day: personal.day,
+         year: personal.year,
+         workEmail: personal.workEmail,
+         personalEmail: personal.personalEmail,
+         phoneNumber: personal.phoneNumber,
+         streetAddress: personal.streetAddress,
+         city: personal.city,
+         state: personal.state,
+         zipcode: personal.zipcode,
+         countryCode: personal.countryCode,
+         ssOne: personal.ssOne,
+         ssTwo: personal.ssTwo,
+         ssThree: personal.ssThree,
+         emergencyContactFirstNameOne: personal.emergencyContactFirstNameOne,
+         emergencyContactLastNameOne: personal.emergencyContactLastNameOne,
+         emergencyContactPhoneOneCountry: personal.emergencyContactPhoneOneCountry,
+         emergencyContactPhoneOne: personal.emergencyContactPhoneOne,
+         emergencyContactFirstNameTwo: personal.emergencyContactFirstNameTwo,
+         emergencyContactLastNameTwo: personal.emergencyContactLastNameTwo,
+         emergencyContactPhoneTwoCountry: personal.emergencyContactPhoneTwoCountry,
+         emergencyContactPhoneTwo: personal.emergencyContactPhoneTwo,
+         employeeNumber: job.employeeNumber,
+         status: job.status,
+         hireDate: job.hireDate,
+         employmentDate: jobInfo.employmentDate,
+         department: jobInfo.department,
+         location: jobInfo.location,
+         title: jobInfo.title,
+         reportsTo: jobInfo.reportsTo,
+         compensationDate: comp.compensationDate,
+         hourlyPayRate: comp.hourlyPayRate,
+         salaryPayRate: comp.salaryPayRate,
+         paySchedule: comp.paySchedule,
+         changeReason: comp.changeReason,
+         category: assets.category,
+         description: assets.description,
+         notes: assets.notes,
+         dateAssigned: assets.dateAssigned,
+         dateReturned: assets.dateReturned
       })
          .then((dbEmployee) => res.json(dbEmployee))
          .catch(err => { console.error(err); res.send(500) });
@@ -59,7 +83,6 @@ module.exports = {
 
    createJob: (req, res) => {
       db.Employee.create({
-         username: req.body.username,
          employeeNumber: req.body.employeeNumber,
          status: req.body.status,
          hireDate: req.body.hireDate,
@@ -70,7 +93,6 @@ module.exports = {
   
    createJobInformation: (req, res) => {
       db.Employee.create({
-         username: req.body.username,
          employmentDate: req.body.employmentDate,
          department: req.body.department,
          location: req.body.location,
@@ -83,7 +105,6 @@ module.exports = {
 
    createCompensation: (req, res) => {
       db.Employee.create({
-         username: req.body.username,
          compensationDate: req.body.compensationDate,
          hourlyPayRate: req.body.hourlyPayRate,
          salaryPayRate: req.body.salaryPayRate,

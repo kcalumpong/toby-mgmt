@@ -84,6 +84,15 @@ class Employees extends Component {
     handleSaveButton = (event) => {
         event.preventDefault();
         console.log("Save", this.state)
+        API.savePersonal({
+            personal: this.state.personal,
+            job: this.state.job,
+            jobInformation: this.state.jobInformation,
+            compensation: this.state.compensation,
+            assets: this.state.assets
+        })
+        .then(res => this.props.history.push("/home"))
+        .catch(err => console.error(err));
     }
 
     handleTabClick = (event) => {

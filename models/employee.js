@@ -4,10 +4,10 @@ module.exports = (sequelize, DataTypes) =>{
     //GENDER
         genderInput: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 genderCheck(gender){
-                    if(gender = "MALE" || "FEMALE" || "OTHER"){
+                    if(gender = "Male" || "Female" || "Other"){
                         return gender
                     }
                     return console.error(error);
@@ -15,19 +15,10 @@ module.exports = (sequelize, DataTypes) =>{
                 }
             }
         },
-    //USERNAME
-        username: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                isUnique: true,
-                is: /^[a-zA-Z0-9]+$/i
-            }
-        },
     //NAME
         firstName: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1, 40]
             }
@@ -35,13 +26,13 @@ module.exports = (sequelize, DataTypes) =>{
         middleName: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [1, 40]
-            }
+            // validate: {
+            //     len: [1, 40]
+            // }
         },
         lastName: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1, 40]
             }
@@ -49,7 +40,7 @@ module.exports = (sequelize, DataTypes) =>{
     //BIRTHDAY
         month: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 is: /^[a-zA-Z]+$/i,
                 len: [3, 4]
@@ -57,7 +48,7 @@ module.exports = (sequelize, DataTypes) =>{
         },
         day: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 isNumeric: true,
                 is: /^[0-9]+$/i,
@@ -66,7 +57,7 @@ module.exports = (sequelize, DataTypes) =>{
         },
         year: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 isNumeric: true,
                 is: /^[0-9]+$/i,
@@ -76,7 +67,7 @@ module.exports = (sequelize, DataTypes) =>{
     //EMAIL
         workEmail: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1, 140],
                 isEmail: true
@@ -84,7 +75,7 @@ module.exports = (sequelize, DataTypes) =>{
         },
         personalEmail: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1, 140],
                 isEmail: true
@@ -92,23 +83,23 @@ module.exports = (sequelize, DataTypes) =>{
         },
     //PHONE
         phoneNumber: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
+            type: DataTypes.STRING,
+            allowNull: true,
             validate: {
-                len: [10]
+                len: [12]
             }  
         },
     //ADDRESS
         streetAddress: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 is: /^[a-zA-Z0-9 ]+$/i
             }
         },
         city: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1, 140],
                 is: /^[a-zA-Z ]+$/i
@@ -116,7 +107,7 @@ module.exports = (sequelize, DataTypes) =>{
         },
         state: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [2],
                 is: /^[A-Z]+$/i
@@ -124,196 +115,210 @@ module.exports = (sequelize, DataTypes) =>{
         },
         zipcode: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [5],
                 isNumeric: true
             }
         },
+        countryCode: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            validate: {
+                len: [1, 5]
+            }
+        },
     //SS#
         ssOne: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
             validate: {
-                len: [9],
+                len: [3],
                 isNumeric: true
             }
         },
         ssTwo: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
             validate: {
-                len: [9],
+                len: [2],
                 isNumeric: true
             }
         },
         ssThree: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
             validate: {
-                len: [9],
+                len: [4],
                 isNumeric: true
             }
         },
     //EMERGENCY CONTACTS
     emergencyContactFirstNameOne: {
             type: DataTypes.STRING,
-            allowNull: true
+            allowNull: true,
+            validate: {
+                len: [1, 40]
+            }
         },
         emergencyContactLastNameOne: {
             type: DataTypes.STRING,
-            allowNull: true
+            allowNull: true,
+            validate: {
+                len: [1, 40]
+            }
         },
         emergencyContactPhoneOneCountry: {
-            type: DataTypes.INTEGER,
-            allowNull: true
+            type: DataTypes.STRING,
+            allowNull: true,
+            validate: {
+                len: [1, 5]
+            }
         },
         emergencyContactPhoneOne: {
-            type: DataTypes.INTEGER,
-            allowNull: true
+            type: DataTypes.STRING,
+            allowNull: true,
+            validate: {
+                len: [12]
+            }
         },
         emergencyContactFirstNameTwo: {
             type: DataTypes.STRING,
-            allowNull: true
+            allowNull: true,
+            validate: {
+                len: [1, 40]
+            }
         },
         emergencyContactLastNameTwo: {
             type: DataTypes.STRING,
-            allowNull: true
+            allowNull: true,
+            validate: {
+                len: [1, 40]
+            }
         },
         emergencyContactPhoneTwoCountry: {
-            type: DataTypes.INTEGER,
-            allowNull: true
+            type: DataTypes.STRING,
+            allowNull: true,
+            validate: {
+                len: [1, 5]
+            }
         },
         emergencyContactPhoneTwo: {
-            type: DataTypes.INTEGER,
-            allowNull: true
+            type: DataTypes.STRING,
+            allowNull: true,
+            validate: {
+                len: [12]
+            }
         },
 
     // "JOB"
     //EMP #
     employeeNumber: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            // references: {
-            //     model: "Document",
-            //     key: "id"
-            // },
-            validate: {
-                isNumeric: true,
-                isUnique: true
-            }
+            type: DataTypes.STRING,
+            allowNull: true,
+            // validate: {
+            //     isNumeric: true,
+            //     isUnique: true
+            // }
         },
         status: {
             type: DataTypes.STRING,
             default: "Active",
-            validate: {
-                equals: "Active"
-            }
+            // validate: {
+            //     equals: "Active"
+            // }
         },
         hireDate: {
             type: DataTypes.DATEONLY,
-            allowNull:false,
-            validate: {
-                isDate: true
-            }
+            allowNull:true,
+            // validate: {
+            //     isDate: true
+            // }
         },
         employmentDate: {
-            type: DataTypes.STRING,
-            allowNull: false
+            type: DataTypes.DATEONLY,
+            allowNull: true,
+            // validate: {
+            //     isDate: true
+            // }
         },
         department: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true
         },
         location: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         title: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         reportsTo: {
             type: DataTypes.STRING,
-            allowNull: false, // SET RELATIONSHIP FOR THIS 
-            // references: {
-            //     model: "User",
-            //     key: "id"
-            // }
+            allowNull: true, // SET RELATIONSHIP FOR THIS 
         },
         compensationDate: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                isDate: true,
-            }
+            allowNull: true,
+            // validate: {
+            //     isDate: true,
+            // }
         },
         hourlyPayRate: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                isDecimal: true
-            }
+            // validate: {
+            //     isNumeric: true
+            // }
         },
         salaryPayRate: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                isNumeric: true
-            }
+            // validate: {
+            //     isNumeric: true
+            // }
         },
         paySchedule: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                frequency() {
-                    if(hourlyRate !== null && hourlyRate < 0){
-                        payCycle.type = "Bi-weekly"
-                    } else if (salary !== null && salary < 0){
-                        payCycle.type = "Salary"
-                    } else {
-                        return null
-                    }
-
-                }
-            }
+            allowNull: true,
         },
         changeReason: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [1, 150]
-            }
+            // validate: {
+            //     len: [1, 150]
+            // }
         },
     // "ASSETS"
         category: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         description: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1, 150]
-            }
+            allowNull: true,
+            // validate: {
+            //     len: [1, 150]
+            // }
         },
         notes: {
             type: DataTypes.STRING,
             allowNull: true
         },
         dateAssigned: {
-            type: DataTypes.DATEONLY,
-            allowNull: false,
-            validate: {
-                isDate: true
-            }
+            type: DataTypes.STRING,
+            allowNull: true,
+            // validate: {
+            //     isDate: true
+            // }
         },
         dateReturned: {
-            type: DataTypes.DATEONLY,
+            type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                isDate: true
-            }
+            // validate: {
+            //     isDate: true
+            // }
         }
         
     });
