@@ -33,9 +33,18 @@ export default {
   },
 
   // Saves Employee Personal Info to the database
-  savePersonal: function (employeeData) {
-    return axios.post("/api/employees/create-personal", employeeData);
-  },
+  // savePersonal: function (employeeData) {
+  //   console.log("yesssssss", employeeData)
+  //   return axios.post("/api/employees/create-personal/", employeeData);
+  // },
+
+
+  savePersonal: (employeeData) =>
+  fetch("/api/employees/create-personal", {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(employeeData)
+  },console.log(employeeData)),
 
   // Save Employee Job Info to the database
   saveJob: function (employeeData) {

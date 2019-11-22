@@ -32,7 +32,7 @@ class Home extends Component {
                 }
             )))
             .then(data => this.setState({ employees: data }))
-            .catch(err => console.err(err))
+            .catch(err => console.log(err))
     }
 
     checkAuth() {
