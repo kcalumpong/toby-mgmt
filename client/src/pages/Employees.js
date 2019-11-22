@@ -69,9 +69,7 @@ class Employees extends Component {
             dateAssigned: "",
             dateReturned: ""
         },],
-        documents: [
-
-        ]
+        documents: []
     }
 
     // handleSubmit = (event) => {
@@ -190,6 +188,13 @@ class Employees extends Component {
         this.setState({ compensation: updatedComp });
     }
 
+    updateDocuments = (document) => {
+        this.setState(prevState => ({
+            ...prevState,
+            documents: [...prevState.documents, document]
+        }))
+    }
+
     deleteAsset = (event, index) => {
         event.preventDefault();
         if (index !== 0) {
@@ -263,6 +268,8 @@ class Employees extends Component {
                     handleAddJob={this.addJob}
                     handleAddComp={this.addComp}
                     handleAddAsset={this.addAsset}
+                    documents={this.state.documents}
+                    updateDocuments={this.updateDocuments}
                 />
                 <EmployeeSnippet
                     status={this.state.job.status}

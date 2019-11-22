@@ -1,27 +1,27 @@
 import React from "react";
 import "./style.css";
 
-const Doc = ({ doc }) => {
+const Image = ({ image }) => {
     return (
         <div className="file-item">
-            <a href={doc.src}>
-                <img alt={`doc - ${doc.id}`} src="../images/docImg.jpg" className="file-img" />
+            <a href={image.src}>
+                <img alt={`image - ${image.id}`} src="../images/docImg.jpg" className="file-img" />
             </a>
-            <p>{doc.name}</p>
+            <p>{image.name}</p>
         </div>
     );
 }
 
-const DocList = ({ docs }) => {
-    const renderDoc = (doc, index) => {
+const ProfilePic = ({ images }) => {
+    const renderImage = (image, index) => {
         return (
-            <Doc
-                doc={doc}
-                key={`${doc.id}-doc`}
+            <Image
+                image={image}
+                key={`${image.id}-doc`}
             />
         );
     }
-    return <section className="file-list">{docs.map(renderDoc)}</section>;
+    return <section className="file-list">{images.map(renderImage)}</section>;
 }
 
-export default DocList;
+export default ProfilePic;

@@ -77,11 +77,9 @@ export default {
 
     file.append("file", acceptedFiles[0]);
 
-    fetch("/api/employees/upload", {
+    return fetch("/api/employees/upload", {
       method: "POST",
       body: file
-    })
-      .then(res => console.log(res))
-      .catch(err => console.log(err))
+    }).then(r => r.json())
   }
 };

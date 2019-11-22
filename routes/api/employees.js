@@ -8,14 +8,15 @@ const router = require("express").Router();
 const empController = require("../../controllers/empController");
 const docController = require("../../controllers/docController");
 const authController = require("../../controllers/authController");
+const auth = require("../../utils/auth");
+
+AWS.config.region = process.env.AWS_REGION;
 
 const s3 = new AWS.S3({
     params: {
         Bucket: process.env.S3_BUCKET,
-        accessKeyId: process.env.AWS_ACCESS_KEY,
-        secretAccessKey: process.env.AWS_SECRET_KEY,
-        Region: process.env.AWS_REGION
-    }
+    },
+    signatureVersion: "v4"
 });
 
 // MIDDLEWARE
@@ -32,8 +33,8 @@ const getFiles = (req, res, next) => {
 };
 
 // Matches with "/api/employees/upload"
-router.post("/upload", getFiles, function(req, res, next) {
-  console.info(req.files.file, req.files.file.name)
+router.post("/upload", auth.isLoggedIn, getFiles, function(req, res, next) {
+  // console.info(req.files.file, req.files.file.name)
   fs.readFile(req.files.file.path, (err, file) => {
       if (err) {
           console.error(err)
@@ -43,9 +44,12 @@ router.post("/upload", getFiles, function(req, res, next) {
           Body: file,
           ACL: "public-read",
       }
-      console.log(req.user.username);
-      const upload = s3.putObject(params).promise()
-      upload.then(() => res.sendStatus(200)).catch(err => {console.error("S3", err); res.sendStatus(500)})
+      const upload = s3.putObject(params).promise();
+      upload.then((r) => {
+        console.info(r);
+        const signedUrl = s3.getSignedUrlPromise('getObject', {Key: `${req.user.username}/${req.files.file.name}`});
+        signedUrl.then((url) => res.json({ url })).catch(err => {console.error("url", err); res.sendStatus(500)})
+      }).catch(err => {console.error("S3", err); res.sendStatus(500)})
   });
 });
 

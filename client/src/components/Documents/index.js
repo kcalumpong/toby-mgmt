@@ -7,35 +7,35 @@ import DocList from "../DocList";
 import API from "../../utils/API";
 // import Save from "../Save";
 
-function Document() {
-
-  const [docs, setDocs] = useState([]);
-
+function Document(props) {
+  
   const onDrop = useCallback(acceptedFiles => {
     
     console.log(acceptedFiles);
 
-    API.uploadFile(acceptedFiles)
+    API.uploadFile(acceptedFiles).then(r => {
+      props.updateDocuments({ id: cuid(), src: r.url, name: acceptedFiles[0].name});
+    }).catch(err => console.error(err))
 
-    acceptedFiles.map(file => {
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        setDocs(prevState => [
-          ...prevState,
-          { id: cuid(), src: e.target.result, name: file.name}
-        ]);
-      }
-      reader.readAsDataURL(file);
-      console.log(file);
-      return file;
-    });
+    // acceptedFiles.map(file => {
+    //   const reader = new FileReader();
+    //   reader.onload = function (e) {
+    //     setDocs(prevState => [
+    //       ...prevState,
+    //       { id: cuid(), src: e.target.result, name: file.name}
+    //     ]);
+    //   }
+    //   reader.readAsDataURL(file);
+    //   console.log(file);
+    //   return file;
+    // });
   }, []);
 
   return (
     <main className="drop-area">
       <legend>Employee Documents</legend>
       <Dropzone onDrop={onDrop} accept={"application/pdf"} />
-      <DocList docs={docs} />
+      <DocList docs={props.documents} />
       {/* <Save /> */}
     </main>
   );
