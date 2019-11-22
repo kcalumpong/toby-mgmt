@@ -4,10 +4,7 @@ import "./style.css";
 const Image = ({ image }) => {
     return (
         <div className="file-item">
-            <a href={image.src}>
-                <img alt={`image - ${image.id}`} src="../images/docImg.jpg" className="file-img" />
-            </a>
-            <p>{image.name}</p>
+            <img alt={`image - ${image.id}`} src={image.src} className="file-img" />
         </div>
     );
 }
@@ -17,7 +14,7 @@ const ProfilePic = ({ images }) => {
         return (
             <Image
                 image={image}
-                key={`${image.id}-doc`}
+                key={`${image.id}-image`}
             />
         );
     }
