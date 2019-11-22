@@ -41,6 +41,7 @@
     top: 462px;
     left: 230px;
     z-index: 2; 
+    width: 20%;
 } 
 .link-to-register:hover {
     color: #7ab6f6;

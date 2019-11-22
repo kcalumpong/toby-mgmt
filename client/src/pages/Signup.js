@@ -41,7 +41,7 @@ class Signup extends Component {
       <div className="container3">
         <img class="logo1" src="../images/Toby-Logo.png" alt="tobyLogo"></img>
         <div className="signupTitle">Create a new account</div>
-        <Form inputHandler={this.handleInputChange} submitHandler={this.handleSubmit} />
+        <Form className="signup-input" inputHandler={this.handleInputChange} submitHandler={this.handleSubmit} />
         <Link to="/login" className="link-to-login">Already have an account ? Login here</Link>
         <img class="toby2" src="../images/Frame2.png" alt="toby2"></img>
         <img class="vector" src="../images/vector.png" alt="background"></img>
