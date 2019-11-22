@@ -5,7 +5,7 @@ import ProfilePic from "../ProfilePic";
 import API from "../../utils/API";
 import "./style.css";
 
-function ProfileHeader() {
+function ProfileHeader(props) {
 
   const [images, setDocs] = useState([]);
 

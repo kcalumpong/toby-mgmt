@@ -69,7 +69,8 @@ class Employees extends Component {
             dateAssigned: "",
             dateReturned: ""
         },],
-        documents: []
+        documents: [],
+        images: []
     }
 
     // handleSubmit = (event) => {
@@ -167,7 +168,6 @@ class Employees extends Component {
             location: "",
             reportsTo: "",
         })
-
         this.setState({ jobInformation: updatedJob });
     }
 
@@ -184,7 +184,6 @@ class Employees extends Component {
             paySchedule: "",
             changeReason: ""
         })
-
         this.setState({ compensation: updatedComp });
     }
 
@@ -192,7 +191,14 @@ class Employees extends Component {
         this.setState(prevState => ({
             ...prevState,
             documents: [...prevState.documents, document]
-        }))
+        }));
+    }
+
+    updateImages = (image) => {
+        this.setState(prevState => ({
+            ...prevState,
+            images: [...prevState.images, image]
+        }));
     }
 
     deleteAsset = (event, index) => {
@@ -222,7 +228,6 @@ class Employees extends Component {
             this.setState({ compensation: updatedComp });
         }
     }
-
 
     componentDidMount() {
         this.checkAuth();

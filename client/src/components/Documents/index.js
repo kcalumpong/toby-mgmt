@@ -1,20 +1,20 @@
 import React, { useCallback, useState } from "react";
-// import { CloudDirectory } from "aws-sdk";
 import cuid from "cuid";
-import "./style.css";
 import Dropzone from "../Dropzone";
 import DocList from "../DocList";
 import API from "../../utils/API";
+import "./style.css";
+// import { CloudDirectory } from "aws-sdk";
 // import Save from "../Save";
 
 function Document(props) {
-  
+
   const onDrop = useCallback(acceptedFiles => {
-    
+
     console.log(acceptedFiles);
 
     API.uploadFile(acceptedFiles).then(r => {
-      props.updateDocuments({ id: cuid(), src: r.url, name: acceptedFiles[0].name});
+      props.updateDocuments({ id: cuid(), src: r.url, name: acceptedFiles[0].name });
     }).catch(err => console.error(err))
 
     // acceptedFiles.map(file => {
