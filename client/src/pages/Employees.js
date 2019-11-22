@@ -144,7 +144,6 @@ class Employees extends Component {
         console.log(this.state);
     }
 
-
     addAsset = (event) => {
         event.preventDefault();
         const updatedAssets = [...this.state.assets];
@@ -193,27 +192,33 @@ class Employees extends Component {
 
     deleteAsset = (event, index) => {
         event.preventDefault();
-        const currentAssets = [...this.state.assets];
-        const updatedAssets = currentAssets.filter((item, currentAssetsIndex) => index !== currentAssetsIndex);
-        console.log(updatedAssets);
-        this.setState({ assets: updatedAssets })
+        if (index !== 0) {
+            const currentAssets = [...this.state.assets];
+            const updatedAssets = currentAssets.filter((item, currentAssetsIndex) => index !== currentAssetsIndex);
+            console.log(updatedAssets);
+            this.setState({ assets: updatedAssets });
+        }
     }
 
     deleteJob = (event, index) => {
         event.preventDefault();
-        const currentJob = [...this.state.jobInformation]
-        const updatedJob = currentJob.filter((item, currentJobIndex) => index !== currentJobIndex);
-        this.setState({ jobInformation: updatedJob })
+        if (index !== 0) {
+            const currentJob = [...this.state.jobInformation]
+            const updatedJob = currentJob.filter((item, currentJobIndex) => index !== currentJobIndex);
+            this.setState({ jobInformation: updatedJob });
+        }
     }
 
     deleteComp = (event, index) => {
         event.preventDefault();
-        const currentComp = [...this.state.compensation]
-        const updatedComp = currentComp.filter((item, currentJobIndex) => index !== currentJobIndex);
-        this.setState({ compensation: updatedComp })
+        if (index !== 0) {
+            const currentComp = [...this.state.compensation]
+            const updatedComp = currentComp.filter((item, currentJobIndex) => index !== currentJobIndex);
+            this.setState({ compensation: updatedComp });
+        }
     }
 
-  
+
     componentDidMount() {
         this.checkAuth();
     }
@@ -227,16 +232,16 @@ class Employees extends Component {
                     this.setState({ loading: false });
                 }
             })
-            .catch(() => this.setState({ loading: false }))
+            .catch(() => this.setState({ loading: false }));
     }
 
     render() {
         if (this.state.loading) {
             return <div>Loading...</div>;
-          }
-          if (!this.state.loggedIn) {
+        }
+        if (!this.state.loggedIn) {
             return <Redirect to='/login' />
-          }
+        }
         return (
             <Fragment>
                 <Navtabs />
@@ -258,7 +263,7 @@ class Employees extends Component {
                     handleAddJob={this.addJob}
                     handleAddComp={this.addComp}
                     handleAddAsset={this.addAsset}
-                    />
+                />
                 <EmployeeSnippet
                     status={this.state.job.status}
                     department={this.state.jobInformation[0].department}
@@ -266,14 +271,14 @@ class Employees extends Component {
                     title={this.state.jobInformation[0].title}
                     phoneNumber={this.state.personal.phoneNumber}
                     workEmail={this.state.personal.workEmail}
-                    />
+                />
                 <Profile
                     firstName={this.state.personal.firstName}
                     middleName={this.state.personal.middleName}
                     lastName={this.state.personal.lastName}
                     title={this.state.jobInformation[0].title}
-                    />
-                <Save 
+                />
+                <Save
                     handleSaveButton={this.handleSaveButton}
                 />
             </Fragment>
