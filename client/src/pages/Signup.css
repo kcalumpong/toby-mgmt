@@ -12,7 +12,8 @@
     top: 40px;
     position: relative;
     z-index: 1;
-    width: 33%;
+    width: 33%; 
+    width: 700px; 
     height: 330px;
     background-color: white;
     border-radius: 6px;
@@ -36,6 +37,7 @@
     margin-left: 80px;
     top: 462px;
     left: 194px;
+    width: 20%;
     z-index: 2; 
 } 
 
@@ -58,9 +60,11 @@
     left: 166px;
     position: relative;
     z-index: 2;
+    /* width: 25%; */
 }
 .input-container {
     border-radius: 0.7px gray;
+    width: 30%;
 }
 .vector {
     z-index: -1;
@@ -76,8 +80,26 @@
     width: 250px;
     height: 30px;
 }
+
 #password {
     border: 0.6px solid lightgray;
     width: 250px;
     height: 30px;
+}
+
+
+@media (max-width: 800px) and (min-width: 600px) {
+    .signupTitle{
+        width:20%;
+    }
+
+    /* .toby2 {
+        width: 26%;
+        height: 50%;
+    } */
+
+
+    .input-container {
+        width: 16%;
+    }
 }
