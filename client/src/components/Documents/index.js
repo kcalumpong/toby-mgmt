@@ -5,6 +5,7 @@ import "./style.css";
 import Dropzone from "../Dropzone";
 import DocList from "../DocList";
 import API from "../../utils/API";
+// import Save from "../Save";
 
 function Document() {
 
@@ -32,9 +33,10 @@ function Document() {
 
   return (
     <main className="drop-area">
-      <h1 className="text-center">Employee Documents</h1>
+      <legend>Employee Documents</legend>
       <Dropzone onDrop={onDrop} accept={"application/pdf"} />
       <DocList docs={docs} />
+      {/* <Save /> */}
     </main>
   );
 }

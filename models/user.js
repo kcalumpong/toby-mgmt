@@ -9,11 +9,13 @@ module.exports = function(sequelize, DataTypes) {
       // salt: DataTypes.CHAR(10)
     });
   
-    // User.associate = function(models) {
-    //   User.hasMany(models.Employee, {
-    //     onDelete: "cascade"
-    //   });
-    // };
+    User.associate = function(models) {
+      User.belongsToMany(models.Employee, {
+        onDelete: "cascade",
+        through: "Manager",
+        foreignKey: "ManagerId"
+      });
+    };
   
     return User;
   };

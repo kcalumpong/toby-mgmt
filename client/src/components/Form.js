@@ -17,6 +17,7 @@ const Form = ({ inputHandler, submitHandler }) => (
     </div>
 
     <button className="btn1">Submit</button>
+
   </form>
 );
 

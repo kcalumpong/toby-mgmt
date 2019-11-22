@@ -4,7 +4,7 @@ import Personal from "../Personal";
 import Job from "../Job";
 import Assets from "../Assets";
 import Documents from "../Documents";
-import Save from "../Save";
+// import Save from "../Save";
 
 const enumObj = {
     personal: Personal,
@@ -20,7 +20,7 @@ const renderView = (props) => {
 
 const ViewPane = (props) => (
     <Fragment>
-        <Save />
+        {/* <Save /> */}
         {renderView(props)}
     </Fragment>
 )

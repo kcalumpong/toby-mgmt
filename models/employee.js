@@ -74,7 +74,15 @@ module.exports = (sequelize, DataTypes) =>{
             }
         },
     //EMAIL
-        emailAddress: {
+        workEmail: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1, 140],
+                isEmail: true
+            }
+        },
+        personalEmail: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -123,7 +131,23 @@ module.exports = (sequelize, DataTypes) =>{
             }
         },
     //SS#
-        socialSecurity: {
+        ssOne: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            validate: {
+                len: [9],
+                isNumeric: true
+            }
+        },
+        ssTwo: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            validate: {
+                len: [9],
+                isNumeric: true
+            }
+        },
+        ssThree: {
             type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
@@ -132,16 +156,32 @@ module.exports = (sequelize, DataTypes) =>{
             }
         },
     //EMERGENCY CONTACTS
-    emergencyContactNameOne: {
+    emergencyContactFirstNameOne: {
             type: DataTypes.STRING,
+            allowNull: true
+        },
+        emergencyContactLastNameOne: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        emergencyContactPhoneOneCountry: {
+            type: DataTypes.INTEGER,
             allowNull: true
         },
         emergencyContactPhoneOne: {
             type: DataTypes.INTEGER,
             allowNull: true
         },
-        emergencyContactNameTwo: {
+        emergencyContactFirstNameTwo: {
             type: DataTypes.STRING,
+            allowNull: true
+        },
+        emergencyContactLastNameTwo: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        emergencyContactPhoneTwoCountry: {
+            type: DataTypes.INTEGER,
             allowNull: true
         },
         emergencyContactPhoneTwo: {
@@ -150,6 +190,7 @@ module.exports = (sequelize, DataTypes) =>{
         },
 
     // "JOB"
+    //EMP #
     employeeNumber: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -162,7 +203,6 @@ module.exports = (sequelize, DataTypes) =>{
                 isUnique: true
             }
         },
-    //EMP #
         status: {
             type: DataTypes.STRING,
             default: "Active",
@@ -222,10 +262,6 @@ module.exports = (sequelize, DataTypes) =>{
                 isNumeric: true
             }
         },
-        payType: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
         paySchedule: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -261,7 +297,7 @@ module.exports = (sequelize, DataTypes) =>{
                 len: [1, 150]
             }
         },
-        assets: {
+        notes: {
             type: DataTypes.STRING,
             allowNull: true
         },

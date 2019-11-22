@@ -1,14 +1,14 @@
 import React from "react";
 import "./style.css";
 
-const saveButton = () => {
-    console.log("Button Clicked")
-}
+// const saveButton = () => {
+//     alert("Button Clicked")
+// }
 
-const Save = () => (
+const Save = (props) => (
     
     <div>
-        {/* <button onClick={saveButton}>Save</button> */}
+        <button className="save-button" onClick={props.handleSaveButton}>SAVE</button>
     </div>
 )
 

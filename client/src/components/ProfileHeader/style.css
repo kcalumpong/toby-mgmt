@@ -28,12 +28,12 @@
 }
 
 .profile-pic {
-    width: 150px;
+    width: 200px;
     display: grid;
-    margin-top: 15px;
+    margin-top: 20px;
     position: relative;
     top: 5px;
-    left: 55px;
+    left: 30px;
 }
 
 

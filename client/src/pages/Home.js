@@ -26,8 +26,8 @@ class Home extends Component {
             .then(data => data.message.map(item => (
                 {
                     id: 1,
-                    name: "dog",
-                    title: "good boy",
+                    name: "Kristina Calumpong",
+                    title: "Front-End Developer",
                     img: item
                 }
             )))
@@ -74,9 +74,11 @@ class Home extends Component {
         return (
             <div className="home-cover">
                 <Navtabs />
-                <h3 className="greeting">Welcome to TOBY</h3>
-                <h4>Employee List</h4>
-                <h5>Select any employee to begin</h5>
+                <div className="greeting">
+                <h4>TOBY Management</h4>
+                <p>Select any employee to view their information.</p>
+                </div>
+                
                 <div className="individuals-container">
 
                     {this.state.employees.map(item => (
@@ -87,15 +89,6 @@ class Home extends Component {
                             img={item.img}
                         />
                     ))}
-                    {/* {this.state.employee.map(item => (
-                    <Profile
-                        key={`individuals-${item}`}
-                        id={item.id}
-                        name={item.name}
-                        title={item.title}
-                        img={item.img}
-                    />
-                ))} */}
 
                 </div>
             </div>
