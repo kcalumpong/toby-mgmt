@@ -1,41 +1,63 @@
- .subContainer {
-    /* max-width: 1100px; */
-    /* margin: auto; */
-    /* overflow: hidden; */
-    /* height: 100; */
-    border: 0.5px solid gray;
-    /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.07);
-    border-radius: 20px; */
+.container2 {
+    /* height: 100%; */
+    /* background-color: blue; */
+    /* border: 3px solid green; */
+}
+.container3 {
+    /* background-color: green; */
+    width: 75%;
+    height: 90%;
+    position: relative;
+    top: 100px;
+    left: 156px;
+    justify-content: center;
+}
 
-  }
-form {
+.formLogin {
+    top: 40px;
+    position: relative;
     z-index: 1;
+    width: 33%;
+    height: 330px;
+    background-color: white;
+    border-radius: 6px;
+    left: 75px;
+    /* border: 0.7px solid gray; */
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.07);
 }
 
 .toby1 {
     position: fixed;
-    width: 940px;
-    height: 720px;
-    left: 480px;
-    top: 30px;
+    width: 70%;
+    height: 95%;
+    left: 426px;
+    top: 48px;
     z-index: 0;
-
 }
 
-.link-to-register {
-    position: relative;
+ .link-to-register {
+    position: fixed;
     margin-left: 80px;
-    top: 445px;
-    left: 200px;
-}
-
-
-.logo {
-    margin-top: 120px;
-    margin-left: 310px;
-    width: 120px;
-}
-
-link {
+    top: 462px;
+    left: 230px;
     z-index: 2; 
+} 
+
+.logo1 {
+    position: fixed;
+    height: 5%;
+    left: 360px;
+    top: 120px;
+    width: 110px;
+}
+
+.loginTitle {
+    font-size: 17px;
+    top: 148px;
+    left: 166px;
+    position: relative;
+    z-index: 2;
+}
+.input-container {
+    border-radius: 0.7px gray;
 }

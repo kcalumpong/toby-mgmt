@@ -2,7 +2,7 @@ import React from "react";
 import "./Form.css";
 
 const Form = ({ inputHandler, submitHandler }) => (
-  <form className="form" onSubmit={submitHandler}>
+  <form className="formLogin" onSubmit={submitHandler}>
     <div className="userInput">
     <div className="input-container">
       <input id="username" type="text" name="username" placeholder="Username" onChange={inputHandler} required />
@@ -16,7 +16,7 @@ const Form = ({ inputHandler, submitHandler }) => (
       </div>
     </div>
 
-    <button className="btn">Submit</button>
+    <button className="btn1">Submit</button>
   </form>
 );
 

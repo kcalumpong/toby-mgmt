@@ -15,9 +15,6 @@ margin-left: 20px;
     position: absolute;
     margin-top: 120px;
     margin-left: 50px;
-    border-radius: 20px;
-   
-
 }
 
 .input-label {
@@ -32,11 +29,17 @@ margin-left: 20px;
     color: gray;
 }
 
-.btn {
+.btn1 {
     position: relative;
     margin-top: 230px;
-    margin-left: 37%;
-    background-color: #FA7071;
+    margin-left: 14%;
+    /* background-color: #FA7071; */
+    background-color: #7ab6f6;
+    width: 250px;
+    border-radius: 6px;
+    height: 35px;
+    color: white;
+   
 }
 
 #username {
