@@ -90,8 +90,8 @@ class Employees extends Component {
             compensation: this.state.compensation,
             assets: this.state.assets
         })
-        .then(res => this.props.history.push("/home"))
-        .catch(err => console.error(err));
+            .then(res => this.props.history.push("/home"))
+            .catch(err => console.error(err));
     }
 
     handleTabClick = (event) => {
@@ -264,9 +264,13 @@ class Employees extends Component {
         return (
             <Fragment>
                 <Navtabs />
-                <ProfileHeader />
+                <ProfileHeader
+                    images={this.state.images}
+                    updateImages={this.updateImages}
+                />
                 <ProfileNav
-                    handleTabClick={this.handleTabClick} />
+                    handleTabClick={this.handleTabClick}
+                />
                 <ViewPane
                     state={this.state}
                     currentSection={this.state.currentSection}
