@@ -17,16 +17,17 @@
     background-color: white;
     border-radius: 6px;
     left: 75px;
+    font-family: 'Poppins', sans-serif;
     /* border: 0.7px solid gray; */
     box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.07);
 }
 
 .toby2 {
     position: fixed;
-    width: 58%;
-    height: 88%;
-    left: 595px;
-    top: 45px;
+    width: 56%;
+    height: 90%;
+    left: 610px;
+    top: 35px;
     z-index: 0;
 
 }
@@ -38,12 +39,17 @@
     z-index: 2; 
 } 
 
+
+.link-to-login:hover {
+    color: #7ab6f6;
+}
+
 .logo1 {
     position: fixed;
     height: 5%;
     left: 360px;
     top: 120px;
-    width: 110px;
+    width: 140px;
 }
 
 .signupTitle {
@@ -64,4 +70,14 @@
     top: 7%;
     left: 434px;
     
+}
+#username {
+    border: 0.6px solid lightgray;
+    width: 250px;
+    height: 30px;
+}
+#password {
+    border: 0.6px solid lightgray;
+    width: 250px;
+    height: 30px;
 }

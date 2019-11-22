@@ -42,6 +42,9 @@
     left: 230px;
     z-index: 2; 
 } 
+.link-to-register:hover {
+    color: #7ab6f6;
+}
 
 .logo1 {
     position: fixed;
@@ -59,5 +62,17 @@
     z-index: 2;
 }
 .input-container {
-    border-radius: 0.7px gray;
+    /* border-radius: 1px gray; */
+    /* background-color: red; */
+}
+
+#username {
+    border: 0.6px solid lightgray;
+    width: 250px;
+    height: 30px;
+}
+#password {
+    border: 0.6px solid lightgray;
+    width: 250px;
+    height: 30px;
 }
