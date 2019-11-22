@@ -1,5 +1,4 @@
-// import React, { Component, Fragment } from "react";
-import React, { Component, Fragment } from "react";
+import React, { Component} from "react";
 import { Link } from "react-router-dom";
 import API from "../utils/API";
 // import Title from "../components/Title";
@@ -39,14 +38,18 @@ class Login extends Component {
   render() {
     return (
 
-      <Fragment>
-        <img class="logo" src="../images/Toby-Logo.png" alt="tobyLogo"></img>
+    <div className="container2">
+      <div className="container3">
+        <img className="logo1" src="../images/Toby-Logo.png" alt="tobyLogo"></img>
+
+        <div className="loginTitle">Login to your account</div>
         <Form inputHandler={this.handleInputChange} submitHandler={this.handleSubmit} />
+        
         <Link to="/signup" className="link-to-register">First time? Register here</Link>
-        <img class="toby1" src="../images/Frame.png" alt="toby1"></img>
+        <img className="toby1" src="../images/Frame.png" alt="toby1"></img>
 
-      </Fragment>
-
+      </div>
+</div>
     );
   }
 }

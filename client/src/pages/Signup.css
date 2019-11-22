@@ -1,23 +1,67 @@
-.toby2 {
-        position: fixed;
-        width: 800px;
-        height: 640px;
-        left: 560px;
-        top: 60px;
-        z-index: 0;
-
+.container3 {
+    /* background-color: green; */
+    width: 75%;
+    height: 90%;
+    position: relative;
+    top: 100px;
+    left: 156px;
+    justify-content: center;
 }
 
-/* .toby3 {
-    position: fixed;
-    top: 5px;
-    z-index: 0;
-    left: 900px;
-    height: 700px;
-    width: 900px;
-
-} */
-
-form {
+.formLogin {
+    top: 40px;
+    position: relative;
     z-index: 1;
+    width: 33%;
+    height: 330px;
+    background-color: white;
+    border-radius: 6px;
+    left: 75px;
+    /* border: 0.7px solid gray; */
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.07);
+}
+
+.toby2 {
+    position: fixed;
+    width: 58%;
+    height: 88%;
+    left: 595px;
+    top: 45px;
+    z-index: 0;
+
+}
+.link-to-login {
+    position: fixed;
+    margin-left: 80px;
+    top: 462px;
+    left: 194px;
+    z-index: 2; 
+} 
+
+.logo1 {
+    position: fixed;
+    height: 5%;
+    left: 360px;
+    top: 120px;
+    width: 110px;
+}
+
+.signupTitle {
+    font-size: 17px;
+    top: 148px;
+    left: 166px;
+    position: relative;
+    z-index: 2;
+}
+.input-container {
+    border-radius: 0.7px gray;
+}
+.vector {
+    z-index: -1;
+    position: fixed;
+    height: 680px;
+    width: 80%;
+    top: 7%;
+    left: 434px;
+    
 }
