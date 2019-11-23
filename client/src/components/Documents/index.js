@@ -1,15 +1,13 @@
-import React, { useCallback } from "react";
+import React from "react";
 import cuid from "cuid";
 import Dropzone from "../Dropzone";
 import DocList from "../DocList";
 import API from "../../utils/API";
 import "./style.css";
-// import { CloudDirectory } from "aws-sdk";
-// import Save from "../Save";
 
 function Document(props) {
 
-  const onDrop = useCallback(acceptedFiles => {
+  const onDrop = acceptedFiles => {
 
     console.log(acceptedFiles);
 
@@ -31,14 +29,13 @@ function Document(props) {
     //   console.log(file);
     //   return file;
     // });
-  }, []);
+  };
 
   return (
     <main className="drop-area">
       <legend>Employee Documents</legend>
       <Dropzone onDrop={onDrop} accept={"application/pdf"} />
       <DocList docs={props.documents} />
-
     </main>
   );
 }
