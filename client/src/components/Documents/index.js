@@ -38,7 +38,7 @@ function Document(props) {
       <legend>Employee Documents</legend>
       <Dropzone onDrop={onDrop} accept={"application/pdf"} />
       <DocList docs={props.documents} />
-      {/* <Save /> */}
+
     </main>
   );
 }

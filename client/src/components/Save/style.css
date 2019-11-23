@@ -1,9 +1,8 @@
 .save-button {
-    background-color: white;
-    margin-top: 15px;
-    width: 100px;
-    position: relative;
-    top: 101px;
-
+    background-color: #3D4166;
+    color: white;
+    margin-left: 31px;
+    margin-bottom: 15px;
+    width: 140px;
   }
   
