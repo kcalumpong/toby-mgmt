@@ -31,9 +31,10 @@ function ProfileHeader(props) {
 
   return (
     <main className="profile-header">
-      <Dropzone onDrop={onDrop} accept={"image/*"} />
-      <ProfilePic images={props.images} />
-      {/* <img className="profile-pic" alt="profile-pic" src="../images/kristina.jpeg"></img> */}
+      {props.images === null ?
+        <Dropzone onDrop={onDrop} accept={"image/*"} /> :
+        <ProfilePic images={props.images} />
+      }
     </main>
   );
 }

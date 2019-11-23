@@ -70,10 +70,14 @@ class Employees extends Component {
             dateAssigned: "",
             dateReturned: ""
         },],
-        documents: [],
-        images: []
+        documents: [{
+            id: "",
+            src: "",
+            name: ""
+        }],
+        images: null
     }
-  
+
 
     handleSaveButton = (event) => {
         event.preventDefault();
@@ -88,7 +92,7 @@ class Employees extends Component {
             .then(res => this.props.history.push("/home"))
             .catch(err => console.error(err));
     }
-    
+
 
     handleTabClick = (event) => {
         this.setState({ currentSection: event.target.id });
@@ -200,10 +204,7 @@ class Employees extends Component {
     }
 
     updateImages = (image) => {
-        this.setState(prevState => ({
-            ...prevState,
-            images: [...prevState.images, image]
-        }));
+        this.setState({ images: [image] });
     }
 
     deleteAsset = (event, index) => {
@@ -241,9 +242,9 @@ class Employees extends Component {
             headers: "Content-Type: application/json",
             body: JSON.stringify(this.props.currentEmployeeId)
         })
-        .then(res => res.json())
-        .then(data => this.setState({ ...data} ))
-        .catch(err => console.error(err))
+            .then(res => res.json())
+            .then(data => this.setState({ ...data }))
+            .catch(err => console.error(err))
     }
 
     checkAuth() {
@@ -301,7 +302,6 @@ class Employees extends Component {
                     phoneNumber={this.state.personal.phoneNumber}
                     workEmail={this.state.personal.workEmail}
                 />
-
                 <Save
                     handleSaveButton={this.handleSaveButton}
                 />
