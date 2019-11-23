@@ -40,7 +40,7 @@ class Signup extends Component {
           <Form className="signup-input" inputHandler={this.handleInputChange} submitHandler={this.handleSubmit} />
           <Link to="/login" className="link-to-login">Have an account? Login here</Link>
           <img class="toby2" src="../images/Frame2.png" alt="toby2"></img>
-          <img class="vector" src="../images/vector.png" alt="background"></img>
+          <img class="vector" src="../images/Vector.png" alt="background"></img>
         </div>
       </div>
     );
