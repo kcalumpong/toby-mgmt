@@ -70,10 +70,14 @@ class Employees extends Component {
             dateAssigned: "",
             dateReturned: ""
         },],
-        documents: [],
-        images: []
+        documents: [{
+            id: "",
+            src: "",
+            name: ""
+        }],
+        images: null
     }
-  
+
 
     handleSaveButton = (event) => {
         event.preventDefault();
@@ -88,7 +92,7 @@ class Employees extends Component {
             .then(res => this.props.history.push("/home"))
             .catch(err => console.error(err));
     }
-    
+
 
     handleTabClick = (event) => {
         this.setState({ currentSection: event.target.id });
@@ -200,10 +204,7 @@ class Employees extends Component {
     }
 
     updateImages = (image) => {
-        this.setState(prevState => ({
-            ...prevState,
-            images: [...prevState.images, image]
-        }));
+        this.setState({ images: [image] });
     }
 
     deleteAsset = (event, index) => {
@@ -242,6 +243,7 @@ class Employees extends Component {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({ id: this.props.currentEmployeeId })
         })
+
         .then(res => res.json())
         .then(res => console.log(res))
         // .then(data => this.setState({ ...data} ))
@@ -292,6 +294,7 @@ class Employees extends Component {
                     handleAddJob={this.addJob}
                     handleAddComp={this.addComp}
                     handleAddAsset={this.addAsset}
+                    handleSaveButton={this.handleSaveButton}
                     documents={this.state.documents}
                     updateDocuments={this.updateDocuments}
                 />
@@ -303,10 +306,9 @@ class Employees extends Component {
                     phoneNumber={this.state.personal.phoneNumber}
                     workEmail={this.state.personal.workEmail}
                 />
-
-                <Save
+                {/* <Save
                     handleSaveButton={this.handleSaveButton}
-                />
+                /> */}
             </Fragment>
         )
     }

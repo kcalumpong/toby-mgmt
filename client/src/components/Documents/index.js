@@ -15,7 +15,9 @@ function Document(props) {
 
     API.uploadFile(acceptedFiles).then(r => {
       props.updateDocuments({ id: cuid(), src: r.url, name: acceptedFiles[0].name });
-    }).catch(err => console.error(err))
+    })
+    .then(console.log(props.state.documents))
+    .catch(err => console.error(err))
 
     // acceptedFiles.map(file => {
     //   const reader = new FileReader();
@@ -36,7 +38,7 @@ function Document(props) {
       <legend>Employee Documents</legend>
       <Dropzone onDrop={onDrop} accept={"application/pdf"} />
       <DocList docs={props.documents} />
-      {/* <Save /> */}
+
     </main>
   );
 }

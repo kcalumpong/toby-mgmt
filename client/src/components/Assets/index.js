@@ -78,8 +78,6 @@ const Assets = (props) => (
                         onClick={(event) => props.deleteAsset(event, index)}
                     /><hr></hr>
 
-
-                    {/* <Save /> */}
                 </div>
             )}
 

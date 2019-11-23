@@ -4,7 +4,7 @@ import "./style.css";
 const Image = ({ image }) => {
     return (
         <div className="file-item">
-            <img alt={`image - ${image.id}`} src={image.src} className="file-img" />
+            <img alt={`image - ${image.id}`} src={image.src} className="profilePic" />
         </div>
     );
 }
