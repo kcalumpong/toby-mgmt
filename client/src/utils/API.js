@@ -28,7 +28,7 @@ export default {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify()
   }),
-  
+
   // Gets the Employee with the given id
   getEmployee: function (id) {
     return axios.get("/api/employees/" + id);
@@ -46,7 +46,7 @@ export default {
     headers: "Content-Type: application/json",
     body: JSON.stringify(this.state)
   })
-  .then(res => res.json(), console.log(res))
+  .then(res => res.json())
   .catch(err => console.log(err)),
 
   //Saving to DB from Employee.js
