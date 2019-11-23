@@ -18,7 +18,7 @@ const renderView = (props) => {
     return (
     <div>
          <ComponentName {...props} />
-        <Save />
+        <Save handleSaveButton={props.handleSaveButton}/>
     </div>
     )
 }
