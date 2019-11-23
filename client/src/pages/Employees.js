@@ -15,6 +15,7 @@ class Employees extends Component {
         loading: true,
         currentSection: "personal",
         personal: {
+            id: "",
             genderInput: "",
             firstName: "",
             middleName: "",
@@ -83,9 +84,15 @@ class Employees extends Component {
   
     componentDidMount() {
         this.checkAuth();
-        // fetch(`/api/`)
+        fetch("/employees", {
+            method: "POST",
+            headers: "Content-Type: application/json",
+            body: JSON.stringify(this.props.currentEmployeeId)
+        })
+        .then(res => res.json())
+        .then(data => this.setState({ ...data} ))
+        .catch(err => console.error(err))
     }
-
 
     handleSaveButton = (event) => {
         event.preventDefault();
