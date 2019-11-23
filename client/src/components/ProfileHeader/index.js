@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import cuid from "cuid";
 import Dropzone from "../Dropzone";
 import ProfilePic from "../ProfilePic";
@@ -7,7 +7,7 @@ import "./style.css";
 
 function ProfileHeader(props) {
 
-  const onDrop = useCallback(acceptedFiles => {
+  const onDrop = acceptedFiles => {
 
     console.log(acceptedFiles);
 
@@ -27,7 +27,7 @@ function ProfileHeader(props) {
     //   console.log(file);
     //   return file;
     // });
-  }, []);
+  };
 
   return (
     <main className="profile-header">
