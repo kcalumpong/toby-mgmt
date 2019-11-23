@@ -47,6 +47,10 @@ if(process.env.NODE_ENV === "test"){
   syncOptions.force = true;
 }   
 
+// app.post("/employees", (req, res) => {
+//   // console.log(req.json());
+//   res.status(100);
+// })
 // Start the API server
 db.sequelize.sync(syncOptions).then( () => {
     app.listen(PORT, function() {

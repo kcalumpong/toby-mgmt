@@ -1,10 +1,6 @@
 import React from "react";
 import "./style.css";
 
-// const saveButton = () => {
-//     alert("Button Clicked")
-// }
-
 const Save = (props) => (
     
     <div>

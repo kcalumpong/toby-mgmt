@@ -205,7 +205,6 @@ const Job = (props) => (
                     </div>
                 )}
             </div>
-            {/* <Save /> */}
         </form>
     </div >
 )

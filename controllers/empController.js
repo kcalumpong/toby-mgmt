@@ -19,7 +19,7 @@ module.exports = {
    },
 
    findAllProfiles: (req, res) => {
-      // console.log("REQUEST", req)
+      console.log("\n\nREQUEST\n\n")
       personal = req.body.personal;
       job = req.body.job;
       // jobInfo = req.body.jobInformation[0];
@@ -29,9 +29,11 @@ module.exports = {
    },
 
    getEmployee: (req, res) => {
-      personal = req.body.personal;
-      job = req.body.job;
-      jobInfo = req.body.jobInformation[0];
+      console.log("\n\nworks\n\n")
+      // personal = req.body.personal;
+      // job = req.body.job;
+      // jobInfo = req.body.jobInformation[0];
+      const id = req.id;
       db.Employee.findOne()
          .then((dbEmployee) => res.json(dbEmployee))
          console.log("DB", dbEmployee)
@@ -65,6 +67,7 @@ module.exports = {
 
 
    createPersonal: (req, res) => {
+      console.log("\n\nPERSONAL\n\n")
       console.warn(req.body);
          personal = req.body.personal;
          job = req.body.job;

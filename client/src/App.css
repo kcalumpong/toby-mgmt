@@ -66,7 +66,7 @@ select {
 .grid {
   display: grid;
   grid-template-rows: 40px 125px;
-  grid-template-columns: 12% 68% 20%;
+  grid-template-columns: 12% 65% 17%;
 }
 
 nav {
@@ -84,8 +84,7 @@ nav {
 .side-nav {
   grid-column: 1;
   grid-row: 2;
-  margin-top: 20px;
-  /* margin-top: 15px; */
+  margin-top: 36px;
   width: 200px;
 }
 
@@ -93,7 +92,7 @@ nav {
   grid-column: 2 /3;
   grid-row: 2 / 5;
   width: 100%;
-  padding: 50px;
+  padding: 33px;
 }
 
 .employee-snippet {
@@ -139,9 +138,9 @@ hr {
   margin-top: 5px;
 }
 
-.save-button {
+/* .save-button {
   background-color: pink;
-}
+} */
 
 /* HOME PAGE */
 
