@@ -42,7 +42,7 @@ class App extends Component {
             <Route exact path="/home" render={(props) => <Home {...props} handleLinkClick={this.handleLinkClick} />} />
 
             <div className="grid">
-              <Route exact path="/employees/:id" render={(props) => <Employees {...props} handleLinkClick={this.handleLinkClick} currentEmployeeId={this.state.currentEmployeeId} />} />
+              <Route exact path="/employees" render={(props) => <Employees {...props} handleLinkClick={this.handleLinkClick} currentEmployeeId={this.state.currentEmployeeId} />} />
             </div>
 
           </Switch>

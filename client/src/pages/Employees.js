@@ -74,17 +74,6 @@ class Employees extends Component {
         images: []
     }
   
-    componentDidMount() {
-        this.checkAuth();
-        fetch("/employees", {
-            method: "POST",
-            headers: "Content-Type: application/json",
-            body: JSON.stringify(this.props.currentEmployeeId)
-        })
-        .then(res => res.json())
-        .then(data => this.setState({ ...data} ))
-        .catch(err => console.error(err))
-    }
 
     handleSaveButton = (event) => {
         event.preventDefault();
@@ -247,6 +236,14 @@ class Employees extends Component {
 
     componentDidMount() {
         this.checkAuth();
+        fetch("/employees", {
+            method: "POST",
+            headers: "Content-Type: application/json",
+            body: JSON.stringify(this.props.currentEmployeeId)
+        })
+        .then(res => res.json())
+        .then(data => this.setState({ ...data} ))
+        .catch(err => console.error(err))
     }
 
     checkAuth() {
