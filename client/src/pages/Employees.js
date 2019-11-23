@@ -5,7 +5,6 @@ import ProfileHeader from "../components/ProfileHeader";
 import ViewPane from '../components/ViewPane';
 import EmployeeSnippet from "../components/EmployeeSnippet";
 import Navtabs from "../components/Navtabs";
-// import Profile from "../components/Profile";
 import Save from "../components/Save";
 import API from "../utils/API";
 
@@ -78,7 +77,6 @@ class Employees extends Component {
         images: null
     }
 
-
     handleSaveButton = (event) => {
         event.preventDefault();
         console.log("Save", this.state)
@@ -92,7 +90,6 @@ class Employees extends Component {
             .then(res => this.props.history.push("/home"))
             .catch(err => console.error(err));
     }
-
 
     handleTabClick = (event) => {
         this.setState({ currentSection: event.target.id });

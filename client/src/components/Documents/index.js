@@ -4,8 +4,6 @@ import Dropzone from "../Dropzone";
 import DocList from "../DocList";
 import API from "../../utils/API";
 import "./style.css";
-// import { CloudDirectory } from "aws-sdk";
-// import Save from "../Save";
 
 function Document(props) {
 
@@ -38,7 +36,6 @@ function Document(props) {
       <legend>Employee Documents</legend>
       <Dropzone onDrop={onDrop} accept={"application/pdf"} />
       <DocList docs={props.documents} />
-      {/* <Save /> */}
     </main>
   );
 }
