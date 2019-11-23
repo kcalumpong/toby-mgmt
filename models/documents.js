@@ -5,14 +5,14 @@ module.exports = (sequelize, Datatypes) =>{
         name: {
             type: Datatypes.STRING,
             allowNull: true,
-            validate: {
-                employeeFile(){
-                    if(username){
-                        return Document.name
-                    }
-                    return ("Username Does Not Match");
-                }
-            }
+            // validate: {
+            //     employeeFile(){
+            //         if(username){
+            //             return Document.name
+            //         }
+            //         return ("Username Does Not Match");
+            //     }
+            // }
         }
     });
 

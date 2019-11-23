@@ -18,6 +18,24 @@ module.exports = {
          .catch(err => { console.error(err); res.send(500) });
    },
 
+   findAllProfiles: (req, res) => {
+      personal = req.body.personal;
+      job = req.body.job;
+      jobInfo = req.body.jobInformation[0];
+      db.Employee.findAll({
+         id: req.body.id,
+         firstName: personal.firstName,
+         lastName: personal.lastName,
+         title: jobInfo.title,
+         include: [{
+            model: Document,
+            where: { name: sequelize.col("Document.name") }
+         }]
+      })
+         .then((dbEmployee) => res.json(dbEmployee))
+         .catch(err => { console.error(err); res.send(500) });
+   },
+
    getEmployee: (req, res) => {
       personal = req.body.personal;
       job = req.body.job;

@@ -22,6 +22,13 @@ export default {
     return axios.get("/api/employees");
   },
 
+  findAllProfiles: () =>
+  fetch("/api/employee", {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify()
+  }),
+
   // Gets the Employee with the given id
   getEmployee: function (id) {
     return axios.get("/api/employees/" + id);
@@ -32,7 +39,17 @@ export default {
     return axios.delete("/api/employees/delete" + id);
   },
 
+  // Platt Suggestion
+  putPersonal: () =>
+  fetch("/api/employee", {
+    method: "PUT",
+    headers: "Content-Type: application/json",
+    body: JSON.stringify(this.state)
+  })
+  .then(res => res.json())
+  .catch(err => console.log(err)),
 
+  //Saving to DB from Employee.js
   savePersonal: (employeeData) =>
   fetch("/api/employees/create-personal", {
     method: 'POST',
