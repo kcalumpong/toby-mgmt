@@ -43,7 +43,7 @@ export default {
   putPersonal: () =>
   fetch("/api/employees", {
     method: "PUT",
-    headers: "Content-Type: application/json",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(this.state)
   })
   .then(res => res.json())
