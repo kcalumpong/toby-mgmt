@@ -9,14 +9,7 @@ class Home extends Component {
     state = {
         loggedIn: false,
         loading: true,
-        employees: [
-            // {
-            //     id: 1,
-            //     name: "",
-            //     title: "",
-            //     img: ""
-            // }
-        ]
+        employees: []
     }
 
     componentDidMount() {
@@ -90,6 +83,7 @@ class Home extends Component {
                             name={item.name}
                             title={item.title}
                             img={item.img}
+                            handleLinkClick={this.props.handleLinkClick}
                         />
                     ))}
 
