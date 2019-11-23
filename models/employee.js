@@ -5,23 +5,23 @@ module.exports = (sequelize, DataTypes) =>{
         genderInput: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                genderCheck(gender){
-                    if(gender = "Male" || "Female" || "Other"){
-                        return gender
-                    }
-                    return console.error(error);
+            // validate: {
+            //     genderCheck(gender){
+            //         if(gender = "Male" || "Female" || "Other"){
+            //             return gender
+            //         }
+            //         return console.error(error);
                     
-                }
-            }
+            //     }
+            // }
         },
     //NAME
         firstName: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [1, 40]
-            }
+            // validate: {
+            //     len: [1, 40]
+            // }
         },
         middleName: {
             type: DataTypes.STRING,
@@ -33,182 +33,182 @@ module.exports = (sequelize, DataTypes) =>{
         lastName: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [1, 40]
-            }
+            // validate: {
+            //     len: [1, 40]
+            // }
         },
     //BIRTHDAY
         month: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                is: /^[a-zA-Z]+$/i,
-                len: [3, 4]
-            }
+            // validate: {
+            //     is: /^[a-zA-Z]+$/i,
+            //     len: [3, 4]
+            // }
         },
         day: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                isNumeric: true,
-                is: /^[0-9]+$/i,
-                len: [2]
-            }
+            // validate: {
+            //     isNumeric: true,
+            //     is: /^[0-9]+$/i,
+            //     len: [2]
+            // }
         },
         year: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                isNumeric: true,
-                is: /^[0-9]+$/i,
-                len: [4]
-            }
+            // validate: {
+            //     isNumeric: true,
+            //     is: /^[0-9]+$/i,
+            //     len: [4]
+            // }
         },
     //EMAIL
         workEmail: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [1, 140],
-                isEmail: true
-            }
+            // validate: {
+            //     len: [1, 140],
+            //     isEmail: true
+            // }
         },
         personalEmail: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [1, 140],
-                isEmail: true
-            }
+            // validate: {
+            //     len: [1, 140],
+            //     isEmail: true
+            // }
         },
     //PHONE
         phoneNumber: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [12]
-            }  
+            // validate: {
+            //     len: [12]
+            // }  
         },
     //ADDRESS
         streetAddress: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                is: /^[a-zA-Z0-9 ]+$/i
-            }
+            // validate: {
+            //     is: /^[a-zA-Z0-9 ]+$/i
+            // }
         },
         city: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [1, 140],
-                is: /^[a-zA-Z ]+$/i
-            }
+            // validate: {
+            //     len: [1, 140],
+            //     is: /^[a-zA-Z ]+$/i
+            // }
         },
         state: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [2],
-                is: /^[A-Z]+$/i
-            }
+            // validate: {
+            //     len: [2],
+            //     is: /^[A-Z]+$/i
+            // }
         },
         zipcode: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [5],
-                isNumeric: true
-            }
+            // validate: {
+            //     len: [5],
+            //     isNumeric: true
+            // }
         },
         countryCode: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [1, 5]
-            }
+            // validate: {
+            //     len: [1, 5]
+            // }
         },
     //SS#
         ssOne: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [3],
-                isNumeric: true
-            }
+            // validate: {
+            //     len: [3],
+            //     isNumeric: true
+            // }
         },
         ssTwo: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [2],
-                isNumeric: true
-            }
+            // validate: {
+            //     len: [2],
+            //     isNumeric: true
+            // }
         },
         ssThree: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [4],
-                isNumeric: true
-            }
+            // validate: {
+            //     len: [4],
+            //     isNumeric: true
+            // }
         },
     //EMERGENCY CONTACTS
     emergencyContactFirstNameOne: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [1, 40]
-            }
+            // validate: {
+            //     len: [1, 40]
+            // }
         },
         emergencyContactLastNameOne: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [1, 40]
-            }
+            // validate: {
+            //     len: [1, 40]
+            // }
         },
         emergencyContactPhoneOneCountry: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [1, 5]
-            }
+            // validate: {
+            //     len: [1, 5]
+            // }
         },
         emergencyContactPhoneOne: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [12]
-            }
+            // validate: {
+            //     len: [12]
+            // }
         },
         emergencyContactFirstNameTwo: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [1, 40]
-            }
+            // validate: {
+            //     len: [1, 40]
+            // }
         },
         emergencyContactLastNameTwo: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [1, 40]
-            }
+            // validate: {
+            //     len: [1, 40]
+            // }
         },
         emergencyContactPhoneTwoCountry: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [1, 5]
-            }
+            // validate: {
+            //     len: [1, 5]
+            // }
         },
         emergencyContactPhoneTwo: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [12]
-            }
+            // validate: {
+            //     len: [12]
+            // }
         },
 
     // "JOB"

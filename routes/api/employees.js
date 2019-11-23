@@ -55,8 +55,11 @@ router.post("/upload", auth.isLoggedIn, getFiles, function(req, res, next) {
 
 
 // Matches with "/api/employees"
+// router.route("/")
+//   .get(empController.findAll);
+
 router.route("/")
-  .get(empController.findAll)
+  .get(empController.findAllProfiles);
 
 router.route("/create-personal")
   .post(empController.createPersonal);
