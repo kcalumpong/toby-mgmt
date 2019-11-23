@@ -1,8 +1,15 @@
 .dropzone-content {
-    border: .5px dashed lightblue;
-    width: 200px;
-    height: 200px;
+    border: .5px dashed lightgrey;
+    width: 250px;
+    height: 250px;
     font-size: 18px;
+    font-size: 18px;
+    margin-top: 40px;
+    /* margin-left: 60px; */
+}
+
+.dropzone-content p {
+
 }
 
 .text-center {
