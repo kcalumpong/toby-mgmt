@@ -237,14 +237,17 @@ class Employees extends Component {
 
     componentDidMount() {
         this.checkAuth();
+        console.log(this.props.currentEmployeeId)
         fetch("/employees", {
             method: "POST",
-            headers: "Content-Type: application/json",
-            body: JSON.stringify(this.props.currentEmployeeId)
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({ id: this.props.currentEmployeeId })
         })
-            .then(res => res.json())
-            .then(data => this.setState({ ...data }))
-            .catch(err => console.error(err))
+
+        .then(res => res.json())
+        .then(res => console.log(res))
+        // .then(data => this.setState({ ...data} ))
+        .catch(err => console.error(err))
     }
 
     checkAuth() {

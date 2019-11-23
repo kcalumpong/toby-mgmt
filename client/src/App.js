@@ -19,19 +19,22 @@ class App extends Component {
 
   }
 
-  handleLinkClick = (event, id) => {
-    event.preventDefault();
+  handleLinkClick = (event) => {
+    // event.preventDefault();
+    let id = undefined
     console.log("Clicked Handle");
     console.log("ID", event.target.id)
-    if (id === undefined) {
-      id = null;
+    if (event.target.id === undefined) {
+      id = null
     } else {
       id = event.target.id
     }
+    console.log(id)
     this.setState({ currentEmployeeId: id });
   }
 
   render() {
+    console.log(this.state)
     return (
       <Router>
         <div>
