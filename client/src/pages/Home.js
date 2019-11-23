@@ -32,6 +32,7 @@ class Home extends Component {
                     name: item.firstName + " " + item.lastName,
                     title: item.title,
                     // img: item
+                   
                 }
             )))
             .then(data => this.setState({ employees: data }))
@@ -82,6 +83,7 @@ class Home extends Component {
                 <p>Select any employee to view their information.</p>
                 </div>
                 
+                
                 <div className="individuals-container">
 
                     {this.state.employees.map(item => (
@@ -94,7 +96,12 @@ class Home extends Component {
                     ))}
 
                 </div>
+                <a href="/employees">
+                <img className="addAvatar" src="../../../images/add-user.png" alt="avatar"></img>
+            </a>
             </div>
+            
+            
         )
     }
 }
