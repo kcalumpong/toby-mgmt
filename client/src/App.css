@@ -150,26 +150,60 @@ hr {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 15%;
+  height: 18%;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 5px;
 }
 
 .greeting h4 {
   text-align: left;
-  margin-left: 15px;
+  margin-left: 40%;
   font-family: 'Poppins', sans-serif;
-  font-size: 20px;
+  font-size: 25px;
   color:  #3D4166;
+  margin-top: 5%;
 }
 
 .greeting p {
   text-align: left;
-  margin-left: 15px;
+  margin-left: 35%;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
   color:  rgb(33, 35, 54);
 }
 
 .home-cover {
-  background-color: antiquewhite;
+  background-color: white;
+}
+
+h3:hover {
+  color: 
+  #5c75c3;
+}
+a:hover {
+  color: 
+  #5c75c3;
+}
+
+h3 {
+  font-family: 'Poppins', sans-serif;
+  margin: 3px;
+
+}
+.avatar {
+
+  width: 112%;
+  height: 40%;
+}
+
+.addAvatar {
+  width: 9%;
+  /* position: sticky; */
+  /* background-color: white; */
+  top: 40%;
+  margin-left: 85%;
+  margin-top: 4%;
 }
 
 /*  */

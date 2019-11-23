@@ -229,14 +229,14 @@ module.exports = (sequelize, DataTypes) =>{
             // }
         },
         hireDate: {
-            type: DataTypes.DATEONLY,
+            type: DataTypes.STRING,
             allowNull:true,
             // validate: {
             //     isDate: true
             // }
         },
         employmentDate: {
-            type: DataTypes.DATEONLY,
+            type: DataTypes.STRING,
             allowNull: true,
             // validate: {
             //     isDate: true
