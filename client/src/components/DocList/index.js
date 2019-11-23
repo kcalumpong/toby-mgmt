@@ -14,12 +14,14 @@ const Doc = ({ doc }) => {
 
 const DocList = ({ docs }) => {
     const renderDoc = (doc, index) => {
-        return (
-            <Doc
-                doc={doc}
-                key={`${doc.id}-doc`}
-            />
-        );
+        if (index !== 0) {
+            return (
+                <Doc
+                    doc={doc}
+                    key={`${doc.id}-doc`}
+                />
+            );
+        }
     }
     return <section className="file-list">{docs.map(renderDoc)}</section>;
 }
