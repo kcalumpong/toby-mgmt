@@ -21,14 +21,17 @@ class Home extends Component {
 
     componentDidMount() {
         this.checkAuth();
-        fetch("https://dog.ceo/api/breeds/image/random/5")
+        API.findAllProfiles()
+        // fetch("api/employees")
             .then(res => res.json())
-            .then(data => data.message.map(item => (
+            .then(data => 
+                // console.log("DATAAAAA", data)
+                data.map(item => (
                 {
-                    id: 1,
-                    name: "Kristina Calumpong",
-                    title: "Front-End Developer",
-                    img: item
+                    id: item.id,
+                    name: item.firstName + " " + item.lastName,
+                    title: item.title,
+                    // img: item
                 }
             )))
             .then(data => this.setState({ employees: data }))

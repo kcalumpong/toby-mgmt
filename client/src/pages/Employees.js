@@ -5,7 +5,7 @@ import ProfileHeader from "../components/ProfileHeader";
 import ViewPane from '../components/ViewPane';
 import EmployeeSnippet from "../components/EmployeeSnippet";
 import Navtabs from "../components/Navtabs";
-import Profile from "../components/Profile";
+// import Profile from "../components/Profile";
 import Save from "../components/Save";
 import API from "../utils/API";
 
@@ -72,13 +72,12 @@ class Employees extends Component {
         documents: [],
         images: []
     }
+  
+    componentDidMount() {
+        this.checkAuth();
+        // fetch(`/api/`)
+    }
 
-    // handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     const { id } = event.target;
-    //     this.setState({ currentSection: id });
-    //     console.log("This state", this.state);
-    // }
 
     handleSaveButton = (event) => {
         event.preventDefault();
@@ -93,6 +92,7 @@ class Employees extends Component {
             .then(res => this.props.history.push("/home"))
             .catch(err => console.error(err));
     }
+    
 
     handleTabClick = (event) => {
         this.setState({ currentSection: event.target.id });
@@ -297,12 +297,7 @@ class Employees extends Component {
                     phoneNumber={this.state.personal.phoneNumber}
                     workEmail={this.state.personal.workEmail}
                 />
-                <Profile
-                    firstName={this.state.personal.firstName}
-                    middleName={this.state.personal.middleName}
-                    lastName={this.state.personal.lastName}
-                    title={this.state.jobInformation[0].title}
-                />
+
                 <Save
                     handleSaveButton={this.handleSaveButton}
                 />
