@@ -78,7 +78,7 @@ class Home extends Component {
                 
                 
                 <div className="individuals-container">
-
+                {console.log(this.state)}
                     {this.state.employees.map(item => (
                         <Profile
                             id={item.id}

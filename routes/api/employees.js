@@ -64,6 +64,9 @@ router.route("/")
 router.route("/create-personal")
   .post(empController.createPersonal);
 
+router.route("/employees")
+  .post(empController.getEmployee);
+  
 router.route("/create-job")
   .post(empController.createJob);
 
@@ -78,6 +81,9 @@ router.route("/save-document-name")
 
 // Matches with "/api/employees/:id"
 router.route("/:id")
+  .get(empController.getEmployee);
+
+  router.route("/api/employees/")
   .get(empController.getEmployee);
 
 router.route("/update-personal-info/:id")
