@@ -74,7 +74,7 @@ router.route("/save-document-name")
 
 
 // Matches with "/api/employees/:id"
-router.route("/:username")
+router.route("/:id")
   .get(empController.getEmployee);
 
 router.route("/update-personal-info/:id")

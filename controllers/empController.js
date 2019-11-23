@@ -1,7 +1,12 @@
 const db = require("../models");
 
-module.exports = {
+let personal;
+let job;
+let jobInfo;
+let comp;
+let assets;
 
+module.exports = {
 
    findAll: (req, res) => {
       db.Employee.findAll({
@@ -14,22 +19,34 @@ module.exports = {
    },
 
    getEmployee: (req, res) => {
-      db.Employee.findAll({
+      personal = req.body.personal;
+      job = req.body.job;
+      jobInfo = req.body.jobInformation[0];
+      db.Employee.findOne({
+         id: req.body.id,
+         firstName: personal.firstName,
+         lastName: personal.lastName,
+         title: jobInfo.title,
          include: [{
             model: Document,
-            where: { name: sequelize.col("Employee.username") }
+            where: { name: sequelize.col("Document.name") }
          }]
-      })
+      },
+      {
+         where: {
+            id: req.params.id
+      }
+   })
          .then((dbEmployee) => res.json(dbEmployee))
          .catch(err => { console.error(err); res.send(500) });
    },
    createPersonal: (req, res) => {
       console.warn(req.body);
-      const personal = req.body.personal;
-      const job = req.body.job;
-      const jobInfo = req.body.jobInformation[0];
-      const comp = req.body.compensation[0];
-      const assets = req.body.assets[0];
+         personal = req.body.personal;
+         job = req.body.job;
+         jobInfo = req.body.jobInformation[0];
+         comp = req.body.compensation[0];
+         assets = req.body.assets[0];
       db.Employee.create({
          genderInput: personal.genderInput,
          firstName: personal.firstName,
