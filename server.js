@@ -19,6 +19,10 @@ passport.serializeUser(auth.serializeUser);
 passport.deserializeUser(auth.deserializeUser);
 
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
 //For BodyParser
 
 app.use(bodyParser.urlencoded({ extended: true }));
