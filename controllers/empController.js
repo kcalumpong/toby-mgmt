@@ -19,23 +19,11 @@ module.exports = {
    },
 
    findAllProfiles: (req, res) => {
-      console.log("REQUEST", req)
+      // console.log("REQUEST", req)
       personal = req.body.personal;
       job = req.body.job;
       // jobInfo = req.body.jobInformation[0];
-      db.Employee.findAll(
-
-
-
-         // id: req.body.id,
-         // firstName: personal.firstName,
-         // lastName: personal.lastName,
-         // title: jobInfo.title,
-         // include: [{
-         //    model: Document,
-         //    where: { name: sequelize.col("Document.name") }
-         // }]
-      )
+      db.Employee.findAll()
          .then((dbEmployee) => res.json(dbEmployee))
          .catch(err => { console.error(err); res.send(500) });
    },
@@ -44,24 +32,38 @@ module.exports = {
       personal = req.body.personal;
       job = req.body.job;
       jobInfo = req.body.jobInformation[0];
-      db.Employee.findOne({
-         id: req.body.id,
-         firstName: personal.firstName,
-         lastName: personal.lastName,
-         title: jobInfo.title,
-         include: [{
-            model: Document,
-            where: { name: sequelize.col("Document.name") }
-         }]
-      },
-      {
-         where: {
-            id: req.params.id
-      }
-   })
+      db.Employee.findOne()
          .then((dbEmployee) => res.json(dbEmployee))
+         console.log("DB", dbEmployee)
          .catch(err => { console.error(err); res.send(500) });
    },
+
+   // getEmployee: (req, res) => {
+   //    personal = req.body.personal;
+   //    job = req.body.job;
+   //    jobInfo = req.body.jobInformation[0];
+   //    db.Employee.findOne({
+   //       id: req.body.id,
+   //       firstName: personal.firstName,
+   //       lastName: personal.lastName,
+   //       title: jobInfo.title,
+   //       include: [{
+   //          model: Document,
+   //          where: { name: sequelize.col("Document.name") }
+   //       }]
+   //    },
+   //    {
+   //       where: {
+   //          id: req.params.id
+   //    }
+   // })
+   //       .then((dbEmployee) => res.json(dbEmployee))
+   //       .catch(err => { console.error(err); res.send(500) });
+   // },
+
+
+
+
    createPersonal: (req, res) => {
       console.warn(req.body);
          personal = req.body.personal;
