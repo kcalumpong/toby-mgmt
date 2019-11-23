@@ -23,20 +23,14 @@ export default {
   },
 
   // Gets the Employee with the given id
-  getEmployee: function (username) {
-    return axios.get("/api/employees/" + username);
+  getEmployee: function (id) {
+    return axios.get("/api/employees/" + id);
   },
 
   // Deletes the Employee with the given id
   deleteEmployee: function (id) {
     return axios.delete("/api/employees/delete" + id);
   },
-
-  // Saves Employee Personal Info to the database
-  // savePersonal: function (employeeData) {
-  //   console.log("yesssssss", employeeData)
-  //   return axios.post("/api/employees/create-personal/", employeeData);
-  // },
 
 
   savePersonal: (employeeData) =>
