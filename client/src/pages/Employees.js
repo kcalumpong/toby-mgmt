@@ -69,8 +69,16 @@ class Employees extends Component {
             dateAssigned: "",
             dateReturned: ""
         },],
-        documents: [],
-        images: []
+        documents: [{
+            id: "",
+            src: "",
+            name: ""
+        }],
+        images: [{
+            id: "",
+            src: "",
+            name: ""
+        }]
     }
 
     // handleSubmit = (event) => {
@@ -297,12 +305,12 @@ class Employees extends Component {
                     phoneNumber={this.state.personal.phoneNumber}
                     workEmail={this.state.personal.workEmail}
                 />
-                <Profile
+                {/* <Profile
                     firstName={this.state.personal.firstName}
                     middleName={this.state.personal.middleName}
                     lastName={this.state.personal.lastName}
                     title={this.state.jobInformation[0].title}
-                />
+                /> */}
                 <Save
                     handleSaveButton={this.handleSaveButton}
                 />

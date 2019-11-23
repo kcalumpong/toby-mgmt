@@ -23,7 +23,7 @@ export default {
   },
 
   findAllProfiles: () =>
-  fetch("/api/employee", {
+  fetch("/api/employees", {
     method: "GET",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify()
@@ -41,7 +41,7 @@ export default {
 
   // Platt Suggestion
   putPersonal: () =>
-  fetch("/api/employee", {
+  fetch("/api/employees", {
     method: "PUT",
     headers: "Content-Type: application/json",
     body: JSON.stringify(this.state)
