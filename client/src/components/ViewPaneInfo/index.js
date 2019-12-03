@@ -1,16 +1,16 @@
 import React, { Fragment } from "react";
 import "./style.css";
-import Personal from "../Personal";
-import Job from "../Job";
-import Assets from "../Assets";
-import Documents from "../Documents";
+import PersonalInfo from "../PersonalInfo";
+import JobInfo from "../JobInfo";
+import AssetsInfo from "../AssetsInfo";
+import DocumentsInfo from "../DocumentsInfo";
 import Save from "../Save";
 
 const enumObj = {
-    personal: Personal,
-    job: Job,
-    assets: Assets,
-    documents: Documents
+    personal: PersonalInfo,
+    job: JobInfo,
+    assets: AssetsInfo,
+    documents: DocumentsInfo
 };
 
 const renderView = (props) => {
@@ -18,15 +18,15 @@ const renderView = (props) => {
     return (
         <div>
             <ComponentName {...props} />
-            <Save {...props} />
+            <Save />
         </div>
     )
 }
 
-const ViewPane = (props) => (
+const ViewPaneInfo = (props) => (
     <Fragment>
         {renderView(props)}
     </Fragment>
 )
 
-export default ViewPane;
+export default ViewPaneInfo;

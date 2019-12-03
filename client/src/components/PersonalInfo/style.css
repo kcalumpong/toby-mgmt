@@ -1,0 +1,33 @@
+h3 {
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+h4 {
+    font-size: 14px;
+    color: rgb(71, 165, 157)
+}
+
+.emails {
+    display: inline-block;
+}
+
+.month, .day, .phone {
+    width: 120px;
+}
+
+.country, .ssOne, .ssTwo, .ssThree {
+    width: 50px;
+}
+
+.pe, .we {
+    width: 275px;
+}
+
+.address {
+    width: 500px;
+}
+
+.state, .zip {
+    width: 132px;
+}
