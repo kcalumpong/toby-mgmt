@@ -2,6 +2,7 @@ import React from "react";
 import "./style.css";
 import { FaEnvelope } from 'react-icons/fa';
 
+
 const EmployeeSnippet = (props) => (
         <div className="employee-snippet">
             <h4>Employee Status</h4>
@@ -19,6 +20,8 @@ const EmployeeSnippet = (props) => (
             <a href={`mailto:${props.workEmail}`}>
             <FaEnvelope  style={{ color: '#5C75C3' }}/>
             </a>
+            {/* <h4>Image</h4>
+            <p className="image">{props.image}</p>             */}
         </div>
     )
 

@@ -53,7 +53,6 @@ router.post("/upload", auth.isLoggedIn, getFiles, function(req, res, next) {
   });
 });
 
-
 // Matches with "/api/employees"
 // router.route("/")
 //   .get(empController.findAll);
@@ -64,7 +63,7 @@ router.route("/")
 router.route("/create-personal")
   .post(empController.createPersonal);
 
-router.route("/employees")
+router.route("/employees/:id")
   .post(empController.getEmployee);
   
 router.route("/create-job")
@@ -77,14 +76,12 @@ router.route("/create-asset")
 router.route("/save-document-name")
   .post(docController.create);
 
-
-
 // Matches with "/api/employees/:id"
 router.route("/:id")
   .get(empController.getEmployee);
 
-  router.route("/api/employees/")
-  .get(empController.getEmployee);
+router.route("/api/employees/:id")
+.get(empController.getEmployee);
 
 router.route("/update-personal-info/:id")
   .put(empController.updatePersonal);

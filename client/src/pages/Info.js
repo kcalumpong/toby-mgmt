@@ -2,54 +2,64 @@ import React, { Component, Fragment } from "react";
 import { Redirect } from 'react-router-dom';
 import ProfileNav from "../components/ProfileNav";
 import ProfileHeader from "../components/ProfileHeader";
-import ViewPane from '../components/ViewPane';
+import ViewPaneInfo from '../components/ViewPaneInfo';
 import EmployeeSnippet from "../components/EmployeeSnippet";
-// import Save from "..component/Save";
 import Navtabs from "../components/Navtabs";
 import API from "../utils/API";
-// import axios from "axios";
+// import Save from "../components/Save";
 
-class Employees extends Component {
+class Info extends Component {
     state = {
         loggedIn: false,
         loading: true,
         currentSection: "personal",
-        personal: {
-            id: "",
-            genderInput: "",
-            firstName: "",
-            middleName: "",
-            lastName: "",
-            month: "",
-            day: "",
-            year: "",
-            workEmail: "",
-            personalEmail: "",
-            phoneNumber: "",
-            streetAddress: "",
-            city: "",
-            state: "",
-            zipcode: "",
-            countryCode: "",
-            ssOne: "",
-            ssTwo: "",
-            ssThree: "",
-            profilePic: "",
-            emergencyContactFirstNameOne: "",
-            emergencyContactLastNameOne: "",
-            emergencyContactPhoneOneCountry: "",
-            emergencyContactPhoneOne: "",
-            emergencyContactFirstNameTwo: "",
-            emergencyContactLastNameTwo: "",
-            emergencyContactPhoneTwoCountry: "",
-            emergencyContactPhoneTwo: ""
-        },
-        job: {
-            employeeNumber: "",
-            status: "Active",
-            hireDate: "",
-        },
-
+        category: "",
+        changeReason: "",
+        city: "",
+        compensationDate: "",
+        countryCode: "",
+        createdAt: "",
+        dateAssigned: "",
+        dateReturned: "",
+        day: "",
+        department: "",
+        description: "",
+        emergencyContactFirstNameOne: "",
+        emergencyContactFirstNameTwo: "",
+        emergencyContactLastNameOne: "",
+        emergencyContactLastNameTwo: "",
+        emergencyContactPhoneOne: "",
+        emergencyContactPhoneOneCountry: "",
+        emergencyContactPhoneTwo: "",
+        emergencyContactPhoneTwoCountry: "",
+        employeeNumber: "",
+        employmentDate: "",
+        firstName: "",
+        genderInput: "",
+        hireDate: "",
+        hourlyPayRate: "",
+        id: 0,
+        lastName: "",
+        location: "",
+        middleName: "",
+        month: "",
+        notes: "",
+        paySchedule: "",
+        personalEmail: "",
+        phoneNumber: "",
+        reportsTo: "",
+        salaryPayRate: "",
+        ssOne: "",
+        ssThree: "",
+        ssTwo: "",
+        state: "",
+        status: "",
+        streetAddress: "",
+        title: "",
+        updatedAt: "",
+        workEmail: "",
+        year: "",
+        zipcode: "",
         jobInformation: [{
             employmentDate: "",
             department: "",
@@ -79,6 +89,20 @@ class Employees extends Component {
         images: null
     }
 
+    componentDidMount() {
+        this.checkAuth();
+        console.log(this.props.currentEmployeeId)
+        // fetch("/employees/" + this.props.currentEmployeeId, {
+        //     method: "POST",
+        //     headers: {"Content-Type": "application/json"},
+        //     body: JSON.stringify({ id: this.props.currentEmployeeId })
+        // })
+        API.getEmployee(this.props.currentEmployeeId)
+            // .then(res => res.json())
+            .then(res => this.setState({ ...res.data }))
+            .catch(err => console.error(err))
+    }
+
     handleSaveButton = (event) => {
         event.preventDefault();
         console.log("Save", this.state)
@@ -87,8 +111,7 @@ class Employees extends Component {
             job: this.state.job,
             jobInformation: this.state.jobInformation,
             compensation: this.state.compensation,
-            assets: this.state.assets,
-            images: this.state.images
+            assets: this.state.assets
         })
             .then(res => this.props.history.push("/home"))
             .catch(err => console.error(err));
@@ -235,23 +258,6 @@ class Employees extends Component {
         }
     }
 
-    componentDidMount() {
-        this.checkAuth();
-        console.log(this.props.currentEmployeeId)
-        API.getEmployee(this.props.currentEmployeeId)
-        // .then(res => res.json())
-        .then(res => console.log(res))
-        .then(data => this.setState({ ...data} ))
-        .catch(err => console.error(err))
-        // console.log("controller before fetch didmount:", this.props.currentEmployeeId)
-        // axios.get("/api/employees/" + this.props.currentEmployeeId)
-        // .then(res => {
-        //     console.log(res.data);
-        //     console.log(this.state.personal)
-        //     this.setState({ personal: res.data} )
-        // })
-    }
-
     checkAuth() {
         API.checkAuth()
             .then(res => {
@@ -273,7 +279,6 @@ class Employees extends Component {
         }
         return (
             <Fragment>
-                {console.log(this.state)}
                 <Navtabs />
                 <ProfileHeader
                     images={this.state.images}
@@ -282,7 +287,7 @@ class Employees extends Component {
                 <ProfileNav
                     handleTabClick={this.handleTabClick}
                 />
-                <ViewPane
+                <ViewPaneInfo
                     state={this.state}
                     currentSection={this.state.currentSection}
                     deleteAsset={this.deleteAsset}
@@ -302,17 +307,19 @@ class Employees extends Component {
                     updateDocuments={this.updateDocuments}
                 />
                 <EmployeeSnippet
-                    status={this.state.job.status}
-                    department={this.state.jobInformation[0].department}
-                    location={this.state.jobInformation[0].location}
-                    title={this.state.jobInformation[0].title}
-                    phoneNumber={this.state.personal.phoneNumber}
-                    workEmail={this.state.personal.workEmail}
-                    image= {this.state.personal.profilePic}
+                    status={this.state.status}
+                    department={this.state.department}
+                    location={this.state.location}
+                    title={this.state.title}
+                    phoneNumber={this.state.phoneNumber}
+                    workEmail={this.state.workEmail}
                 />
+                {/* <Save
+                    handleSaveButton={this.handleSaveButton}
+                /> */}
             </Fragment>
         )
     }
 }
 
-export default Employees;
+export default Info;

@@ -30,15 +30,82 @@ module.exports = {
 
    getEmployee: (req, res) => {
       console.log("\n\nworks\n\n")
-      // personal = req.body.personal;
-      // job = req.body.job;
-      // jobInfo = req.body.jobInformation[0];
-      const id = req.id;
-      db.Employee.findOne()
+      personal = req.body;
+      job = req.body;
+      jobInfo = req.body;
+      comp = req.body;
+      assets = req.body;
+      // const id = req.id;
+      db.Employee.findOne({ where: {
+         id: req.params.id },
+         genderInput: personal.genderInput,
+         firstName: personal.firstName,
+         middleName: personal.middleName,
+         lastName: personal.lastName,
+         month: personal.month,
+         day: personal.day,
+         year: personal.year,
+         workEmail: personal.workEmail,
+         personalEmail: personal.personalEmail,
+         phoneNumber: personal.phoneNumber,
+         streetAddress: personal.streetAddress,
+         city: personal.city,
+         state: personal.state,
+         zipcode: personal.zipcode,
+         countryCode: personal.countryCode,
+         ssOne: personal.ssOne,
+         ssTwo: personal.ssTwo,
+         ssThree: personal.ssThree,
+         emergencyContactFirstNameOne: personal.emergencyContactFirstNameOne,
+         emergencyContactLastNameOne: personal.emergencyContactLastNameOne,
+         emergencyContactPhoneOneCountry: personal.emergencyContactPhoneOneCountry,
+         emergencyContactPhoneOne: personal.emergencyContactPhoneOne,
+         emergencyContactFirstNameTwo: personal.emergencyContactFirstNameTwo,
+         emergencyContactLastNameTwo: personal.emergencyContactLastNameTwo,
+         emergencyContactPhoneTwoCountry: personal.emergencyContactPhoneTwoCountry,
+         emergencyContactPhoneTwo: personal.emergencyContactPhoneTwo,
+         employeeNumber: job.employeeNumber,
+         status: job.status,
+         hireDate: job.hireDate,
+         employmentDate: jobInfo.employmentDate,
+         department: jobInfo.department,
+         location: jobInfo.location,
+         title: jobInfo.title,
+         reportsTo: jobInfo.reportsTo,
+         compensationDate: comp.compensationDate,
+         hourlyPayRate: comp.hourlyPayRate,
+         salaryPayRate: comp.salaryPayRate,
+         paySchedule: comp.paySchedule,
+         changeReason: comp.changeReason,
+         category: assets.category,
+         description: assets.description,
+         notes: assets.notes,
+         dateAssigned: assets.dateAssigned,
+         dateReturned: assets.dateReturned
+      })
          .then((dbEmployee) => res.json(dbEmployee))
-         console.log("DB", dbEmployee)
+         // console.log("DB", dbEmployee)
          .catch(err => { console.error(err); res.send(500) });
    },
+
+   // getEmployee: (req, res) => {
+   //    console.log("\n\nworks\n\n")
+   //    // personal = req.body.personal;
+   //    // job = req.body.job;
+   //    // jobInfo = req.body.jobInformation[0];
+   //    console.log("PARAMS:", req.params)
+   //    // const id = req.id;
+   //    db.Employee.findOne({
+     
+   //       where: {id: req.params.id }
+   //    })
+   //       .then((dbEmployee) => {
+   //          console.log(dbEmployee)
+   //          res.json(dbEmployee)
+   //       })
+   //       // console.log("DB", dbEmployee)
+   //       .catch(err => { console.error(err); res.send(500) });
+   // },
 
    // getEmployee: (req, res) => {
    //    personal = req.body.personal;
@@ -93,6 +160,7 @@ module.exports = {
          ssOne: personal.ssOne,
          ssTwo: personal.ssTwo,
          ssThree: personal.ssThree,
+         profilePic: personal.profilePic,
          emergencyContactFirstNameOne: personal.emergencyContactFirstNameOne,
          emergencyContactLastNameOne: personal.emergencyContactLastNameOne,
          emergencyContactPhoneOneCountry: personal.emergencyContactPhoneOneCountry,
