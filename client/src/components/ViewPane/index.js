@@ -16,17 +16,16 @@ const enumObj = {
 const renderView = (props) => {
     const ComponentName = enumObj[props.currentSection];
     return (
-    <div>
-         <ComponentName {...props} />
-        <Save />
-    </div>
+        <div>
+            <ComponentName {...props} />
+            <Save {...props} />
+        </div>
     )
 }
 
 const ViewPane = (props) => (
     <Fragment>
         {renderView(props)}
-        
     </Fragment>
 )
 
