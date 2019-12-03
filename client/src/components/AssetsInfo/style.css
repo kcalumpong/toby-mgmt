@@ -1,0 +1,25 @@
+.assets-input, .category-input, .description-input, .notes-input, .assigned-input, .returned-input {
+    display: inline-block;
+    flex-wrap: wrap;
+    padding: 5px;
+}
+
+.assigned-input, .returned-input {
+    width: 20%;
+}
+
+.addNewButton {
+    color: rgb(7, 7, 7);
+    background-color: rgb(248, 248, 223);
+    font-size: 14px;
+}
+
+.assigned-input :nth-child(2), .returned-input :nth-child(2) {
+    width: 155px;
+    color: rgb(73, 71, 71);
+    font-size: 15px;
+}
+
+.notes-input :nth-child(2) {
+    width: 350px;
+}

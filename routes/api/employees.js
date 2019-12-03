@@ -53,7 +53,6 @@ router.post("/upload", auth.isLoggedIn, getFiles, function(req, res, next) {
   });
 });
 
-
 // Matches with "/api/employees"
 // router.route("/")
 //   .get(empController.findAll);
@@ -76,8 +75,6 @@ router.route("/create-asset")
 // DOCUMENT CREATION
 router.route("/save-document-name")
   .post(docController.create);
-
-
 
 // Matches with "/api/employees/:id"
 router.route("/:id")

@@ -37,7 +37,7 @@ export default {
   //   fetch("/api/employees/" + id, {
   //     method: "GET",
   //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify()
+  //     body: JSON.stringify(id)
   //   }),
   
   getEmployee: function(id) {
