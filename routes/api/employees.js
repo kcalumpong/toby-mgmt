@@ -64,7 +64,7 @@ router.route("/")
 router.route("/create-personal")
   .post(empController.createPersonal);
 
-router.route("/employees")
+router.route("/employees/:id")
   .post(empController.getEmployee);
   
 router.route("/create-job")
@@ -83,8 +83,8 @@ router.route("/save-document-name")
 router.route("/:id")
   .get(empController.getEmployee);
 
-  router.route("/api/employees/")
-  .get(empController.getEmployee);
+router.route("/api/employees/:id")
+.get(empController.getEmployee);
 
 router.route("/update-personal-info/:id")
   .put(empController.updatePersonal);

@@ -13,14 +13,17 @@ export default {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password })
     }),
-  logout: () => fetch("/api/auth/", { method: 'DELETE' }),
+  logout: () => 
+  fetch("/api/auth/", { 
+    method: 'DELETE' }),
+  
   checkAuth: () => fetch('/api/auth/session/'),
 
 
   // Gets all Employees
-  findAll: function () {
-    return axios.get("/api/employees");
-  },
+  // findAll: function () {
+  //   return axios.get("/api/employees");
+  // },
 
   findAllProfiles: () =>
   fetch("/api/employees", {
@@ -30,13 +33,16 @@ export default {
   }),
 
   // Gets the Employee with the given id
-  getEmployee: (id) => 
-    fetch("/api/employees/" + id, {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify()
-    }),
+  // getEmployee: (id) => 
+  //   fetch("/api/employees/" + id, {
+  //     method: "GET",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify()
+  //   }),
   
+  getEmployee: function(id) {
+    return axios.get("/api/employees/" + id);
+  },
 
   // Deletes the Employee with the given id
   deleteEmployee: function (id) {
