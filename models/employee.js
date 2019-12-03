@@ -153,6 +153,10 @@ module.exports = (sequelize, DataTypes) =>{
             //     isNumeric: true
             // }
         },
+        profilePic: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
     //EMERGENCY CONTACTS
     emergencyContactFirstNameOne: {
             type: DataTypes.STRING,

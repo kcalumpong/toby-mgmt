@@ -4,10 +4,10 @@ import ProfileNav from "../components/ProfileNav";
 import ProfileHeader from "../components/ProfileHeader";
 import ViewPane from '../components/ViewPane';
 import EmployeeSnippet from "../components/EmployeeSnippet";
-// import Save from "..component/Save";
 import Navtabs from "../components/Navtabs";
+import Save from "../components/Save";
 import API from "../utils/API";
-// import axios from "axios";
+import axios from "axios"
 
 class Employees extends Component {
     state = {
@@ -34,7 +34,6 @@ class Employees extends Component {
             ssOne: "",
             ssTwo: "",
             ssThree: "",
-            profilePic: "",
             emergencyContactFirstNameOne: "",
             emergencyContactLastNameOne: "",
             emergencyContactPhoneOneCountry: "",
@@ -87,8 +86,7 @@ class Employees extends Component {
             job: this.state.job,
             jobInformation: this.state.jobInformation,
             compensation: this.state.compensation,
-            assets: this.state.assets,
-            images: this.state.images
+            assets: this.state.assets
         })
             .then(res => this.props.history.push("/home"))
             .catch(err => console.error(err));
@@ -237,19 +235,14 @@ class Employees extends Component {
 
     componentDidMount() {
         this.checkAuth();
-        console.log(this.props.currentEmployeeId)
-        API.getEmployee(this.props.currentEmployeeId)
-        // .then(res => res.json())
-        .then(res => console.log(res))
-        .then(data => this.setState({ ...data} ))
-        .catch(err => console.error(err))
-        // console.log("controller before fetch didmount:", this.props.currentEmployeeId)
-        // axios.get("/api/employees/" + this.props.currentEmployeeId)
-        // .then(res => {
-        //     console.log(res.data);
-        //     console.log(this.state.personal)
-        //     this.setState({ personal: res.data} )
-        // })
+        console.log("controller before fetch didmount:", this.props.currentEmployeeId)
+        axios.get("/api/employees/" + this.props.currentEmployeeId)
+        .then(res => {
+            console.log(res.data);
+            console.log(this.state.personal)
+            this.setState({ personal: res.data} )
+        })
+
     }
 
     checkAuth() {
@@ -273,7 +266,6 @@ class Employees extends Component {
         }
         return (
             <Fragment>
-                {console.log(this.state)}
                 <Navtabs />
                 <ProfileHeader
                     images={this.state.images}
@@ -308,8 +300,10 @@ class Employees extends Component {
                     title={this.state.jobInformation[0].title}
                     phoneNumber={this.state.personal.phoneNumber}
                     workEmail={this.state.personal.workEmail}
-                    image= {this.state.personal.profilePic}
                 />
+                {/* <Save
+                    handleSaveButton={this.handleSaveButton}
+                /> */}
             </Fragment>
         )
     }

@@ -24,8 +24,7 @@ class Home extends Component {
                     id: item.id,
                     name: item.firstName + " " + item.lastName,
                     title: item.title,
-                    // img: item
-                   
+                    img: item.profilePic
                 }
             )))
             .then(data => this.setState({ employees: data }))
@@ -86,6 +85,7 @@ class Home extends Component {
                             title={item.title}
                             img={item.img}
                             handleLinkClick={this.props.handleLinkClick}
+                            handleSaveButton={this.props.handleSaveButton}
                         />
                     ))}
 

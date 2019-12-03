@@ -89,6 +89,25 @@ module.exports = {
    },
 
    // getEmployee: (req, res) => {
+   //    console.log("\n\nworks\n\n")
+   //    // personal = req.body.personal;
+   //    // job = req.body.job;
+   //    // jobInfo = req.body.jobInformation[0];
+   //    console.log("PARAMS:", req.params)
+   //    // const id = req.id;
+   //    db.Employee.findOne({
+     
+   //       where: {id: req.params.id }
+   //    })
+   //       .then((dbEmployee) => {
+   //          console.log(dbEmployee)
+   //          res.json(dbEmployee)
+   //       })
+   //       // console.log("DB", dbEmployee)
+   //       .catch(err => { console.error(err); res.send(500) });
+   // },
+
+   // getEmployee: (req, res) => {
    //    personal = req.body.personal;
    //    job = req.body.job;
    //    jobInfo = req.body.jobInformation[0];
@@ -141,6 +160,7 @@ module.exports = {
          ssOne: personal.ssOne,
          ssTwo: personal.ssTwo,
          ssThree: personal.ssThree,
+         profilePic: personal.profilePic,
          emergencyContactFirstNameOne: personal.emergencyContactFirstNameOne,
          emergencyContactLastNameOne: personal.emergencyContactLastNameOne,
          emergencyContactPhoneOneCountry: personal.emergencyContactPhoneOneCountry,
