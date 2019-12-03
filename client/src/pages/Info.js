@@ -60,6 +60,27 @@ class Info extends Component {
         workEmail: "",
         year: "",
         zipcode: "",
+        jobInformation: [{
+            employmentDate: "",
+            department: "",
+            location: "",
+            title: "",
+            reportsTo: "",
+        }],
+        compensation: [{
+            compensationDate: "",
+            hourlyPayRate: "",
+            salaryPayRate: "",
+            paySchedule: "",
+            changeReason: ""
+        }],
+        assets: [{
+            category: "",
+            description: "",
+            notes: "",
+            dateAssigned: "",
+            dateReturned: ""
+        },],
         documents: [{
             id: "",
             src: "",
