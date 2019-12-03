@@ -30,12 +30,16 @@ export default {
   }),
 
   // Gets the Employee with the given id
-  getEmployee: (id) => 
-    fetch("/api/employees/" + id, {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify()
-    }),
+  // getEmployee: (id) => 
+  //   fetch("/api/employees/" + id, {
+  //     method: "GET",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(id)
+  //   }),
+  
+  getEmployee: function(id) {
+    return axios.get("/api/employees/" + id);
+  },
   
 
   // Deletes the Employee with the given id

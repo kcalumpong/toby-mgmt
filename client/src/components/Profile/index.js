@@ -15,7 +15,7 @@ const Profile = (props) => (
         
 
         <h3 className="prop-name">{props.firstName}{props.middleName}{props.lastName}</h3>
-        <Link to={`/employees/`} onClick={props.handleLinkClick} id={props.id}><h3 className="prop-name" id={props.id}>{props.name}</h3></Link> 
+        <Link to={`/employees/` + props.id} onClick={props.handleLinkClick} id={props.id}><h3 className="prop-name" id={props.id}>{props.name}</h3></Link> 
         <h3 className="prop-title">{props.title}</h3>
     </div>
 )
