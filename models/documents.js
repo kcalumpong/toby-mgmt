@@ -1,7 +1,6 @@
 module.exports = (sequelize, Datatypes) =>{
 
     const Document = sequelize.define("Document", {
-
         name: {
             type: Datatypes.STRING,
             allowNull: true,
@@ -13,7 +12,12 @@ module.exports = (sequelize, Datatypes) =>{
             //         return ("Username Does Not Match");
             //     }
             // }
-        }
+        },
+        src: {
+            type: Datatypes.TEXT,
+            allowNull: true,
+            isUrl: true
+        },
     });
 
     Document.associate = (models) =>{
