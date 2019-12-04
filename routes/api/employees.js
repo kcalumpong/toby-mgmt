@@ -76,6 +76,9 @@ router.route("/create-asset")
 router.route("/save-document-name")
   .post(docController.create);
 
+router.route("/get-document/:id") //***************************** */
+  .get(docController.getImage);
+
 // Matches with "/api/employees/:id"
 router.route("/:id")
   .get(empController.getEmployee);

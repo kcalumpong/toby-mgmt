@@ -10,7 +10,7 @@ function ProfileHeader(props) {
   const onDrop = acceptedFiles => {
 
     API.uploadFile(acceptedFiles).then(r => {
-      props.updateImages({ id: cuid(), src: r.url, name: acceptedFiles[0].name }, API.saveDocument({ src: r.url, name: acceptedFiles[0].name }));
+      props.updateImages({ id: cuid(), src: r.url.slice(0, -266), name: acceptedFiles[0].name }, API.saveDocument({ src: r.url.slice(0, -266), name: acceptedFiles[0].name }));
     }).catch(err => console.error(err))
     
   };
