@@ -2,7 +2,6 @@ import React from "react";
 import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons"
-// import Save from "../Save";
 
 const JobInfo = (props) => (
     <div className="job-page">
@@ -15,7 +14,6 @@ const JobInfo = (props) => (
                     <input
                         type="text"
                         name="employeeNumber"
-                        // className="job"
                         className="employment employeeNumber"
                         value={props.state.employeeNumber}
                         onChange={props.handlers.jobChange}
@@ -28,8 +26,6 @@ const JobInfo = (props) => (
                     <input
                         type="date"
                         name="hireDate"
-                        // className="job"
-                        // data-index={index}
                         className="employment hireDate"
                         value={props.state.hireDate}
                         onChange={props.handlers.jobChange}
@@ -41,7 +37,6 @@ const JobInfo = (props) => (
                     <select
                         type="select"
                         name="status"
-                        // className="job"
                         className="employment"
                         value={props.state.status}
                         onChange={props.handlers.jobChange}
@@ -67,8 +62,7 @@ const JobInfo = (props) => (
                                 name="employmentDate"
                                 className={index}
                                 value={item.employmentDate}
-                                // onChange={(e) => props.handlers.jobChange(e, index)}
-                                onChange= {props.handlers.jobChange}
+                                onChange={props.handlers.jobChange}
                             />
                         </div>
 
@@ -79,9 +73,8 @@ const JobInfo = (props) => (
                                 name="department"
                                 className={index}
                                 value={item.department}
-                                // onChange={(e) => props.handlers.jobChange(e, index)}
-                                onChange= {props.handlers.jobChange}
-                            
+                                onChange={props.handlers.jobChange}
+
                                 placeholder=""
                             />
                         </div>
@@ -93,8 +86,7 @@ const JobInfo = (props) => (
                                 name="title"
                                 className={index}
                                 value={item.title}
-                                // onChange={(e) => props.handlers.jobChange(e, index)}
-                                onChange= {props.handlers.jobChange}
+                                onChange={props.handlers.jobChange}
                                 placeholder=""
                             />
                         </div>
@@ -106,8 +98,7 @@ const JobInfo = (props) => (
                                 name="location"
                                 className={index}
                                 value={item.location}
-                                // onChange={(e) => props.handlers.jobChange(e, index)}
-                                onChange= {props.handlers.jobChange}
+                                onChange={props.handlers.jobChange}
                                 placeholder=""
                             />
                         </div>
@@ -119,15 +110,14 @@ const JobInfo = (props) => (
                                 name="reportsTo"
                                 className={index}
                                 value={item.reportsTo}
-                                // onChange={(e) => props.handlers.jobChange(e, index)}
-                                onChange= {props.handlers.jobChange}
+                                onChange={props.handlers.jobChange}
                             />
                         </div>
                         <FontAwesomeIcon
-                        icon={faTrash}
-                        onClick={(event) => props.deleteJob(event, index)}
+                            icon={faTrash}
+                            onClick={(event) => props.deleteJob(event, index)}
                         />
-                       
+
                     </div>
                 )}
             </div>
@@ -148,8 +138,7 @@ const JobInfo = (props) => (
                                 name="compensationDate"
                                 className={index}
                                 value={item.compensationDate}
-                                // onChange={(e) => props.handlers.jobChange(e, index)}
-                                onChange= {props.handlers.jobChange}
+                                onChange={props.handlers.jobChange}
                             />
                         </div>
 
@@ -160,7 +149,7 @@ const JobInfo = (props) => (
                                 name="hourlyPayRate"
                                 className={index}
                                 value={item.hourlyPayRate}
-                                onChange= {props.handlers.jobChange}
+                                onChange={props.handlers.jobChange}
                             />
                         </div>
 
@@ -171,8 +160,8 @@ const JobInfo = (props) => (
                                 name="salaryPayRate"
                                 className={index}
                                 value={item.salaryPayRate}
-                                onChange= {props.handlers.jobChange}
-                        />
+                                onChange={props.handlers.jobChange}
+                            />
                         </div>
 
                         <div className="pay-schedule">
@@ -182,8 +171,8 @@ const JobInfo = (props) => (
                                 name="paySchedule"
                                 className={index}
                                 value={item.paySchedule}
-                                onChange= {props.handlers.jobChange}
-                          />
+                                onChange={props.handlers.jobChange}
+                            />
                         </div>
 
                         <div className="change-reason">
@@ -193,13 +182,13 @@ const JobInfo = (props) => (
                                 name="changeReason"
                                 className={index}
                                 value={item.changeReason}
-                                onChange= {props.handlers.jobChange}
+                                onChange={props.handlers.jobChange}
                                 placeholder="Promotion"
                             />
                         </div>
                         <FontAwesomeIcon
-                        icon={faTrash}
-                        onClick={(event) => props.deleteComp(event, index)}
+                            icon={faTrash}
+                            onClick={(event) => props.deleteComp(event, index)}
                         />
                     </div>
                 )}

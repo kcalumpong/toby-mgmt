@@ -2,7 +2,6 @@ import React from "react";
 import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons"
-// import Save from "../Save";
 
 const AssetsInfo = (props) => (
 

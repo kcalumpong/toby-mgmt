@@ -4,10 +4,8 @@ import ProfileNav from "../components/ProfileNav";
 import ProfileHeader from "../components/ProfileHeader";
 import ViewPane from '../components/ViewPane';
 import EmployeeSnippet from "../components/EmployeeSnippet";
-// import Save from "..component/Save";
 import Navtabs from "../components/Navtabs";
 import API from "../utils/API";
-// import axios from "axios";
 
 class Employees extends Component {
     state = {

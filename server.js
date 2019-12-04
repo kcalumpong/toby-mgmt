@@ -48,7 +48,7 @@ let syncOptions = { force: false };
 
 // Serve up static assets (usually on heroku)
 if(process.env.NODE_ENV === "test"){
-  syncOptions.force = true;
+  syncOptions.force = false;
 }   
 
 // app.post("/employees", (req, res) => {
