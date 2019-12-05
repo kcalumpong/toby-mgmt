@@ -10,7 +10,9 @@ class Login extends Component {
 
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      usernameError: "Username cannot be empty",
+      passwordError: "Password cannot be empty"
     }
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,7 +39,12 @@ class Login extends Component {
           <img className="logo1" src="../images/Toby-Logo.png" alt="tobyLogo"></img>
 
           <div className="loginTitle">Login to your account</div>
-          <Form inputHandler={this.handleInputChange} submitHandler={this.handleSubmit} />
+          <Form 
+          inputHandler={this.handleInputChange} 
+          submitHandler={this.handleSubmit} 
+          />
+
+          <p>{this.state.usernameError}</p>
 
           <Link to="/signup" className="link-to-register">First time? Register here</Link>
           <img className="toby1" src="../images/Frame.png" alt="toby1"></img>
