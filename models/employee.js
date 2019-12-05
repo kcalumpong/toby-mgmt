@@ -154,7 +154,7 @@ module.exports = (sequelize, DataTypes) =>{
             // }
         },
         profilePic: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: true,
         },
     //EMERGENCY CONTACTS
