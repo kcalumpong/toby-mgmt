@@ -1,0 +1,34 @@
+.name-and-title {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: rgb(50, 51, 50);
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+}
+
+.genderInput select {
+    font-size: 16px;
+    height: 25px;
+}
+
+.profile-name {
+    font-size: 16px;
+}
+
+.profile-title {
+    font-size: 14px;
+}
+
+.profile-pic {
+    width: 200px;
+    display: grid;
+    margin-top: 20px;
+    position: relative;
+    top: 5px;
+    left: 30px;
+}
+
+
+
