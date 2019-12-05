@@ -207,6 +207,11 @@ class Employees extends Component {
         this.setState({ images: [image] });
     }
 
+    updateProfilePic = (image) => {
+        this.setState({ profilePic: image.profilePic });
+        console.log("state", this.state);
+    }
+
     deleteAsset = (event, index) => {
         event.preventDefault();
         if (index !== 0) {
@@ -278,6 +283,7 @@ class Employees extends Component {
                 <ProfileHeader
                     images={this.state.images}
                     updateImages={this.updateImages}
+                    updateProfilePic={this.updateProfilePic}
                 />
                 <ProfileNav
                     handleTabClick={this.handleTabClick}
