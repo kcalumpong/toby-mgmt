@@ -65,6 +65,9 @@ router.route("/create-personal")
 
 router.route("/employees/:id")
   .post(empController.getEmployee);
+
+router.route("/create-profile-pic")
+  .post(empController.createProfilePic);  
   
 router.route("/create-job")
   .post(empController.createJob);
@@ -75,6 +78,9 @@ router.route("/create-asset")
 // DOCUMENT CREATION
 router.route("/save-document-name")
   .post(docController.create);
+
+router.route("/get-document/:id") //***************************** */
+  .get(docController.getImage);
 
 // Matches with "/api/employees/:id"
 router.route("/:id")

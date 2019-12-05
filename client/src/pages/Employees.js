@@ -34,7 +34,7 @@ class Employees extends Component {
             ssOne: "",
             ssTwo: "",
             ssThree: "",
-            profilePic: "",
+            // profilePic: "",
             emergencyContactFirstNameOne: "",
             emergencyContactLastNameOne: "",
             emergencyContactPhoneOneCountry: "",
@@ -49,7 +49,6 @@ class Employees extends Component {
             status: "Active",
             hireDate: "",
         },
-
         jobInformation: [{
             employmentDate: "",
             department: "",
@@ -76,7 +75,8 @@ class Employees extends Component {
             src: "",
             name: ""
         }],
-        images: null
+        images: null,
+        profilePic: ""
     }
 
     handleSaveButton = (event) => {
@@ -88,7 +88,9 @@ class Employees extends Component {
             jobInformation: this.state.jobInformation,
             compensation: this.state.compensation,
             assets: this.state.assets,
-            images: this.state.images
+            images: this.state.images,
+            profilePic: this.state.profilePic
+
         })
             .then(res => this.props.history.push("/home"))
             .catch(err => console.error(err));
@@ -207,6 +209,11 @@ class Employees extends Component {
         this.setState({ images: [image] });
     }
 
+    updateProfilePic = (image) => {
+        this.setState({ profilePic: image.profilePic });
+        console.log("state", this.state);
+    }
+
     deleteAsset = (event, index) => {
         event.preventDefault();
         if (index !== 0) {
@@ -278,6 +285,7 @@ class Employees extends Component {
                 <ProfileHeader
                     images={this.state.images}
                     updateImages={this.updateImages}
+                    updateProfilePic={this.updateProfilePic}
                 />
                 <ProfileNav
                     handleTabClick={this.handleTabClick}
@@ -308,7 +316,6 @@ class Employees extends Component {
                     title={this.state.jobInformation[0].title}
                     phoneNumber={this.state.personal.phoneNumber}
                     workEmail={this.state.personal.workEmail}
-                    image= {this.state.personal.profilePic}
                 />
             </Fragment>
         )

@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "react-router-dom";
-// import cookie from "react-cookies";
 import API from "../../utils/API";
 import "./style.css";
 
@@ -22,7 +21,7 @@ const Navtabs = () => {
         <nav>
             <ul className="nav-list">
                 <div className="nav-img-container">
-                    <img className="toby-logo" alt= "logo" src="./images/tobyLogo.png"></img>
+                    <img className="toby-logo" alt="logo" src="/images/tobyLogo.png"></img>
                 </div>
                 <div className="nav-link-container">
                     <li className="nav-item">
@@ -39,7 +38,7 @@ const Navtabs = () => {
 
                     <li className="nav-item">
                         <a
-                        id="logout" href="#logout" onClick={handleLogout} className="nav-link">Log out
+                            id="logout" href="#logout" onClick={handleLogout} className="nav-link">Log out
                         </a>
                     </li>
                 </div>

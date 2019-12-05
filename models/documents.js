@@ -1,7 +1,6 @@
-module.exports = (sequelize, DataTypes) =>{
+module.exports = (sequelize, DataTypes) => {
 
     const Document = sequelize.define("Document", {
-
         name: {
             type: DataTypes.STRING,
             allowNull: true,
@@ -13,7 +12,12 @@ module.exports = (sequelize, DataTypes) =>{
             //         return ("Username Does Not Match");
             //     }
             // }
-        }
+        },
+        src: {
+            type: Datatypes.TEXT,
+            allowNull: true,
+            isUrl: true
+        },
     });
 
     // Document.associate = (models) =>{
@@ -21,13 +25,12 @@ module.exports = (sequelize, DataTypes) =>{
     //         through: "EmployeeDocs", foreignKey: "DocumentId"
     //     });
     // }
-    Document.associate = (models) =>{
-        Document.belongsTo(models.Employee,{
-                // allowNull: false
-                foreignKey: "DocumentId"
-              
-            });
-        };
-    
+    Document.associate = (models) => {
+        Document.belongsTo(models.Employee, {
+            // allowNull: false
+            foreignKey: "DocumentId"
+        });
+    };
+
     return Document;
 };

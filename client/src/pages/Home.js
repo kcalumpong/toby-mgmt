@@ -15,10 +15,8 @@ class Home extends Component {
     componentDidMount() {
         this.checkAuth();
         API.findAllProfiles()
-        // fetch("api/employees")
             .then(res => res.json())
             .then(data => 
-                // console.log("DATAAAAA", data)
                 data.map(item => (
                 {
                     id: item.id,
@@ -42,23 +40,6 @@ class Home extends Component {
             })
             .catch(() => this.setState({ loading: false }))
     }
-
-    // handleLogout() {
-    //     API.logout()
-    //         .then(() => this.props.history.push('/login'))
-    //         .catch(err => console.error(err));
-    // }
-
-    // state = {
-    //     employee:[]
-    // }
-
-    // componentDidMount(){
-    // let employeeLocal = JSON.parse( localStorage.getItem("personal"))
-    //     this.setState({
-    //         employee: employeeLocal
-    //     })
-    // }
 
     render() {
         if (this.state.loading) {
@@ -90,9 +71,6 @@ class Home extends Component {
                     ))}
 
                 </div>
-                <a href="/employees">
-                <img className="addAvatar" src="../../../images/add-user.png" alt="avatar"></img>
-            </a>
             </div>
             
             
