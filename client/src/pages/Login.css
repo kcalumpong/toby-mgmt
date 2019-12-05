@@ -1,10 +1,5 @@
-.container2 {
-    /* height: 100%; */
-    /* background-color: blue; */
-    /* border: 3px solid green; */
-}
+
 .container3 {
-    /* background-color: green; */
     width: 75%;
     height: 90%;
     position: relative;
@@ -13,24 +8,12 @@
     justify-content: center;
 }
 
-.formLogin {
-    top: 40px;
-    position: relative;
-    z-index: 1;
-    width: 33%;
-    height: 330px;
-    background-color: white;
-    border-radius: 6px;
-    left: 75px;
-    /* border: 0.7px solid gray; */
-    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.07);
-}
 
 .toby1 {
     position: fixed;
-    width: 70%;
+    width: 68%;
     height: 95%;
-    left: 426px;
+    left: 410px;
     top: 48px;
     z-index: 0;
 }
@@ -62,10 +45,6 @@
     position: relative;
     z-index: 2;
 }
-.input-container {
-    /* border-radius: 1px gray; */
-    /* background-color: red; */
-}
 
 #username {
     border: 0.6px solid lightgray;
@@ -76,4 +55,16 @@
     border: 0.6px solid lightgray;
     width: 250px;
     height: 30px;
+}
+
+
+@media (max-width: 800px) and (min-width: 600px) {
+    .toby1 {
+        display: none;
+    }
+
+    #username, #password {
+        justify-content: center;
+        display: flex;
+    }
 }

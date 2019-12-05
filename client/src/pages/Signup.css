@@ -1,5 +1,4 @@
 .container3 {
-    /* background-color: green; */
     width: 75%;
     height: 90%;
     position: relative;
@@ -8,36 +7,22 @@
     justify-content: center;
 }
 
-.formLogin {
-    top: 40px;
-    position: relative;
-    z-index: 1;
-    width: 33%; 
-    width: 700px; 
-    height: 330px;
-    background-color: white;
-    border-radius: 6px;
-    left: 75px;
-    font-family: 'Poppins', sans-serif;
-    /* border: 0.7px solid gray; */
-    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.07);
-}
 
 .toby2 {
     position: fixed;
-    width: 56%;
+    width: 54%;
     height: 90%;
-    left: 610px;
+    left: 585px;
     top: 35px;
-    z-index: 0;
-
+    z-index: 1;
 }
+
 .link-to-login {
     position: fixed;
     margin-left: 80px;
     top: 462px;
-    left: 194px;
-    width: 25%;
+    left: 220px;
+    width: 240px;;
     z-index: 2; 
 } 
 
@@ -60,19 +45,21 @@
     left: 166px;
     position: relative;
     z-index: 2;
-    /* width: 25%; */
 }
+
 .input-container {
     border-radius: 0.7px gray;
-    width: 30%;
+    width: 250px;
+    /* background-color: green; */
 }
 .vector {
-    z-index: -1;
+    z-index: 0;
     position: fixed;
-    height: 680px;
-    width: 80%;
-    top: 7%;
+    height: 600px;
+    width: 70%;
+    top: 10%;
     left: 434px;
+
     
 }
 #username {
@@ -88,18 +75,13 @@
 }
 
 
-@media (max-width: 800px) and (min-width: 600px) {
-    .signupTitle{
-        width:20%;
-    }
+    @media (max-width: 800px) and (min-width: 600px) {
+        .toby2, .vector {
+            display: none;
+        }
 
-    /* .toby2 {
-        width: 26%;
-        height: 50%;
-    } */
-
-
-    .input-container {
+    /* .input-container {
         width: 16%;
-    }
+  
+    } */
 }

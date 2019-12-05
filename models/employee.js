@@ -326,9 +326,15 @@ module.exports = (sequelize, DataTypes) =>{
         }
         
     });
+    // Employee.associate = (models) => {
+    //     Employee.belongsToMany(models.Document, {
+    //       through: "EmployeeDocs", foreignKey: "EmployeeId"
+    //     });
+    // };
     Employee.associate = (models) => {
         Employee.hasMany(models.Document, {
-          foreignKey: "EmployeeId"
+            // onDelete: "cascade"
+            foreignKey: "EmployeeId"
         });
     };
     return Employee;
