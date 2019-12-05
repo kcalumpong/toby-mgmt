@@ -34,7 +34,6 @@ class Employees extends Component {
             ssOne: "",
             ssTwo: "",
             ssThree: "",
-            // profilePic: "",
             emergencyContactFirstNameOne: "",
             emergencyContactLastNameOne: "",
             emergencyContactPhoneOneCountry: "",
