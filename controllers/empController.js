@@ -35,6 +35,7 @@ module.exports = {
       jobInfo = req.body;
       comp = req.body;
       assets = req.body;
+      profilePic = req.body.profilePic;
       // const id = req.id;
       db.Employee.findOne({ where: {
          id: req.params.id },
@@ -56,6 +57,7 @@ module.exports = {
          ssOne: personal.ssOne,
          ssTwo: personal.ssTwo,
          ssThree: personal.ssThree,
+         profilePic: profilePic,
          emergencyContactFirstNameOne: personal.emergencyContactFirstNameOne,
          emergencyContactLastNameOne: personal.emergencyContactLastNameOne,
          emergencyContactPhoneOneCountry: personal.emergencyContactPhoneOneCountry,

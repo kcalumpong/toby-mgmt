@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Redirect } from 'react-router-dom';
 import ProfileNav from "../components/ProfileNav";
-import ProfileHeader from "../components/ProfileHeader";
+import ProfileHeaderInfo from "../components/ProfileHeaderInfo";
 import ViewPaneInfo from '../components/ViewPaneInfo';
 import EmployeeSnippet from "../components/EmployeeSnippet";
 import Navtabs from "../components/Navtabs";
@@ -86,12 +86,14 @@ class Info extends Component {
             src: "",
             name: ""
         }],
-        images: null
+        images: null,
+        profilePic: ""
     }
 
     componentDidMount() {
         this.checkAuth();
         console.log(this.props.currentEmployeeId)
+        console.log("SSTATE" , this.state)
         // fetch("/employees/" + this.props.currentEmployeeId, {
         //     method: "POST",
         //     headers: {"Content-Type": "application/json"},
@@ -280,9 +282,10 @@ class Info extends Component {
         return (
             <Fragment>
                 <Navtabs />
-                <ProfileHeader
+                <ProfileHeaderInfo
                     images={this.state.images}
                     updateImages={this.updateImages}
+                    profilePic={this.state.profilePic}
                 />
                 <ProfileNav
                     handleTabClick={this.handleTabClick}
