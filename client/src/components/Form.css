@@ -1,14 +1,15 @@
- .form {
-    position: absolute;
-    top: 43px;
+ .formLogin {
+    position: relative;
+    top: 40px;
+    z-index: 2;
     left: 220px;
     box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.07);
-    background: #FFFFFF;
     border-radius: 10px;
-    height: 300px;
-    width: 320px;
-    top: 180px;
-    margin-left: 20px;
+    height: 330px;
+    width: 350px;
+    left: 75px;
+    font-family: 'Poppins', sans-serif;
+
 } 
 
 .userInput {
@@ -36,7 +37,6 @@
     position: relative;
     margin-top: 230px;
     margin-left: 14%;
-    /* background-color: #FA7071; */
     background-color: #7ab6f6;
     width: 72%;
     border-radius: 6px;
@@ -48,10 +48,16 @@
 #username {
     margin-top: 10px;
     border-radius: 0.7px gray;
-    /* border: 0.5px solid gray; */
 }
 #password {
     margin-top: 10px;
     border-radius: 0.7px gray;
-    /* border-radius: 0.5px;  */
 }
+
+
+@media (max-width: 800px) and (min-width: 600px) {
+    .formLogin {
+        justify-content: center;
+        align-items: center;
+    }
+    }

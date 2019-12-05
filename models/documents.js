@@ -1,9 +1,9 @@
-module.exports = (sequelize, Datatypes) =>{
+module.exports = (sequelize, DataTypes) =>{
 
     const Document = sequelize.define("Document", {
 
         name: {
-            type: Datatypes.STRING,
+            type: DataTypes.STRING,
             allowNull: true,
             // validate: {
             //     employeeFile(){
@@ -16,10 +16,18 @@ module.exports = (sequelize, Datatypes) =>{
         }
     });
 
+    // Document.associate = (models) =>{
+    //     Document.belongsTo(models.Employee, {
+    //         through: "EmployeeDocs", foreignKey: "DocumentId"
+    //     });
+    // }
     Document.associate = (models) =>{
-        Document.belongsTo(models.Employee, {
-            through: "EmployeeDocs", foreignKey: "DocumentId"
-        });
-    }
+        Document.belongsTo(models.Employee,{
+                // allowNull: false
+                foreignKey: "DocumentId"
+              
+            });
+        };
+    
     return Document;
 };
