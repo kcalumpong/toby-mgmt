@@ -97,6 +97,10 @@ export default {
     return axios.post("/api/employees/save-document-name", documentData);
   },
 
+  getImage: function (id) {
+    return axios.get("/get-document/" + id); //********************* */
+  },
+
   // Delete an Employee Document Name to the database
   deleteDocument: function (id) {
     return axios.delete("/api/employees/delete-document" + id);
