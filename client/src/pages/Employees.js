@@ -4,8 +4,10 @@ import ProfileNav from "../components/ProfileNav";
 import ProfileHeader from "../components/ProfileHeader";
 import ViewPane from '../components/ViewPane';
 import EmployeeSnippet from "../components/EmployeeSnippet";
+// import Save from "..component/Save";
 import Navtabs from "../components/Navtabs";
 import API from "../utils/API";
+// import axios from "axios";
 
 class Employees extends Component {
     state = {
@@ -32,7 +34,7 @@ class Employees extends Component {
             ssOne: "",
             ssTwo: "",
             ssThree: "",
-            profilePic: "",
+            // profilePic: "",
             emergencyContactFirstNameOne: "",
             emergencyContactLastNameOne: "",
             emergencyContactPhoneOneCountry: "",
@@ -47,7 +49,6 @@ class Employees extends Component {
             status: "Active",
             hireDate: "",
         },
-
         jobInformation: [{
             employmentDate: "",
             department: "",
@@ -74,7 +75,8 @@ class Employees extends Component {
             src: "",
             name: ""
         }],
-        images: null
+        images: null,
+        profilePic: ""
     }
 
     handleSaveButton = (event) => {
@@ -86,7 +88,9 @@ class Employees extends Component {
             jobInformation: this.state.jobInformation,
             compensation: this.state.compensation,
             assets: this.state.assets,
-            images: this.state.images
+            images: this.state.images,
+            profilePic: this.state.profilePic
+
         })
             .then(res => this.props.history.push("/home"))
             .catch(err => console.error(err));
@@ -312,7 +316,6 @@ class Employees extends Component {
                     title={this.state.jobInformation[0].title}
                     phoneNumber={this.state.personal.phoneNumber}
                     workEmail={this.state.personal.workEmail}
-                    image= {this.state.personal.profilePic}
                 />
             </Fragment>
         )

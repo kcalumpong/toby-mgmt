@@ -88,50 +88,6 @@ module.exports = {
          .catch(err => { console.error(err); res.send(500) });
    },
 
-   // getEmployee: (req, res) => {
-   //    console.log("\n\nworks\n\n")
-   //    // personal = req.body.personal;
-   //    // job = req.body.job;
-   //    // jobInfo = req.body.jobInformation[0];
-   //    console.log("PARAMS:", req.params)
-   //    // const id = req.id;
-   //    db.Employee.findOne({
-     
-   //       where: {id: req.params.id }
-   //    })
-   //       .then((dbEmployee) => {
-   //          console.log(dbEmployee)
-   //          res.json(dbEmployee)
-   //       })
-   //       // console.log("DB", dbEmployee)
-   //       .catch(err => { console.error(err); res.send(500) });
-   // },
-
-   // getEmployee: (req, res) => {
-   //    personal = req.body.personal;
-   //    job = req.body.job;
-   //    jobInfo = req.body.jobInformation[0];
-   //    db.Employee.findOne({
-   //       id: req.body.id,
-   //       firstName: personal.firstName,
-   //       lastName: personal.lastName,
-   //       title: jobInfo.title,
-   //       include: [{
-   //          model: Document,
-   //          where: { name: sequelize.col("Document.name") }
-   //       }]
-   //    },
-   //    {
-   //       where: {
-   //          id: req.params.id
-   //    }
-   // })
-   //       .then((dbEmployee) => res.json(dbEmployee))
-   //       .catch(err => { console.error(err); res.send(500) });
-   // },
-
-
-
 
    createPersonal: (req, res) => {
       console.log("\n\nPERSONAL\n\n")
@@ -141,6 +97,7 @@ module.exports = {
          jobInfo = req.body.jobInformation[0];
          comp = req.body.compensation[0];
          assets = req.body.assets[0];
+         profilePic = req.body.profilePic;
       db.Employee.create({
          genderInput: personal.genderInput,
          firstName: personal.firstName,
@@ -160,7 +117,7 @@ module.exports = {
          ssOne: personal.ssOne,
          ssTwo: personal.ssTwo,
          ssThree: personal.ssThree,
-         profilePic: personal.profilePic,
+         profilePic: profilePic,
          emergencyContactFirstNameOne: personal.emergencyContactFirstNameOne,
          emergencyContactLastNameOne: personal.emergencyContactLastNameOne,
          emergencyContactPhoneOneCountry: personal.emergencyContactPhoneOneCountry,
@@ -201,6 +158,14 @@ module.exports = {
       })
          .then((dbEmployee) => res.json(dbEmployee))
          .catch(err => { console.error(err); res.send(500) });
+   },
+
+   createProfilePic: (req, res) => {
+      db.Employee.create({
+         profilePic: req.body.profilePic
+      })
+      .then((dbEmployee) => res.json(dbEmployee))
+      .catch(err => { console.error(err); res.send(500) });
    },
   
    createJobInformation: (req, res) => {

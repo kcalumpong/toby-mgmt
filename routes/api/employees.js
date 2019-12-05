@@ -65,6 +65,9 @@ router.route("/create-personal")
 
 router.route("/employees/:id")
   .post(empController.getEmployee);
+
+router.route("/create-profile-pic")
+  .post(empController.createProfilePic);  
   
 router.route("/create-job")
   .post(empController.createJob);
