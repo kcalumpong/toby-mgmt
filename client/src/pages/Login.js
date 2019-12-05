@@ -11,8 +11,6 @@ class Login extends Component {
     this.state = {
       username: '',
       password: '',
-      usernameError: "Username cannot be empty",
-      passwordError: "Password cannot be empty"
     }
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
